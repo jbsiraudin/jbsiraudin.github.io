@@ -47,3 +47,31 @@ h3 {
 .internlink:hover {
   color: #0087d6;
 }
+.movie {
+  display: flex;
+}
+.movie img {
+  margin-right: 20px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  height: fit-content;
+}
+.movietext h2 {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.movietext em {
+  font-size: 1.05em;
+}
+.movietext p {
+  margin: 0px;
+}
+.sources {
+  line-height: 1em;
+}
+.sources h5 {
+  margin: 0;
+}
+.sources a {
+  font-size: 0.8em;
+}
