@@ -55,6 +55,8 @@ h3 {
   margin-top: 7px;
   margin-bottom: 7px;
   height: fit-content;
+  height: -moz-fit-content;
+  flex-shrink: 0;
 }
 .movietext h2 {
   margin-top: 0px;
