@@ -134,3 +134,14 @@ h3 {
 .sources a {
   font-size: 0.8em;
 }
+.gallery {
+  text-align: center;
+}
+.gallery img {
+  display: inline-block;
+  margin: auto;
+  width: 40%;
+}
+.gallery video {
+  width: 40%;
+}
