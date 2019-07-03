@@ -6,6 +6,8 @@ body {
   color: #222;
   max-width: 40rem;
   padding: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
   margin: auto;
   background: #fafafa;
 }
@@ -24,6 +26,33 @@ h3 {
   a {
     text-decoration: none;
   }
+}
+.header {
+  display: inline-block;
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fafafa;
+  outline: solid 2px #222;
+  font-size: small;
+  text-align: center;
+}
+.header h1 {
+  display: inline-block;
+  margin: 0;
+}
+.header h2 {
+  display: inline-block;
+  margin: 5px;
+}
+.header i {
+  position: fixed;
+  left: 15px;
+  top: 15px;
+  font-size: 2em;
+  margin: 0;
 }
 .lessmargintop {
   margin-top: 0;
@@ -47,6 +76,34 @@ h3 {
 .internlink:hover {
   color: #0087d6;
 }
+.contact ul {
+  list-style: none;
+  padding: 0;
+}
+.contact ul li {
+  text-align: center;
+  font-size: 1.3em;
+  display: inline;
+  width: 25%;
+  float: left;
+  margin: auto;
+  transition: all 0.5s ease 0s;
+  border-bottom: #2220 solid 2px;
+}
+.contact ul li:hover {
+  border-bottom: #222 solid 2px;
+}
+.illustration {
+  display: block;
+  margin: auto;
+}
+.legend {
+  font-size: small;
+  margin: auto;
+  margin-top: 8px;
+  text-align: center;
+}
+
 .movie {
   display: flex;
 }

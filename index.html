@@ -13,6 +13,7 @@
       title="no title"
       charset="utf-8"
     />
+    <script src="https://kit.fontawesome.com/39ba592910.js"></script>
   </head>
   <body>
     <h1>This is a blog, I guess.</h1>
@@ -31,10 +32,18 @@
     </p>
     <p>
       Everything you need to contact me is at
-      <a href="#contact">the bottom of this page</a>.
+      <a class="internlink" href="#contact">the bottom of this page</a>.
     </p>
-
+    <hr />
     <h2>Articles</h2>
+    <h3 class="lessmarginbottom">
+      <a class="internlink" href="/articles/science-communication-stakes.html"
+        >28.05.2019 - The stakes of science popularization</a
+      >
+    </h3>
+    <p class="lessmargintop">
+      An analysis of science communication and pedagogy
+    </p>
     <h3 class="lessmarginbottom">
       <a class="internlink" href="/articles/hellothere.html"
         >11.04.2019 - Well, hello there</a
@@ -43,7 +52,7 @@
     <p class="lessmargintop">
       My own crappy printf("Hello world") for this blog
     </p>
-
+    <hr />
     <h2>Projects</h2>
     <h3 class="lessmarginbottom">
       <a class="externlink" href="https://www.theshapeofmovies.com/">
@@ -56,16 +65,18 @@
     <p>
       I developed the offline program to get the color palette of every frame of
       a movie, with OpenCV. Then I made this website to have an interactive viz
-      of my results, with MeteorJS, ReactJS and PixiJS.
-    </p>
-    <p>
-      Believe it or not, but the design inspiration for the website comes from
-      me looking at maths papers online, all made with LaTeX. I sure hate LaTeX,
-      but I really like the plainness it gives. I wanted to apply the same
-      philosophy to movie analysis. Other cool projects like the
-      <a href="https://thecolorsofmotion.com/">Colors of Motion</a> or
-      <a href="http://cinemetrics.fredericbrodbeck.de/">Cinemetrics</a> inspired
-      my focus on movie color palettes.
+      of my results, with MeteorJS, ReactJS and PixiJS. Believe it or not, but
+      the design inspiration for the website comes from me looking at maths
+      papers online, all made with that LaTeX's plainness. I wanted to apply the
+      same philosophy to movie analysis. Other cool projects like the
+      <a class="externlink" href="https://thecolorsofmotion.com/"
+        >Colors of Motion</a
+      >
+      or
+      <a class="externlink" href="http://cinemetrics.fredericbrodbeck.de/"
+        >Cinemetrics</a
+      >
+      inspired my focus on movie color palettes.
     </p>
 
     <h3 class="lessmarginbottom">
@@ -78,8 +89,6 @@
       I make videos about science by using the world of cinema as a hook. How
       strong the wind has to be in order to make Mary Poppins fly? Is 4K really
       useful for movies? How to simulate water in VFX? That kind of stuff.
-    </p>
-    <p>
       Scinema has over 120 000 subscribers and won the "Science popularization"
       award at the Frames Video Web Festival 2018 in France.
     </p>
@@ -95,27 +104,43 @@
     </p>
     <p>Still in WIP.</p>
 
-    <hr />
-    <h2 id="contact">Contact</h2>
-    <ul>
-      <li>Proper resume</li>
-      <li>
-        <a href="https://www.linkedin.com/in/jean-baptiste-siraudin/"
-          >My LinkedIn</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/scinema_x"
-          >My Twitter (mainly in French)</a
-        >
-      </li>
-      <li><a href="https://github.com/jbsiraudin">My GitHub</a></li>
-    </ul>
-
-    <br />
-    <p>
-      This website's design comes from
-      <a href="https://blog.koley.in/baserock/">this great article</a>.
+    <h3 class="lessmarginbottom">
+      <a
+        class="externlink"
+        href="https://chrome.google.com/webstore/detail/buy-mode/chelhfjncfodagiaajlcedabncohepag"
+      >
+        Chrome extension "Buy mode" - Web development
+      </a>
+    </h3>
+    <p class="lessmargintop">
+      A silly little chrome extension that launches The Sims' Buy Mode music
+      playlist when you enter Amazon's website and stops it when you leave it.
+      The code is
+      <a class="externlink" href="https://github.com/jbsiraudin/buymode-amazon"
+        >available on my GitHub</a
+      >.
     </p>
+
+    <hr />
+    <div class="contact">
+      <h2 style="text-align: center;" id="contact">Contact</h2>
+      <ul>
+        <a class="internlink" href="/contact/JeanBaptisteSiraudinResume.pdf"
+          ><li st style="font-weight: bold">CV</li></a
+        >
+        <a
+          class="externlink"
+          href="https://www.linkedin.com/in/jean-baptiste-siraudin/"
+          ><li><i style="color: #0e76a8" class="fab fa-linkedin"></i></li
+        ></a>
+        <a class="externlink" href="https://twitter.com/scinema_x"
+          ><li><i style="color: #38A1F3" class="fab fa-twitter"></i></li
+        ></a>
+        <a class="externlink" href="https://github.com/jbsiraudin"
+          ><li><i style="color: #6e5494" class="fab fa-github"></i></li
+        ></a>
+      </ul>
+    </div>
+    <br />
   </body>
 </html>
