@@ -34,12 +34,12 @@ h3 {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #fafafa;
-  outline: solid 2px #222;
+  background-color: #222;
   font-size: small;
   text-align: center;
 }
 .header h1 {
+  color: #fafafa;
   display: inline-block;
   margin: 0;
 }
@@ -140,7 +140,7 @@ h3 {
 .gallery img {
   display: inline-block;
   margin: auto;
-  width: 40%;
+  width: 49%;
 }
 .gallery video {
   width: 40%;
