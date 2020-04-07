@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>a blog, I guess - jbsiraudin</title>
+    <title>stuff by jbsiraudin</title>
     <link rel="icon" href="favicon.ico" />
     <link
       rel="stylesheet"
@@ -25,28 +25,37 @@
       YouTube for a science popularization channel called <em>Scinema</em>.
     </p>
     <p>
-      This is a blog, an online resume,
-      whatever-you-want-that-feels-professionnal-enough, where I describe the
-      main projects I worked on and I occasionnally write articles about stuff
-      I'm interested in.
+      This is a blog,
+      <a class="internlink" href="/contact/JeanBaptisteSiraudinResume.pdf"
+        >an online resume</a
+      >, where I describe the main projects I worked on and I occasionnally
+      write articles about stuff I'm interested in.
     </p>
     <p>
       You may also explore
       <a
-        style="font-weight:bold"
+        style="font-weight: bold;"
         class="internlink"
         href="/contact/portfolio.html"
         >my portfolio</a
       >
       and everything you need to contact me is at
-      <a style="font-weight:bold" class="internlink" href="#contact"
+      <a style="font-weight: bold;" class="internlink" href="#contact"
         >the bottom of this page</a
       >.
     </p>
     <hr />
     <h2>Articles</h2>
     <h3 class="lessmarginbottom">
-      <a class="internlink" href="/articles/science-communication-stakes.html"
+      <a class="internlink" href="/articles/voxelsarenotcubes.html"
+        >07.11.2019 - A pixel is still not a little square</a
+      >
+    </h3>
+    <p class="lessmargintop">
+      A synthesis of the legendary memo written by Alvy Ray Smith
+    </p>
+    <h3 class="lessmarginbottom">
+      <a class="internlink" href="./articles/science-communication-stakes.html"
         >28.05.2019 - The stakes of science popularization</a
       >
     </h3>
@@ -54,7 +63,7 @@
       An analysis of science communication and pedagogy
     </p>
     <h3 class="lessmarginbottom">
-      <a class="internlink" href="/articles/hellothere.html"
+      <a class="internlink" href="./articles/hellothere.html"
         >11.04.2019 - Well, hello there</a
       >
     </h3>
@@ -92,6 +101,39 @@
     </p>
 
     <h3 class="lessmarginbottom">
+      <a class="externlink" href="https://github.com/jbsiraudin/unikel">
+        Animation with Kelvinlets
+      </a>
+    </h3>
+    <p class="lessmargintop">
+      Streamlining a sculpting method for animation purposes.
+    </p>
+    <p>
+      It was first a school project, but I still work on a newer implementation
+      for game engines like Unity and Unreal with compute shaders.
+    </p>
+    <p>
+      The idea is to apply sculpting brushes dynamically. I chose the Kelvinlets
+      brush for their flexibility and scalability both in space and time. For
+      the github version build in C++ and Qt, you create a path with keyPoints,
+      each keyPoint containing brush sculpting parameters (scale, rotation,
+      radius of the brush, ...). The program create brushes along the path,
+      interpolating the values of the keyPoints, always applying the translate
+      brush. 3 brushes are applied at a time, selected close to the center of
+      the bounding box of the model to ensure that the model "travels" along the
+      path. You can see videos of the tool in my
+      <a class="internlink" href="https://www.youtube.com/c/Scinemax">
+        portfolio </a
+      >.
+    </p>
+    <p>
+      Initially thought to be a solution for designing a vortex animation for a
+      3D animated short, I expanded the capacities with the implementation of
+      Dynamic Kelvinlets, for secondary elastic movements. I now work on
+      demonstrations for the method.
+    </p>
+
+    <h3 class="lessmarginbottom">
       <a class="externlink" href="https://www.youtube.com/c/Scinemax">
         Scinema - Videomaking
       </a>
@@ -108,7 +150,7 @@
     </p>
 
     <h3 class="lessmarginbottom">
-      <a class="internlink" href="/pop/rendering.html">
+      <a class="internlink" href="./pop/rendering.html">
         Movie graphics fun facts - reading & writing
       </a>
     </h3>
@@ -140,23 +182,23 @@
       <h2 style="text-align: center;" id="contact">Contact</h2>
       <ul>
         <a class="internlink" href="/contact/JeanBaptisteSiraudinResume.pdf"
-          ><li st style="font-weight: bold">CV</li></a
+          ><li st style="font-weight: bold;">CV</li></a
         >
         <a
           class="externlink"
           href="https://www.linkedin.com/in/jean-baptiste-siraudin/"
-          ><li><i style="color: #0e76a8" class="fab fa-linkedin"></i></li
+          ><li><i style="color: #0e76a8;" class="fab fa-linkedin"></i></li
         ></a>
         <a class="externlink" href="https://twitter.com/scinema_x"
-          ><li><i style="color: #38A1F3" class="fab fa-twitter"></i></li
+          ><li><i style="color: #38a1f3;" class="fab fa-twitter"></i></li
         ></a>
         <a class="externlink" href="https://github.com/jbsiraudin"
-          ><li><i style="color: #6e5494" class="fab fa-github"></i></li
+          ><li><i style="color: #6e5494;" class="fab fa-github"></i></li
         ></a>
         <a
           class="externlink"
           href="mailto:jean-baptiste.siraudin@polytechnique.org"
-          ><li><i style="color: #cc5c3b" class="fas fa-at"></i></li
+          ><li><i style="color: #cc5c3b;" class="fas fa-at"></i></li
         ></a>
       </ul>
     </div>

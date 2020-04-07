@@ -34,12 +34,13 @@ h3 {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #222;
+  background-color: #fafafa;
   font-size: small;
   text-align: center;
+  box-shadow: black 1px 1px 1px;
 }
 .header h1 {
-  color: #fafafa;
+  color: #111;
   display: inline-block;
   margin: 0;
 }
