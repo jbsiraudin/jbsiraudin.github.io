@@ -22,10 +22,8 @@ h2,
 strong {
   color: #111;
 }
-h3 {
-  a {
-    text-decoration: none;
-  }
+h3 a {
+  text-decoration: none;
 }
 .header {
   display: inline-block;
