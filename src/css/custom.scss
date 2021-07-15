@@ -1,0 +1,106 @@
+/* stylelint-disable docusaurus/copyright-header */
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #00aeff;
+  --ifm-color-primary-dark: #009de6;
+  --ifm-color-primary-darker: #0094d9;
+  --ifm-color-primary-darkest: #007ab3;
+  --ifm-color-primary-light: #1ab6ff;
+  --ifm-color-primary-lighter: #26baff;
+  --ifm-color-primary-lightest: #4dc6ff;
+  --ifm-code-font-size: 95%;
+  --ifm-font-size-base: 1rem;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme="dark"] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+.scroll {
+  scrollbar-width: auto;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.bo-scroll {
+  scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+body::-webkit-scrollbar,
+.scroll::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+body::-webkit-scrollbar-track,
+.scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb,
+.scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+}
+
+.blog-list-page {
+  h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  header {
+    div {
+      font-size: 0.7rem;
+      margin-top: 0.2rem !important;
+      margin-bottom: 0.2rem !important;
+    }
+  }
+
+  .markdown {
+    font-size: 0.85rem;
+  }
+
+  footer {
+    font-size: 0.7rem;
+    margin-top: 1rem !important;
+  }
+}
+
+.blog-post-page {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.prose {
+  max-width: 75ch;
+  margin: auto;
+  margin-top: 100px;
+
+  p {
+    font-size: 18px;
+  }
+}

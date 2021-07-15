@@ -1,0 +1,44 @@
+$height: 40px;
+$width: 100%;
+
+.switch {
+  position: relative;
+  height: $height;
+  width: $width;
+  background-color: rgb(34, 34, 34);
+  margin-bottom: 32px;
+
+  .switch-radio {
+    display: none;
+  }
+
+  .switch-selection {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    width: $width/3;
+    height: $height;
+    background: #fff;
+    transition: left 0.25s ease-out;
+  }
+
+  .switch-label {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: $width/3;
+    line-height: $height;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+
+    .switch-radio:checked + & {
+      transition: 0.15s ease-out;
+      color: #1d1d1d;
+    }
+  }
+}
