@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>jb siraudin's blog Blog</title>
+        <link>https://jbsiraudin.github.io/blog</link>
+        <description>jb siraudin's blog Blog</description>
+        <lastBuildDate>Tue, 28 May 2019 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[The stakes behind science popularization]]></title>
+            <link>https://jbsiraudin.github.io/blog/science-popularization</link>
+            <guid>science-popularization</guid>
+            <pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate>
+            <description><![CDATA[Questioning the place of science in our current culture.]]></description>
+        </item>
+    </channel>
+</rss>
