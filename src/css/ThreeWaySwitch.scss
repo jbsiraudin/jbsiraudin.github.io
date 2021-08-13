@@ -20,7 +20,7 @@ $width: 100%;
     left: 0px;
     width: $width/3;
     height: $height;
-    background: #fff;
+    background: rgb(245, 245, 245);
     transition: left 0.25s ease-out;
   }
 
@@ -35,10 +35,10 @@ $width: 100%;
     text-align: center;
     cursor: pointer;
     font-weight: bold;
+    transition: 0.15s ease-out;
+  }
 
-    .switch-radio:checked + & {
-      transition: 0.15s ease-out;
-      color: #1d1d1d;
-    }
+  .switch-radio:checked + .switch-label {
+    color: #1d1d1d;
   }
 }

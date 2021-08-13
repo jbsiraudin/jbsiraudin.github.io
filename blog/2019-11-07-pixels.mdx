@@ -1,6 +1,6 @@
 ---
 slug: pixels
-title: A pixel is not a little square
+title: A pixel is not a little square, but
 draft: true
 tags: [science popularization]
 ---
@@ -9,13 +9,23 @@ This memo could be an information dump in a Christopher Nolan movie. Zero shame.
 
 <!--truncate-->
 
-<img class="illustration" src="/illustrations/cube_companion.png" alt="" />
-A traitor.
+import Image from "../src/components/Image";
+import Iframe from "../src/components/Iframe";
+import Small from "../src/components/Small";
 
-« A pixel is not a little square,
-a pixel is not a little square,
-a pixel is not a little square!
-(And a voxel is not a little cube) »
+<br />
+
+<Image srcImage="img/illustrations/cube_companion.png" altText="cube-companion" />
+
+<p style={{ textAlign: "center", fontWeight: "bold", marginTop: "20px", fontSize: "24px" }}>
+  « A pixel is not a little square,
+  <br />a pixel is not a little square,
+  <br />a pixel is not a little square!
+  <br />
+  (And a voxel is not a little cube) »
+</p>
+
+<br />
 
 This text is a synthesis, with some heavy modifications to make it simpler
 for non-technical people, of a
@@ -27,7 +37,9 @@ according to me.
 
 In a time where voxel (or the idea that some have of voxel I should say)
 seems to be the next big thing for g@m3rz, I find interesting to dig out
-this vision again. I wrote this during my internship time at Ubisoft.
+this vision again. I wrote this during my internship time at Ubisoft, where voxels were seen as the next big thing in gaming by HQ.
+
+<hr />
 
 My purpose here is to, once and for all, rid the world of the
 misconception that a pixel is a little geometric square. This is not a
@@ -243,9 +255,15 @@ not all physics simulations are made to run with an “atomic” model.
 One must think of voxels as a shape for data storage and data
 manipulation, not as a 3D shape. And this is all what matters for future
 world building and simulation: data transformation. Voxels could be a
-strong basis for this, or not. The real future of video game for Ubisoft
-is not _voxels_ , it’s _data-oriented design_ . Where data is
+strong basis for this, or not.
+
+The real future of video game for Ubisoft is not _voxels_ per se, it’s _data-oriented design_. Where data is
 the basis of the engine, where multiple simulations can run on the same
 set of data so you don’t need to manually create links between systems. I
-believe _this_ is the key to create complex intricate systems, not
+believe more in _this_ as the key to create complex intricate systems, not
 to modelize everything in the world as little cubes.
+
+## Making a game out of reconstruction filters
+
+Detective game = gathering information, recreating the whole picture by defining groups of samples
+information is scattered based on how it is scattered on the set

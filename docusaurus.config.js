@@ -47,7 +47,7 @@ module.exports = {
           items: [
             {
               label: "Resume",
-              to: "/blog",
+              to: "/files/JeanBaptisteSiraudinResume.pdf",
             },
             {
               label: "Scinema",

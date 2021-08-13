@@ -4,18 +4,18 @@ import PropTypes from "prop-types";
 
 const colors = ["blue", "green", "red"];
 
-export default function TimelineViewer({ wave, mode = 0, noir = false }) {
+export default function TimelineViewer({ wave, mode = 0 }) {
   return (
     <div className="scroll timeline">
       <div className="canvas">
-        <div className="line" style={{ backgroundColor: noir ? "black" : "white" }} />
+        <div className="line" />
         {wave.map((x, index) => (
           <span key={`wave${index}`}>
             <span>
               <div
                 className="slot"
                 key={`t-${index}`}
-                style={{ backgroundColor: x.color }}
+                /* style={{ backgroundColor: x.color }} */
                 data-tip="Info about the genk dslkfjlsdkj <br> sfdldkj sdflkjfd sdlkdfj fskdshfez azoelk."
                 data-for="calendar"
               >

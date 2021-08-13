@@ -106,12 +106,12 @@ $light-blue: #3da4cc;
   position: relative;
   font-size: 16px;
   padding: 10px 20px 10px 20px;
-  border: 1px white solid;
+  border: 1px var(--color) solid;
   border-radius: 3px;
   background-color: transparent;
   transition: all 0.1s ease;
   margin: 5px;
-  color: white;
+  color: var(--color);
 
   .warn {
     position: absolute;
@@ -125,8 +125,8 @@ $light-blue: #3da4cc;
 
 .run:hover {
   cursor: pointer;
-  color: #191919;
-  background-color: white;
+  color: var(--bg-color);
+  background-color: var(--color);
 
   .warn {
   }
@@ -142,7 +142,7 @@ $light-blue: #3da4cc;
 
   .constraints {
     .firstLine {
-      border-bottom: 1px solid #fff;
+      border-bottom: 1px solid var(--color);
       margin-bottom: 10px;
       padding-bottom: 5px;
     }
@@ -153,6 +153,17 @@ $light-blue: #3da4cc;
       button {
         width: 100%;
         border-radius: 0;
+        border: 1px solid #45c035;
+        background: transparent;
+        color: #45c035;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        padding: 6px;
+
+        &:hover {
+          background: #45c035;
+          color: var(--bg-color);
+        }
       }
     }
 
@@ -195,6 +206,16 @@ $light-blue: #3da4cc;
         width: 75px;
         button {
           margin: auto;
+          border: 1px solid #fe2c1d;
+          background: transparent;
+          color: #fe2c1d;
+          transition: all 0.2s ease;
+          cursor: pointer;
+
+          &:hover {
+            background: #fe2c1d;
+            color: var(--bg-color);
+          }
         }
       }
     }

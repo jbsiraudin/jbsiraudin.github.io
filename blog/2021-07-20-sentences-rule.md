@@ -5,10 +5,14 @@ draft: true
 tags: [procedural, game design]
 ---
 
-Language is actually a complex game system, ready to use.
+Language is just another complex game system, out of the box.
 
 <!--truncate-->
 
 the arrangement of words and phrases to create well-formed sentences in a language.
+
 "the syntax of English" 2.
+
 the structure of statements in a computer language.
+
+go see gmtk game jams

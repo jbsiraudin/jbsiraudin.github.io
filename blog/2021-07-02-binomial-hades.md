@@ -19,7 +19,7 @@ Okay, I added the last part. But I'll show you that it's true in a few lines.
 
 Description d'Hades, dire que tout le monde y a joué, et que si pas encore joué vous avez de la chance car vous pouvez le decouvrir
 
-My favorite games are the ones where, like during a good standup comedy bit, every 30 seconds I'm thinking to myself "Oh, that's smart". And for me, **Hades** is the quintessential "oh that's smart" game.
+My favorite games are the ones where, like during a good standup comedy bit, every minute a new punchline is dropped and I'm thinking to myself "Oh shit, that's fun and smart". And **Hades** is definitely one of these games.
 
 Demo to calculate the number of arrangements of rooms (with variations of charon's well, treasure, mirrors) in one floor.
 

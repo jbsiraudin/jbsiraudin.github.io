@@ -50,7 +50,7 @@ for (let i = 0; i < 4; i++) {
       id: 13 * i + j - 1,
       cid: cidCard(i, j),
       label: labelCard(i, j),
-      color: "#1D1D1D",
+      color: "#868686",
       /* constraints: [],
       weights: new Array(N_init).fill(1), */
     });
