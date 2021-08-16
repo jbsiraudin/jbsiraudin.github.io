@@ -74,7 +74,7 @@ module.exports = {
         theme: {
           customCss: [
             require.resolve("./src/css/custom.scss"),
-            require.resolve("./src/css/ThreeWaySwitch.scss"),
+            require.resolve("./src/css/ToggleSwitch.scss"),
             require.resolve("./src/css/TimelineViewer.scss"),
             require.resolve("./src/css/ContentDistribution.scss"),
           ],

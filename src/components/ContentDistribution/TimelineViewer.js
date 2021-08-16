@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 //import ReactTooltip from "react-tooltip";
 
-const colors = ["blue", "green", "red"];
+const colors = ["blue", "green", "orange", "red"];
 
 export default function TimelineViewer({ wave, mode = 0 }) {
   return (
@@ -20,7 +20,11 @@ export default function TimelineViewer({ wave, mode = 0 }) {
                 data-for="calendar"
               >
                 <div className="card-t">
-                  <card-t cid={x.cid} backtext="" backcolor={colors[mode]}></card-t>
+                  <card-t
+                    cid={x.cid}
+                    backtext=""
+                    backcolor={colors[mode]}
+                  ></card-t>
                 </div>
               </div>
             </span>
