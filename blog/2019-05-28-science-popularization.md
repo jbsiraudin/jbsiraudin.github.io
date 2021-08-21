@@ -1,8 +1,8 @@
 ---
 slug: science-popularization
-title: "Designing information, part 1: communicating science"
+title: "Designing information: communicating science"
 draft: false
-tags: [science popularization, scinema]
+tags: [designing information, science popularization, scinema]
 ---
 
 Questioning the place of science in our current culture and the stakes behind its popularization.

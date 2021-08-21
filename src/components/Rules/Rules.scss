@@ -1,0 +1,210 @@
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  top: 30px;
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+
+  transition: all 0.5s ease;
+}
+
+.app-header {
+  width: 720px;
+  margin-bottom: 16px;
+
+  img {
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  h2 {
+    margin-bottom: 50px;
+  }
+}
+
+.title {
+  position: absolute;
+  top: 20px;
+  font-family: "Patrick Hand", cursive;
+  font-size: 32px;
+  text-decoration: underline;
+
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+$color-bo: transparentize(
+  $color: white,
+  $amount: 0.05,
+);
+
+.bo-container {
+  position: fixed;
+  width: 100%;
+  height: 90%;
+  background: $color-bo;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.5s ease;
+}
+
+$size: 20px;
+
+.arrow {
+  height: $size;
+  width: $size * 2;
+  border-top-left-radius: $size * 2;
+  border-top-right-radius: $size * 2;
+
+  position: absolute;
+  top: -$size;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $color-bo;
+  transition: all 0.15s ease;
+
+  text-align: center;
+
+  svg {
+    margin-top: 3px;
+    font-size: $size;
+    transition: all 0.15s ease;
+  }
+}
+
+$size-h: 28px;
+
+.arrow:hover {
+  cursor: pointer;
+  height: $size-h;
+  width: $size-h * 2;
+  border-top-left-radius: $size-h * 2;
+  border-top-right-radius: $size-h * 2;
+
+  top: -$size-h;
+
+  svg {
+    font-size: $size-h;
+  }
+}
+
+$light-blue: #3da4cc;
+
+.buttons {
+  margin-bottom: 50px;
+  display: inline-flex;
+
+  button {
+    position: relative;
+    font-size: 16px;
+    padding: 10px 20px 10px 20px;
+    border: 1px #dfdfdf solid;
+    border-radius: 3px;
+    background-color: transparent;
+    transition: all 0.1s ease;
+    margin: 5px;
+    color: #dfdfdf;
+  }
+
+  button:hover {
+    cursor: pointer;
+    color: #191919;
+    background-color: white;
+  }
+
+  button:active {
+    transform: scale(0.9);
+  }
+
+  .run {
+    border-color: #ffee1f;
+    color: #ffee1f;
+  }
+
+  .run:hover {
+    background-color: #ffee1f;
+  }
+}
+
+.rules-container {
+  .rules {
+    text-align: left;
+  }
+
+  .colored {
+    color: yellow;
+  }
+
+  .b-colored {
+    color: #00ccff;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+
+    &:first-child {
+      font-size: 2rem;
+    }
+  }
+}
+
+.choices-container {
+  margin: 50px;
+  margin-bottom: 200px;
+
+  .choices {
+    display: flex;
+
+    .choice {
+      display: block;
+      margin: 10px;
+
+      .firstLine {
+        border-bottom: 1px solid #fff;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+      }
+
+      .lastLine {
+        margin-top: 10px;
+
+        button {
+          width: 100%;
+          border-radius: 0;
+        }
+      }
+    }
+
+    .choice-line {
+      .definition {
+        display: flex;
+        margin-bottom: 5px;
+
+        .text {
+          width: 200px;
+        }
+
+        .remove {
+          width: 40px;
+          button {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}

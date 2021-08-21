@@ -1,6 +1,6 @@
 ---
 slug: content-distribution
-title: "Designing randomness, part 1: Content distribution"
+title: "Designing randomness: Content distribution"
 draft: true
 tags: [designing randomness, procedural, game design, tools]
 ---
@@ -18,21 +18,25 @@ _**Procedural generation**_ is a term probably overused in videogame production.
 
 <Image srcImage="img/illustrations/wiki-procedural.png" altText="wiki-procedural" legend="Randomly generated redirects here. Oof." />
 
-I personally see _**procedural generation**_ as a glorified name to designate **a function with a few small inputs that spits out a big output**. And for me, this is the whole point: from a minimal input, get the maximal output that you can through a _procedure_, an _algorithm_, a _piece of code_, to avoid handcrafting everything.
+I personally see _**procedural generation**_ as a glorified name to designate **a function with a small input that spits out a big output**. And for me, this is the whole point: from a minimal input, get the maximal output that you can get through a _procedure_, an _algorithm_, a _piece of code_, ... to avoid handcrafting everything.
 
 If _**procedural generation**_ is already ubiquitous in the art pipelines of most videogame/VFX/animation studio, it also lives for a long time in the field of game design.
 
-In this [series of short articles](/blog/tags/designing-randomness) called _**Designing randomness**_, I dive deep into the field of **procedural game design**.
+In this [series of short articles](/blog/tags/designing-randomness) called _**Designing randomness**_, I dive into the field of **procedural game design**.
 
 ---
 
 In game design, _**procedural generation**_ is often focused on _**generating game content**_ : making an infinite amount of dungeons for the player to explore in a roguelike is the quintessential example, so let's take it.
 
-Dungeons in roguelikes are not generated through some kind of superpowerful algorithm, redrawing every position of every brick to create a new yet coherent piece of architecture. The problem is much simpler, and it starts with defining a dungeon from a level design perspective.
+Dungeons in roguelikes are not generated through some kind of superpowerful algorithm, redrawing every position of every brick to create a new yet coherent piece of architecture. The problem is much simpler, and it starts with defining a dungeon from a level design perspective:
 
-> 99,9% of the time, a dungeon is an assemblage of rooms.
+<p style={{ textAlign: "center", fontWeight: "bold", marginTop: "20px", fontSize: "18px" }}>
+  99,9% of the time, a dungeon is an assemblage of rooms.
+</p>
 
 A dungeon generation problem becomes a problem of generating an assemblage of rooms : choosing rooms from an existing library, linking rooms with doors. Much better!
+
+<br/>
 
 This subspace of procedural generation, _**scattering pre-existing content**_, is really natural for game design. Thus, design tasks are split in two layers: **designing individuals rooms** to serve the second to second gameplay, **designing the rules of assemblage** to serve the minute to minute exploration of our dungeon.
 
