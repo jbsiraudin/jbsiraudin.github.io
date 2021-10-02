@@ -3,7 +3,14 @@ import React from "react";
 function Iframe({ srcUrl, width = 560, height = 315, legend = "" }) {
   return (
     <>
-      <div style={{ width: "fit-content", margin: "auto", marginBottom: "30px" }}>
+      <div
+        style={{
+          width: "fit-content",
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "30px",
+        }}
+      >
         <iframe
           className="illustration"
           width={width}
@@ -14,7 +21,9 @@ function Iframe({ srcUrl, width = 560, height = 315, legend = "" }) {
           allowfullscreen
         ></iframe>
       </div>
-      <p style={{ fontSize: "small", textAlign: "center", marginTop: "-20px" }}>{legend}</p>
+      <p style={{ fontSize: "small", textAlign: "center", marginTop: "-20px" }}>
+        {legend}
+      </p>
     </>
   );
 }

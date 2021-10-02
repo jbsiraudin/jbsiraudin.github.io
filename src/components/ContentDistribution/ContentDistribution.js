@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./cards";
 import _ from "lodash";
-import { WFC, FullDeck, NormalDeck } from "./timeline";
+import { WFC, FullDeck, NormalDeck, WeightedDeck } from "./timeline";
 import {
   N_init,
   undef,
@@ -69,6 +69,10 @@ export class ContentDistribution extends React.Component {
         [true, "Q", "d", "prefers-at", "0", "s", "0"],
         [true, "1", "s", "no-after", "1", "0", "0"],
       ],
+      weights: [
+        [true, "1", "s", 20],
+        [true, "5", "d", 5],
+      ],
       mode: 0,
       configHasChanged: true,
     };
@@ -103,9 +107,13 @@ export class ContentDistribution extends React.Component {
       this.normalDeckGenerator.run();
       wave_tmp = this.normalDeckGenerator.getTimeline();
     } else if (mode === 2) {
-      this.normalDeckGenerator.reset();
-      this.normalDeckGenerator.run();
-      wave_tmp = this.normalDeckGenerator.getTimeline();
+      if (configHasChanged) {
+        this.weightedDeckGenerator.resetWeights();
+        this.convertWeights();
+      }
+      this.weightedDeckGenerator.reset();
+      this.weightedDeckGenerator.run();
+      wave_tmp = this.weightedDeckGenerator.getTimeline();
     } else if (mode === 3) {
       if (configHasChanged) {
         this.wfcGenerator.resetWeights();
@@ -141,6 +149,7 @@ export class ContentDistribution extends React.Component {
   reset() {
     this.wfcGenerator.reset();
     this.normalDeckGenerator.reset();
+    this.weightedDeckGenerator.reset();
     this.setState({ wave: new Array(this.N).fill(undef) });
   }
 
@@ -150,6 +159,7 @@ export class ContentDistribution extends React.Component {
 
     this.fullDeckGenerator = new FullDeck(this.N, this.data);
     this.normalDeckGenerator = new NormalDeck(this.N, this.data);
+    this.weightedDeckGenerator = new WeightedDeck(this.N, this.data);
   }
 
   onConfigChange(e) {
@@ -172,6 +182,67 @@ export class ContentDistribution extends React.Component {
 
   onModeSelect(i) {
     this.setState({ mode: i });
+  }
+
+  addWeight() {
+    this.setState((state) => {
+      return {
+        weights: [...state.weights, [false, "0", "0", 1]],
+        configHasChanged: true,
+      };
+    });
+  }
+
+  removeWeight(i) {
+    this.setState({
+      weights: update(this.state.weights, { $splice: [[i, 1]] }),
+      configHasChanged: true,
+    });
+  }
+
+  updateWeight(i, j, value) {
+    this.setState({
+      weights: update(this.state.weights, {
+        [i]: { [j]: { $set: value } },
+      }),
+      configHasChanged: true,
+    });
+  }
+
+  convertWeights() {
+    const { weights } = this.state;
+
+    for (let i = 0; i < weights.length; i++) {
+      const weight = weights[i];
+
+      if (!weight[0]) {
+        continue;
+      }
+
+      if (weight[1] === "0" && weight[2] === "0") {
+        this.updateWeight(i, 0, false);
+        continue;
+      } else if (weight[1] === "0" && weight[2] !== "0") {
+        for (let j = 0; j < this.data.length; j++) {
+          if (this.data[j].cid.charAt(1) === weight[2]) {
+            this.weightedDeckGenerator.applyWeight(this.data[j].id, weight[3]);
+          }
+        }
+      } else if (weight[1] !== "0" && weight[2] === "0") {
+        for (let j = 0; j < this.data.length; j++) {
+          if (this.data[j].cid.charAt(0) === weight[1]) {
+            this.weightedDeckGenerator.applyWeight(this.data[j].id, weight[3]);
+          }
+        }
+      } else {
+        for (let j = 0; j < this.data.length; j++) {
+          if (this.data[j].cid === `${weight[1]}${weight[2]}`) {
+            this.weightedDeckGenerator.applyWeight(this.data[j].id, weight[3]);
+          }
+        }
+      }
+      // this.weightedDeckGenerator.updateWeight()
+    }
   }
 
   addConstraint() {
@@ -214,13 +285,6 @@ export class ContentDistribution extends React.Component {
       let constraintMode = 0;
       let valueWeight = 0;
       let only = false;
-
-      /* <option value="0">Type</option>
-      <option value="no-after">Can't be after</option>
-      <option value="no-before">Can't be before</option>
-      <option value="only-after">Must be after</option>
-      <option value="only-before">Must be before</option>
-      <option value="no-at">Can't be at spot</option> */
 
       switch (constraint[3]) {
         case "no-after":
@@ -343,7 +407,7 @@ export class ContentDistribution extends React.Component {
   }
 
   render() {
-    const { wave, configHasChanged, mode, constraints } = this.state;
+    const { wave, configHasChanged, mode, constraints, weights } = this.state;
     return (
       <>
         <div className="app-container">
@@ -371,6 +435,91 @@ export class ContentDistribution extends React.Component {
                 <></>
               )}
             </button>
+          </div>
+          <div className="constraints-container" hidden={mode !== 2}>
+            <h3>Weights definition</h3>
+            <div className="constraints">
+              <div className="constraints-line firstLine">
+                <div className="number">#</div>
+                <div className="use">Use</div>
+                <div className="selector">Selector</div>
+                <div className="weight">Weight</div>
+              </div>
+              {weights.map((weight, i) => (
+                <div className="constraints-line midLine" key={`w-key-${i}`}>
+                  <div className="number">#{i + 1}</div>
+                  <div className="use">
+                    <input
+                      type="checkbox"
+                      checked={weight[0]}
+                      onChange={(e) =>
+                        this.updateWeight(i, 0, e.target.checked)
+                      }
+                    />
+                  </div>
+                  <div className="selector">
+                    <select
+                      className="select-text"
+                      value={weight[1]}
+                      onChange={(e) => this.updateWeight(i, 1, e.target.value)}
+                    >
+                      {cardOptions.map((card) => (
+                        <option key={`w-${card.key}`} value={card.value}>
+                          {card.text}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      value={weight[2]}
+                      onChange={(e) => this.updateWeight(i, 2, e.target.value)}
+                      style={{
+                        color:
+                          weight[2] === "h" || weight[2] === "d"
+                            ? "red"
+                            : "black",
+                      }}
+                    >
+                      {suitOptions.map((suit, j) => (
+                        <option
+                          key={`w-${suit.key}-${i}-${j}`}
+                          value={suit.value}
+                          style={{ color: suit.color }}
+                        >
+                          {suit.text}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="weight">
+                    <input
+                      type="number"
+                      min="0"
+                      value={weight[3]}
+                      onChange={(e) =>
+                        this.updateWeight(i, 3, e.target.valueAsNumber)
+                      }
+                    />
+                  </div>
+                  <div className="remove">
+                    <button
+                      style={{
+                        borderRadius: "200px",
+                        padding: 0,
+                        paddingBottom: "2px",
+                        width: "28px",
+                      }}
+                      onClick={() => this.removeWeight(i)}
+                    >
+                      -
+                    </button>
+                  </div>
+                </div>
+              ))}
+
+              <div className="constraints-line lastLine">
+                <button onClick={() => this.addWeight()}>Add constraint</button>
+              </div>
+            </div>
           </div>
           <div className="constraints-container" hidden={mode !== 3}>
             <h3>Constraints definition</h3>
@@ -403,8 +552,11 @@ export class ContentDistribution extends React.Component {
                         this.updateConstraint(i, 1, e.target.value)
                       }
                     >
-                      {cardOptions.map((card) => (
-                        <option key={card.key} value={card.value}>
+                      {cardOptions.map((card, j) => (
+                        <option
+                          key={`${card.key}-${i}-${j}`}
+                          value={card.value}
+                        >
                           {card.text}
                         </option>
                       ))}
@@ -421,9 +573,9 @@ export class ContentDistribution extends React.Component {
                             : "black",
                       }}
                     >
-                      {suitOptions.map((suit) => (
+                      {suitOptions.map((suit, j) => (
                         <option
-                          key={suit.key}
+                          key={`${suit.key}-${i}-${j}`}
                           value={suit.value}
                           style={{ color: suit.color }}
                         >
@@ -456,8 +608,11 @@ export class ContentDistribution extends React.Component {
                           this.updateConstraint(i, 4, e.target.value)
                         }
                       >
-                        {cardOptions.map((card) => (
-                          <option key={card.key} value={card.value}>
+                        {cardOptions.map((card, j) => (
+                          <option
+                            key={`2-${card.key}-${i}-${j}`}
+                            value={card.value}
+                          >
                             {card.text}
                           </option>
                         ))}
@@ -474,9 +629,9 @@ export class ContentDistribution extends React.Component {
                               : "black",
                         }}
                       >
-                        {suitOptions.map((suit) => (
+                        {suitOptions.map((suit, j) => (
                           <option
-                            key={suit.key}
+                            key={`2-${suit.key}-${i}-${j}`}
                             value={suit.value}
                             style={{ color: suit.color }}
                           >

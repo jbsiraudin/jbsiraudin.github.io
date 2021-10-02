@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import _ from "lodash";
 import update from "immutability-helper";
-import { Form, Button } from "react-bootstrap";
-import "./Rules.scss";
 
 const defaultText = {
   actors: "entity",
@@ -176,7 +174,7 @@ function Rules() {
                     key={`ingredient-${ingredient}-${j}`}
                   >
                     <div className="text">
-                      <Form.Control
+                      <input
                         type="text"
                         placeholder="Normal text"
                         value={item}
@@ -186,8 +184,8 @@ function Rules() {
                       />
                     </div>
                     <div className="remove">
-                      <Button
-                        variant="outline-danger"
+                      <button
+                        className="outline-danger"
                         style={{
                           borderRadius: "200px",
                           padding: 0,
@@ -197,18 +195,18 @@ function Rules() {
                         onClick={() => removeConstraint(ingredient, j)}
                       >
                         -
-                      </Button>
+                      </button>
                     </div>
                   </div>
                 ))}
               </div>
               <div className="lastLine">
-                <Button
-                  variant="outline-success"
+                <button
+                  className="outline-success"
                   onClick={() => addConstraint(ingredient)}
                 >
                   Add constraint
-                </Button>
+                </button>
               </div>
             </div>
           ))}

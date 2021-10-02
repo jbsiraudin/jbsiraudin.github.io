@@ -155,7 +155,7 @@ export class WFC {
     this.constraints_propagator[(constraint[0] + 1) % 2][constraint[1]][
       tileId
     ] = false;
-  } 
+  }
   removeConstraint(tileId, constraint) {
     this.constraints_propagator[constraint[0]][tileId][constraint[1]] = true;
     this.constraints_propagator[(constraint[0] + 1) % 2][constraint[1]][
@@ -333,6 +333,69 @@ export class NormalDeck {
       const idx = _.random(this.deck.length - 1);
       this.timeline[i] = this.deck[idx];
       _.pullAt(this.deck, [idx]);
+    }
+  }
+}
+
+export class WeightedDeck {
+  constructor(n, tiles) {
+    this.n = n;
+    this.timeline = new Array(n);
+    this.tiles = new Array(tiles.length);
+    for (let i = 0; i < tiles.length; i++) {
+      const tile = tiles[i];
+      this.tiles[i] = {
+        id: tile.id,
+        cid: tile.cid,
+        weight: 1,
+      };
+    }
+    this.deck = [...tiles];
+    this.DEBUG_LOGS = false;
+  }
+
+  reset() {
+    this.timeline = new Array(this.n);
+  }
+
+  resetWeights() {
+    for (let i = 0; i < this.tiles.length; i++) {
+      this.tiles[i].weight = 1;
+    }
+  }
+
+  applyWeight(tileIdx, value) {
+    this.tiles[tileIdx].weight = value;
+  }
+
+  resetWeight(tileIdx) {
+    this.tiles[tileIdx].weight = 1;
+  }
+
+  getTimeline() {
+    return this.timeline;
+  }
+
+  run() {
+    let totalWeight = 0;
+    for (let i = 0; i < this.tiles.length; i++) {
+      totalWeight += this.tiles[i].weight;
+    }
+    console.log(this.tiles);
+    console.log(totalWeight);
+
+    for (let i = 0; i < this.n; i++) {
+      const rand = _.random(totalWeight);
+
+      let k = 0;
+      for (let j = 0; j < this.tiles.length; j++) {
+        k += this.tiles[j].weight;
+
+        if (k > rand) {
+          this.timeline[i] = this.tiles[j];
+          break;
+        }
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 ---
 slug: content-distribution
 title: "Designing randomness: Content distribution"
-draft: true
+draft: false
 tags: [designing randomness, procedural, game design, tools]
 ---
 
@@ -11,6 +11,7 @@ Let's distribute cards. But better.
 
 import ContentDistribution from "../src/components/ContentDistribution/ContentDistribution"
 import Image from "../src/components/Image"
+import Iframe from "../src/components/Iframe"
 
 ---
 
@@ -31,10 +32,14 @@ In game design, _**procedural generation**_ is often focused on _**generating ga
 Dungeons in roguelikes are not generated through some kind of superpowerful algorithm, redrawing every position of every brick to create a new yet coherent piece of architecture. The problem is much simpler, and it starts with defining a dungeon from a level design perspective:
 
 <p style={{ textAlign: "center", fontWeight: "bold", marginTop: "20px", fontSize: "18px" }}>
-  99,9% of the time, a dungeon is an assemblage of rooms.
+  99,9% of the time, a dungeon is an assemblage of pre-made rooms.
 </p>
 
-A dungeon generation problem becomes a problem of generating an assemblage of rooms : choosing rooms from an existing library, linking rooms with doors. Much better!
+Generating a dungeon then becomes choosing rooms from an existing library and linking rooms with doors. Much better!
+
+<br/>
+
+<Iframe srcUrl="https://www.youtube.com/embed/1-HIA6-LBJc" legend="The original programmer of Binding of Isaac on the Room Generation algorithm he conceived for the game" />
 
 <br/>
 
@@ -42,22 +47,28 @@ This subspace of procedural generation, _**scattering pre-existing content**_, i
 
 This second layer is where procedural game design takes center stage: the **use of randomness is essential** to keep the world fresh and unpredictible for players, but we still need **a level of control on the assemblage algorithm to inject level design rules** (for pacing, logic, avoiding repetition). Easier said than done! Striking a design balance between the predictability of rules and the impredictability of their random use is key to generate endless amounts of enjoyable dungeons.
 
+<br/>
+
+<Iframe srcUrl="https://www.youtube.com/embed/ClZe5x8Tfiw" legend="Hades world structure uses this exact principle: a series of rooms that you cross one after the other!" />
+
+<br/>
+
 ---
 
-Let's simplify the problem a bit more: **let's say our dungeon is a straight corridor of 20 rooms back to back**. Our brave designer created a library of 52 rooms that can be represented by the usual poker cards. I like the card representation because I think it mimics well _the reality of content development_: you have **many ways to subdivide a given set**. In the case of cards: suit, color, value, figure vs number.
+Let's simplify the problem a bit more: **let's say our dungeon is a straight corridor of 20 rooms back to back**. Our brave designer created a library of 52 rooms that can be represented by the usual poker cards. I like the card representation because I think it mimics well _the reality of content development_: you have **many ways to subdivide a given set**. In the case of cards: **suit, color, value, figures**.
 
-**This next interactive toy lets you play with 4 different ways to distribute 20 ordered cards**, 4 different ways to build a dungeon, from dumb to smart, from simple to complex.
+**This next interactive toy lets you play with 4 different ways to distribute 20 ordered cards**, 4 different ways to build a dungeon, from dumb to smart, from dead simple to not-so-simple.
 
-With the last one, I tried to strike the balance between random and rules I talked earlier by using a constraint based algorithm: it's often simpler to say to the computer what you don't want and then let it generate something that respects that.
+With the last one, I tried to strike the balance between random and rules I talked earlier by using a **constraint based algorithm (the popular Wave Function Collapse): it's often simpler to say to the computer what you don't want and then let it generate something that respects that**.
 
+It's obviously applied on a very simple problem
+
+<!--
 next steps :
-
-- weighted random
-- card analyzer
-- dungeon analyzer (dire si répétition)
-- fix bug: initial list of constraints is not respected
-- autogen every 2 seconds
-- add roguelikes dungeon illustration (isaac, hades, the stanley parable...)
+- [ ] card analyzer
+- [ ] dungeon analyzer (dire si répétition)
+- [ ] fix bug: initial list of constraints is not respected
+-->
 
 <ContentDistribution />
 

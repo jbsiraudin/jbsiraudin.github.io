@@ -17,8 +17,10 @@ Making jokes with the language itself is fascinating to me: it defies and collid
 
 In french, "pun" is translated as "jeu de mots", litteraly "game of words". Indeed, a pun is the result of being playful with language, but what if you tried to translate this concept to video games?
 
-the arrangement of words and phrases to create well-formed sentences in a language.
+You could end up with something ressembling **Baba is you**.
 
-"the syntax of English" 2. the structure of statements in a computer language.
+Description de Baba is you.
+
+The core game mechanic of Baba is you is actually _the syntax of the English language_. Syntax is defined as the arrangement of words and phrases to create well-formed sentences in a language. This definition works for linguistics as well as for computer science, where the syntax of a computer language defines the structure of statements, the "how-to write in ...".
 
 go see gmtk game jams
