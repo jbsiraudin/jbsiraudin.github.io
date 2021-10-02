@@ -1,1 +1,0 @@
-(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[535],{6353:function(e){"use strict";e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"The stakes behind science popularization","permalink":"/blog/science-popularization"}]}')}}]);

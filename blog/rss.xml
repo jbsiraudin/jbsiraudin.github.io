@@ -4,15 +4,22 @@
         <title>jb siraudin's blog Blog</title>
         <link>https://jbsiraudin.github.io/blog</link>
         <description>jb siraudin's blog Blog</description>
-        <lastBuildDate>Tue, 28 May 2019 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 01 Jul 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
-            <title><![CDATA[The stakes behind science popularization]]></title>
+            <title><![CDATA[Designing randomness: Content distribution]]></title>
+            <link>https://jbsiraudin.github.io/blog/content-distribution</link>
+            <guid>content-distribution</guid>
+            <pubDate>Thu, 01 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Let's distribute cards. But better.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Designing information: communicating science]]></title>
             <link>https://jbsiraudin.github.io/blog/science-popularization</link>
             <guid>science-popularization</guid>
             <pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate>
-            <description><![CDATA[Questioning the place of science in our current culture.]]></description>
+            <description><![CDATA[Questioning the place of science in our current culture and the stakes behind its popularization.]]></description>
         </item>
     </channel>
 </rss>

@@ -1,1 +1,0 @@
-(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[617],{7505:function(a){"use strict";a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"science-popularization","name":"science popularization","count":1,"permalink":"/blog/tags/science-popularization"}')}}]);
