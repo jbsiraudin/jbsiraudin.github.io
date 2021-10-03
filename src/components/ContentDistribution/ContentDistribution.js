@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./cards";
 import _ from "lodash";
 import { WFC, FullDeck, NormalDeck, WeightedDeck } from "./timeline";
 import {
@@ -15,35 +14,28 @@ import {
 import TimelineViewer from "./TimelineViewer";
 import ToggleSwitch from "../ToggleSwitch";
 import update from "immutability-helper";
-
 // https://github.com/cardmeister/cardmeister.github.io
 
 const Description = ({ mode }) => {
   let content = null;
   if (mode === 0) {
-    content = (
-      <p>At each position, we pick a card from a full 52-cards deck.</p>
-    );
+    content = <p>At each position, we pick a card from a full 52-cards deck.</p>;
   } else if (mode === 1) {
     content = (
-      <p>
-        At each position, we pick a card from a deck and we take out the card
-        from the deck.
-      </p>
+      <p>At each position, we pick a card from a deck and we take out the card from the deck.</p>
     );
   } else if (mode === 2) {
     content = (
       <p>
         At each position, we pick a card from a weighted deck we define.
-        <br /> A card with a weight 10 will have 10 times more chances to be
-        picked than a card with a weight 1.
+        <br /> A card with a weight 10 will have 10 times more chances to be picked than a card with
+        a weight 1.
       </p>
     );
   } else {
     content = (
       <p>
-        We apply a constraint-based algorithm (Wave Function Collapse) to
-        distribute our cards.
+        We apply a constraint-based algorithm (Wave Function Collapse) to distribute our cards.
         <br />
         You can define the constraints below.
       </p>
@@ -91,6 +83,7 @@ export class ContentDistribution extends React.Component {
   }
 
   componentDidMount() {
+    import("./cards");
     this.init();
   }
 
@@ -395,11 +388,7 @@ export class ContentDistribution extends React.Component {
       }
 
       if (constraintMode < 2) {
-        this.wfcGenerator.applyConstraint(
-          entryIdList,
-          constraintMode,
-          exitIdList
-        );
+        this.wfcGenerator.applyConstraint(entryIdList, constraintMode, exitIdList);
       } else {
         this.wfcGenerator.applyWeight(entryIdList, exitIdList, valueWeight);
       }
@@ -429,11 +418,7 @@ export class ContentDistribution extends React.Component {
             </button>
             <button className="run" onClick={this.gen}>
               <span>GEN</span>
-              {configHasChanged && mode === 2 ? (
-                <span className="warn">!</span>
-              ) : (
-                <></>
-              )}
+              {configHasChanged && mode === 2 ? <span className="warn">!</span> : <></>}
             </button>
           </div>
           <div className="constraints-container" hidden={mode !== 2}>
@@ -452,9 +437,7 @@ export class ContentDistribution extends React.Component {
                     <input
                       type="checkbox"
                       checked={weight[0]}
-                      onChange={(e) =>
-                        this.updateWeight(i, 0, e.target.checked)
-                      }
+                      onChange={(e) => this.updateWeight(i, 0, e.target.checked)}
                     />
                   </div>
                   <div className="selector">
@@ -473,10 +456,7 @@ export class ContentDistribution extends React.Component {
                       value={weight[2]}
                       onChange={(e) => this.updateWeight(i, 2, e.target.value)}
                       style={{
-                        color:
-                          weight[2] === "h" || weight[2] === "d"
-                            ? "red"
-                            : "black",
+                        color: weight[2] === "h" || weight[2] === "d" ? "red" : "black",
                       }}
                     >
                       {suitOptions.map((suit, j) => (
@@ -495,9 +475,7 @@ export class ContentDistribution extends React.Component {
                       type="number"
                       min="0"
                       value={weight[3]}
-                      onChange={(e) =>
-                        this.updateWeight(i, 3, e.target.valueAsNumber)
-                      }
+                      onChange={(e) => this.updateWeight(i, 3, e.target.valueAsNumber)}
                     />
                   </div>
                   <div className="remove">
@@ -539,38 +517,26 @@ export class ContentDistribution extends React.Component {
                     <input
                       type="checkbox"
                       checked={constraint[0]}
-                      onChange={(e) =>
-                        this.updateConstraint(i, 0, e.target.checked)
-                      }
+                      onChange={(e) => this.updateConstraint(i, 0, e.target.checked)}
                     />
                   </div>
                   <div className="selector">
                     <select
                       className="select-text"
                       value={constraint[1]}
-                      onChange={(e) =>
-                        this.updateConstraint(i, 1, e.target.value)
-                      }
+                      onChange={(e) => this.updateConstraint(i, 1, e.target.value)}
                     >
                       {cardOptions.map((card, j) => (
-                        <option
-                          key={`${card.key}-${i}-${j}`}
-                          value={card.value}
-                        >
+                        <option key={`${card.key}-${i}-${j}`} value={card.value}>
                           {card.text}
                         </option>
                       ))}
                     </select>
                     <select
                       value={constraint[2]}
-                      onChange={(e) =>
-                        this.updateConstraint(i, 2, e.target.value)
-                      }
+                      onChange={(e) => this.updateConstraint(i, 2, e.target.value)}
                       style={{
-                        color:
-                          constraint[2] === "h" || constraint[2] === "d"
-                            ? "red"
-                            : "black",
+                        color: constraint[2] === "h" || constraint[2] === "d" ? "red" : "black",
                       }}
                     >
                       {suitOptions.map((suit, j) => (
@@ -587,9 +553,7 @@ export class ContentDistribution extends React.Component {
                   <div className="type">
                     <select
                       value={constraint[3]}
-                      onChange={(e) =>
-                        this.updateConstraint(i, 3, e.target.value)
-                      }
+                      onChange={(e) => this.updateConstraint(i, 3, e.target.value)}
                     >
                       {typesOptions.map((type) => (
                         <option key={type.key} value={type.value}>
@@ -598,35 +562,24 @@ export class ContentDistribution extends React.Component {
                       ))}
                     </select>
                   </div>
-                  {constraint[3] !== "no-at" &&
-                  constraint[3] !== "prefers-at" ? (
+                  {constraint[3] !== "no-at" && constraint[3] !== "prefers-at" ? (
                     <div className="selector">
                       <select
                         className="select-text"
                         value={constraint[4]}
-                        onChange={(e) =>
-                          this.updateConstraint(i, 4, e.target.value)
-                        }
+                        onChange={(e) => this.updateConstraint(i, 4, e.target.value)}
                       >
                         {cardOptions.map((card, j) => (
-                          <option
-                            key={`2-${card.key}-${i}-${j}`}
-                            value={card.value}
-                          >
+                          <option key={`2-${card.key}-${i}-${j}`} value={card.value}>
                             {card.text}
                           </option>
                         ))}
                       </select>
                       <select
                         value={constraint[5]}
-                        onChange={(e) =>
-                          this.updateConstraint(i, 5, e.target.value)
-                        }
+                        onChange={(e) => this.updateConstraint(i, 5, e.target.value)}
                         style={{
-                          color:
-                            constraint[5] === "h" || constraint[5] === "d"
-                              ? "red"
-                              : "black",
+                          color: constraint[5] === "h" || constraint[5] === "d" ? "red" : "black",
                         }}
                       >
                         {suitOptions.map((suit, j) => (
@@ -644,9 +597,7 @@ export class ContentDistribution extends React.Component {
                     <div className="selector">
                       <select
                         value={constraint[6]}
-                        onChange={(e) =>
-                          this.updateConstraint(i, 6, e.target.value)
-                        }
+                        onChange={(e) => this.updateConstraint(i, 6, e.target.value)}
                       >
                         {positionOptions.map((pos) => (
                           <option key={pos.key} value={pos.value}>
@@ -673,9 +624,7 @@ export class ContentDistribution extends React.Component {
               ))}
 
               <div className="constraints-line lastLine">
-                <button onClick={() => this.addConstraint()}>
-                  Add constraint
-                </button>
+                <button onClick={() => this.addConstraint()}>Add constraint</button>
               </div>
             </div>
           </div>

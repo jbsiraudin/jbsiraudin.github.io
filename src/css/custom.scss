@@ -109,3 +109,13 @@ body::-webkit-scrollbar-thumb,
     font-size: 18px;
   }
 }
+
+.gallery {
+  display: flex;
+}
+
+.legend {
+  font-size: small;
+  text-align: center;
+  margin-top: -20px;
+}

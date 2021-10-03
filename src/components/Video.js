@@ -1,6 +1,7 @@
 import React from "react";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
-function Iframe({ srcUrl, width = 560, height = 315, legend = "" }) {
+function Iframe({ srcVideo, width = 560, height = 315, legend = "" }) {
   return (
     <>
       <div
@@ -12,15 +13,10 @@ function Iframe({ srcUrl, width = 560, height = 315, legend = "" }) {
           marginBottom: "30px",
         }}
       >
-        <iframe
-          className="illustration"
-          width={width}
-          height={height}
-          src={srcUrl}
-          frameBorder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+        <video preload="auto" controls width={width} height={height}>
+          <source src={useBaseUrl(srcVideo)} type="video/webm" />
+          Sorry, your browser doesn't support embedded videos.
+        </video>
       </div>
       <p style={{ fontSize: "small", textAlign: "center", marginTop: "-20px" }}>{legend}</p>
     </>

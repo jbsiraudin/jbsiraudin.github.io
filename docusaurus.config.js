@@ -20,7 +20,10 @@ module.exports = {
         alt: "logo",
         src: "img/logo.svg",
       },
-      items: [{ to: "/blog", label: "Blog", position: "left" }],
+      items: [
+        { to: "/blog", label: "Blog", position: "left" },
+        { to: "/portfolio", label: "Portfolio", position: "left" },
+      ],
     },
     footer: {
       style: "light",
@@ -47,11 +50,16 @@ module.exports = {
           items: [
             {
               label: "Resume",
-              to: "/files/JeanBaptisteSiraudinResume.pdf",
+              href: "/files/JeanBaptisteSiraudinResume.pdf",
+              target: "_blank",
             },
             {
               label: "Scinema",
               href: "https://www.youtube.com/c/Scinemax",
+            },
+            {
+              label: "The Shape of Movies",
+              href: "https://theshapeofmovies.com",
             },
           ],
         },
