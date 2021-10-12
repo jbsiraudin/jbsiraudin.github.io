@@ -58,7 +58,6 @@ const Configurations = () => {
                 step={1}
                 value={option}
                 onChange={(e) => updateOption(i, e.target.valueAsNumber)}
-                onInput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
               />
               <div className="remove">
                 <button

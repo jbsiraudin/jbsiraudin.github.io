@@ -1,17 +1,29 @@
 import React, { useRef, useState, useEffect } from "react";
 import katex from "katex";
 
-const factorial = (n) => [...Array(n + 1).keys()].slice(1).reduce((acc, cur) => acc * cur, 1);
-
 const Arrangements = () => {
   const [n, setN] = useState(10);
-  const [nIsValid, setNIsValid] = useState(true);
   const [k, setK] = useState(5);
-  const [kIsValid, setKIsValid] = useState(true);
   const spanRef = useRef(null);
 
+  const factorial = (n) => {
+    if (n === 0 || n === 1) {
+      return 1;
+    } else {
+      let tmp = 1;
+      for (let i = 2; i < n + 1; i++) {
+        tmp *= i;
+      }
+      return tmp;
+    }
+  };
+
+  function A(n, k) {
+    return Math.floor(factorial(n) / factorial(n - k));
+  }
+
   useEffect(() => {
-    const result = Math.floor(factorial(n) / factorial(n - k));
+    const result = A(n, k);
     const equation = String.raw`A_{n}^{k} = A_{${n}}^{${k}} = \frac{${n}!}{(${n}-${k})!} = ${result}`;
     const html = katex.renderToString(equation, {
       throwOnError: false,
@@ -21,19 +33,23 @@ const Arrangements = () => {
 
   const onChangeN = (e) => {
     const int = parseInt(e.target.value);
-    if (int >= k) {
-      setN(int);
-    } else {
-      setN(k);
+    if (!isNaN(int)) {
+      if (int >= k) {
+        setN(int);
+      } else {
+        setN(k);
+      }
     }
   };
 
   const onChangeK = (e) => {
     const int = parseInt(e.target.value);
-    if (int <= n) {
-      setK(int);
-    } else {
-      setK(n);
+    if (!isNaN(int)) {
+      if (int <= n) {
+        setK(int);
+      } else {
+        setK(n);
+      }
     }
   };
 
@@ -42,25 +58,11 @@ const Arrangements = () => {
       <div className="input-container">
         <div className="input" style={{ marginRight: 30 }}>
           <p>n =</p>
-          <input
-            type="number"
-            value={n}
-            min={k}
-            step={1}
-            onChange={onChangeN}
-            onInput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
-          />
+          <input type="number" value={n} min={k} step={1} onChange={onChangeN} />
         </div>
         <div className="input">
           <p>k =</p>
-          <input
-            type="number"
-            value={k}
-            min={0}
-            step={1}
-            onChange={onChangeK}
-            onInput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
-          />
+          <input type="number" value={k} min={0} step={1} onChange={onChangeK} />
         </div>
       </div>
       <div className="math math-display">

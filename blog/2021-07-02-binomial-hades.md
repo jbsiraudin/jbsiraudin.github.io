@@ -1,5 +1,5 @@
 ---
-slug: binomial-hades
+slug: arrangements-hades
 title: How many different runs are in Hades?
 draft: false
 tags: [maths for game design, hades, procedural, game design]
@@ -134,25 +134,25 @@ A_{n}^k = \frac{n!}{(n-k)!}
 $$
 
 $$
-\text{\scriptsize k is the number of rooms to choose}, \text{\scriptsize n is the total number of rooms}
+\text{\tiny k is the number of rooms to choose, n is the total number of rooms}
 $$
 
 So in the case of Tartarus:
 
 $$
-{\scriptsize A_{24}^{12} = \frac{24!}{(24-12)!} = \frac{24!}{12!} = 1295295050649600}
+\scriptsize A_{24}^{12} = \frac{24!}{(24-12)!} = \frac{24!}{12!} = 1295295050649600
 $$
 
 In the case of Asphodel:
 
 $$
-{\scriptsize A_{11}^{6} = \frac{11!}{(11-6)!} = \frac{11!}{5!} = 332640}
+\scriptsize A_{11}^{6} = \frac{11!}{(11-6)!} = \frac{11!}{5!} = 332640
 $$
 
 In the case of Elysium:
 
 $$
-{\scriptsize A_{13}^{8} = \frac{13!}{(13-8)!} = \frac{13!}{5!} = 51891840}
+\scriptsize A_{13}^{8} = \frac{13!}{(13-8)!} = \frac{13!}{5!} = 51891840
 $$
 
 Just for the first biome, we have a number with 16 digits. And the situation is even more crazy since each chamber can be mirrored, each chamber can welcome different challenges, each chamber can contain or not chests and pots. And I don't count the special chambers or internal mini-bosses in the mix. **In any case, the real number of arrangements is of course higher**.
@@ -225,7 +225,7 @@ Like before, let's think about what happens when a player makes a configuration:
 The final number of configurations is the product of the possible choices at each step. Thus:
 
 $$
-{\scriptsize Pact = 6*5*3*4*5*3*3*2*2*3*2*5*3*3*4 = 69984000}
+\scriptsize Pact = 6*5*3*4*5*3*3*2*2*3*2*5*3*3*4 = 69984000
 $$
 
 **Close to 70 millions possibilities!** Not bad for just 15 options!

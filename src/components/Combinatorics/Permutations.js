@@ -3,14 +3,24 @@ import katex from "katex";
 import update from "immutability-helper";
 import { sum } from "lodash";
 
-const factorial = (n) => [...Array(n + 1).keys()].slice(1).reduce((acc, cur) => acc * cur, 1);
-
 const Permutations = () => {
   const [n, setN] = useState(15);
   const [k, setK] = useState(10);
   const spanRef = useRef(null);
   const [options, setOptions] = useState(Array(k).fill(1));
   const [pointsLeft, setPointsLeft] = useState(15);
+
+  const factorial = (n) => {
+    if (n === 0 || n === 1) {
+      return 1;
+    } else {
+      let tmp = 1;
+      for (let i = 2; i < n + 1; i++) {
+        tmp *= i;
+      }
+      return tmp;
+    }
+  };
 
   function moveUpOption(i) {
     if (sum(options) < n) {
@@ -39,29 +49,32 @@ const Permutations = () => {
 
   const onChangeN = (e) => {
     const int = parseInt(e.target.value);
-    if (int < n) {
-      setOptions(Array(k).fill(1));
-    }
-
-    if (int >= k) {
-      setN(int);
-    } else {
-      setN(k);
+    if (!isNaN(int)) {
+      if (int < n) {
+        setOptions(Array(k).fill(1));
+      }
+      if (int >= k) {
+        setN(int);
+      } else {
+        setN(k);
+      }
     }
   };
 
   const onChangeK = (e) => {
-    const int = parseInt(e.target.value);
-    if (int < k) {
-      setOptions(Array(int).fill(1));
-    } else {
-      setOptions(update(options, { $push: [0] }));
-    }
-
-    if (int <= n) {
+    let int = parseInt(e.target.value);
+    if (!isNaN(int)) {
+      if (int > n) {
+        int = n;
+        setK(n);
+      }
       setK(int);
-    } else {
-      setK(n);
+
+      if (int < k) {
+        setOptions(Array(int).fill(1));
+      } else {
+        setOptions(update(options, { $push: Array(int - k).fill(0) }));
+      }
     }
   };
 
@@ -71,25 +84,11 @@ const Permutations = () => {
         <div className="input-container">
           <div className="input" style={{ marginRight: 30 }}>
             <p>n =</p>
-            <input
-              type="number"
-              value={n}
-              min={k}
-              step={1}
-              onChange={onChangeN}
-              onInput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" value={n} min={k} step={1} onChange={onChangeN} />
           </div>
           <div className="input">
             <p>k =</p>
-            <input
-              type="number"
-              value={k}
-              min={0}
-              step={1}
-              onChange={onChangeK}
-              onInput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
-            />
+            <input type="number" value={k} min={0} step={1} onChange={onChangeK} />
           </div>
         </div>
         <div className="math math-display">

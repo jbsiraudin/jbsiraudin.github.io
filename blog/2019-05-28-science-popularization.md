@@ -1,6 +1,6 @@
 ---
 slug: science-popularization
-title: "Designing information: communicating science"
+title: "Designing information: why is it hard to communicate science"
 draft: false
 tags: [designing information, science popularization, scinema]
 ---

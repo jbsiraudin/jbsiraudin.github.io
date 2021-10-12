@@ -1,6 +1,6 @@
 ---
 slug: content-distribution
-title: "Designing randomness: Content distribution"
+title: "Designing randomness: when generation is distribution"
 draft: false
 tags: [designing randomness, procedural, game design, tools]
 ---
