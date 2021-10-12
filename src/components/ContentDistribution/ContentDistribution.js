@@ -28,8 +28,8 @@ const Description = ({ mode }) => {
     content = (
       <p>
         At each position, we pick a card from a weighted deck we define.
-        <br /> A card with a weight 10 will have 10 times more chances to be picked than a card with
-        a weight 1.
+        <br /> A card with weight 10 will have 10 times more chances to be picked than a card with
+        weight 1.
       </p>
     );
   } else {
@@ -456,7 +456,7 @@ export class ContentDistribution extends React.Component {
                       value={weight[2]}
                       onChange={(e) => this.updateWeight(i, 2, e.target.value)}
                       style={{
-                        color: weight[2] === "h" || weight[2] === "d" ? "red" : "black",
+                        color: weight[2] === "h" || weight[2] === "d" ? "red" : "inherit",
                       }}
                     >
                       {suitOptions.map((suit, j) => (
@@ -536,7 +536,7 @@ export class ContentDistribution extends React.Component {
                       value={constraint[2]}
                       onChange={(e) => this.updateConstraint(i, 2, e.target.value)}
                       style={{
-                        color: constraint[2] === "h" || constraint[2] === "d" ? "red" : "black",
+                        color: constraint[2] === "h" || constraint[2] === "d" ? "red" : "inherit",
                       }}
                     >
                       {suitOptions.map((suit, j) => (
@@ -579,7 +579,7 @@ export class ContentDistribution extends React.Component {
                         value={constraint[5]}
                         onChange={(e) => this.updateConstraint(i, 5, e.target.value)}
                         style={{
-                          color: constraint[5] === "h" || constraint[5] === "d" ? "red" : "black",
+                          color: constraint[5] === "h" || constraint[5] === "d" ? "red" : "inherit",
                         }}
                       >
                         {suitOptions.map((suit, j) => (

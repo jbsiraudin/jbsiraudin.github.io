@@ -1,0 +1,146 @@
+.arrangements {
+  .input-container {
+    display: flex;
+    justify-content: center;
+
+    .input {
+      font-size: 32px;
+      font-family: "KaTeX_Main", "Times New Roman", serif;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      margin-bottom: 24px;
+
+      p {
+        margin: 0;
+        margin-right: 10px;
+      }
+
+      input {
+        width: 80px;
+        font-size: 32px;
+        font-family: "KaTeX_Main", "Times New Roman", serif;
+      }
+    }
+  }
+}
+
+.katex-display > .katex {
+  white-space: normal;
+}
+/* Add space between broken lines: */
+.katex-display > .base {
+  margin: 0.25em 0;
+}
+/* Compensate by reducing space around display math */
+.katex-display {
+  margin: 0.5em 0;
+}
+
+.configurations {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  .choices-container {
+    margin: 20px;
+    .choices {
+      text-align: center;
+      .text {
+        width: 60px;
+      }
+
+      .number {
+        font-size: medium;
+        width: 80px;
+      }
+
+      .firstLine {
+        font-weight: bold;
+        display: flex;
+        border-bottom: 1px solid var(--color);
+      }
+      .lastLine {
+        margin-top: 10px;
+
+        button {
+          width: 100%;
+          border-radius: 0;
+          border: 1px solid #45c035;
+          background: transparent;
+          color: #45c035;
+          transition: all 0.2s ease;
+          cursor: pointer;
+          padding: 6px;
+
+          &:hover {
+            background: #45c035;
+            color: var(--bg-color);
+          }
+        }
+      }
+
+      .choice {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        input {
+          width: 50px;
+          margin: 0 16px;
+        }
+        .remove {
+          width: 40px;
+          button {
+            margin: auto;
+            border: 1px solid #fe2c1d;
+            background: transparent;
+            color: #fe2c1d;
+            transition: all 0.2s ease;
+            cursor: pointer;
+
+            &:hover {
+              background: #fe2c1d;
+              color: var(--bg-color);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .math {
+    flex: 1 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.pointDistribute {
+  display: flex;
+  justify-content: center;
+  .options {
+    .firstLine {
+      border-bottom: 1px solid var(--color);
+      font-weight: bold;
+    }
+
+    .option {
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+
+      .text {
+        width: 50px;
+        text-align: center;
+        margin: 0 5px;
+      }
+    }
+  }
+}

@@ -1,5 +1,7 @@
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const math = require("remark-math");
+const katex = require("rehype-katex");
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
@@ -77,7 +79,11 @@ module.exports = {
       {
         docs: false,
         blog: {
+          blogSidebarTitle: "All posts",
+          blogSidebarCount: "ALL",
           showReadingTime: true,
+          remarkPlugins: [math],
+          rehypePlugins: [katex],
         },
         theme: {
           customCss: [
@@ -85,10 +91,19 @@ module.exports = {
             require.resolve("./src/css/ToggleSwitch.scss"),
             require.resolve("./src/css/TimelineViewer.scss"),
             require.resolve("./src/css/ContentDistribution.scss"),
+            require.resolve("./src/css/Combinatorics.scss"),
+            require.resolve("./src/css/Rules.scss"),
           ],
         },
       },
     ],
+  ],
+  stylesheets: [
+    {
+      href: "https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css",
+      integrity: "sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc",
+      crossorigin: "anonymous",
+    },
   ],
   plugins: ["docusaurus-plugin-sass"],
 };

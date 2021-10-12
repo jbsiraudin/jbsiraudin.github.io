@@ -220,3 +220,7 @@ I really like [Kevin Tong's work](https://tragic-sunshine.myshopify.com/") so I 
 
 A silly little chrome extension that launches The Sims' Buy Mode music playlist when you enter Amazon's website and stops it when you leave it.
 The code is [available on my GitHub](https://github.com/jbsiraudin/buymode-amazon).
+
+<br/>
+<br/>
+<br/>

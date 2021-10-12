@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import _ from "lodash";
 import update from "immutability-helper";
+import { Network } from "vis-network/esnext/esm/vis-network";
+import { DataSet } from "vis-data/esnext/esm/vis-data";
 
 const defaultText = {
   actors: "entity",
@@ -8,8 +10,56 @@ const defaultText = {
   subjects: "entity",
   effects: "does something",
 };
+// https://www.npmjs.com/package/vis-network
+
+const options = {
+  physics: {
+    solver: "barnesHut",
+  },
+  interaction: {
+    dragView: true,
+    zoomView: true,
+  },
+  edges: {
+    arrows: {
+      to: {
+        enabled: false,
+      },
+      middle: {
+        enabled: true,
+      },
+    },
+    color: {
+      color: "#848484",
+      highlight: "#848484",
+      hover: "#848484",
+      inherit: "from",
+      opacity: 1.0,
+    },
+  },
+  nodes: {
+    borderWidth: 1,
+    borderWidthSelected: 2,
+    color: {
+      border: "#2B7CE9",
+      background: "#97C2FC",
+      highlight: {
+        border: "#2B7CE9",
+        background: "#D2E5FF",
+      },
+      hover: {
+        border: "#2B7CE9",
+        background: "#D2E5FF",
+      },
+    },
+    shape: "circle",
+  },
+};
 
 function Rules() {
+  const networkContainerRef = useRef(null);
+  const networkRef = useRef(null);
+
   const [ingredients, setIngredients] = useState({
     actors: ["player1", "player2", "player3", "player4", "an enemy"],
     actions: [
@@ -23,15 +73,7 @@ function Rules() {
       "pulls a lever",
       "crouches",
     ],
-    subjects: [
-      "player1",
-      "player2",
-      "player3",
-      "player4",
-      "an enemy",
-      "a plant",
-      "a door",
-    ],
+    subjects: ["player1", "player2", "player3", "player4", "an enemy", "a plant", "a door"],
     effects: [
       "jumps",
       "shoots",
@@ -47,7 +89,7 @@ function Rules() {
   });
   const [rules, setRules] = useState([]);
 
-  function addConstraint(ingredient) {
+  function addIngredient(ingredient) {
     setIngredients(
       update(ingredients, {
         [ingredient]: { $push: [defaultText[ingredient]] },
@@ -55,17 +97,13 @@ function Rules() {
     );
   }
 
-  function removeConstraint(ingredient, i) {
-    setIngredients(
-      update(ingredients, { [ingredient]: { $splice: [[i, 1]] } })
-    );
+  function removeIngredient(ingredient, i) {
+    setIngredients(update(ingredients, { [ingredient]: { $splice: [[i, 1]] } }));
     reset();
   }
 
-  function updateConstraint(ingredient, i, value) {
-    setIngredients(
-      update(ingredients, { [ingredient]: { [i]: { $set: value } } })
-    );
+  function updateIngredient(ingredient, i, value) {
+    setIngredients(update(ingredients, { [ingredient]: { [i]: { $set: value } } }));
   }
 
   function reset() {
@@ -87,19 +125,52 @@ function Rules() {
     );
   }
 
+  useEffect(() => {
+    const nodes = new DataSet([
+      { id: 1, label: "actor" },
+      { id: 2, label: "subject" },
+    ]);
+
+    // create an array with edges
+    const edges = new DataSet([{ from: 1, to: 2 }]);
+
+    const data = {
+      nodes: nodes,
+      edges: edges,
+    };
+
+    networkRef.current = new Network(networkContainerRef.current, data, options);
+  });
+
+  useEffect(() => {
+    const nodes = new DataSet();
+    const edges = new DataSet();
+    ingredients.actors.forEach((actor, i) => {
+      nodes.add({ id: `actor-${i}`, label: actor, color: "#FBE32F" });
+    });
+    ingredients.subjects.forEach((subject, i) => {
+      nodes.add({ id: `subject-${i}`, label: subject, color: "#2FDDED" });
+    });
+
+    rules.forEach((rule, i) => {
+      edges.add({ from: `actor-${rule[0]}`, to: `subject-${rule[2]}`, label: `Rule ${i + 1}` });
+    });
+
+    const data = {
+      nodes: nodes,
+      edges: edges,
+    };
+
+    networkRef.current.setData(data);
+  }, [rules, ingredients]);
+
   return (
-    <div className="app-container">
+    <div className="rules-app">
       <div className="app-header">
         <h2>Rules game system</h2>
         <p>Player finds scrolls during his/her exploration of the level.</p>
-        <p>
-          Each scroll is a new rule procedurally built from the rule ingredients
-          specified.
-        </p>
-        <p>
-          Exploration in the game becomes also an exploration of the rules of
-          the game.
-        </p>
+        <p>Each scroll is a new rule procedurally built from the rule ingredients specified.</p>
+        <p>Exploration in the game becomes also an exploration of the rules of the game.</p>
         <p>It provides gameplay variety between each run.</p>
         <p>Half of the game is learning what you or others do.</p>
       </div>
@@ -108,7 +179,7 @@ function Rules() {
         <button className="reset" onClick={reset}>
           <span>RESET</span>
         </button>
-        <button className="run" onClick={gen}>
+        <button className="make" onClick={gen}>
           <span>MAKE NEW RULE</span>
         </button>
       </div>
@@ -161,6 +232,8 @@ function Rules() {
         )}
       </div>
 
+      <div className="network-container" ref={networkContainerRef}></div>
+
       <div className="choices-container">
         <h3>Sentences ingredients</h3>
         <div className="choices">
@@ -169,18 +242,13 @@ function Rules() {
               <div className="firstLine">{_.capitalize(ingredient)}</div>
               <div className="choice-line">
                 {ingredients[ingredient].map((item, j) => (
-                  <div
-                    className="definition"
-                    key={`ingredient-${ingredient}-${j}`}
-                  >
+                  <div className="definition" key={`ingredient-${ingredient}-${j}`}>
                     <div className="text">
                       <input
                         type="text"
                         placeholder="Normal text"
                         value={item}
-                        onChange={(e) =>
-                          updateConstraint(ingredient, j, e.target.value)
-                        }
+                        onChange={(e) => updateIngredient(ingredient, j, e.target.value)}
                       />
                     </div>
                     <div className="remove">
@@ -192,7 +260,7 @@ function Rules() {
                           paddingBottom: "2px",
                           width: "28px",
                         }}
-                        onClick={() => removeConstraint(ingredient, j)}
+                        onClick={() => removeIngredient(ingredient, j)}
                       >
                         -
                       </button>
@@ -201,10 +269,7 @@ function Rules() {
                 ))}
               </div>
               <div className="lastLine">
-                <button
-                  className="outline-success"
-                  onClick={() => addConstraint(ingredient)}
-                >
+                <button className="outline-success" onClick={() => addIngredient(ingredient)}>
                   Add constraint
                 </button>
               </div>

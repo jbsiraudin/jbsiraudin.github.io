@@ -19,9 +19,9 @@ _**Procedural generation**_ is a term probably overused in videogame production.
 
 <Image srcImage="img/illustrations/wiki-procedural.png" altText="wiki-procedural" legend="Randomly generated redirects here. Oof." />
 
-I personally see _**procedural generation**_ as a glorified name to designate **a function with a small input that spits out a big output**. And for me, this is the whole point: from a minimal input, get the maximal output that you can get through a _procedure_, an _algorithm_, a _piece of code_, ... to avoid handcrafting everything.
+I personally see _**procedural generation**_ as a glorified name to designate **a function with a small input that spits out a big output**. And for me, this is the whole point: from a minimal set of handcrafted parameters, get the maximal results you can thanks to a _procedure_, an _algorithm_, a _piece of code_, ... to avoid doing everything yourself.
 
-If _**procedural generation**_ is already ubiquitous in the art pipelines of most videogame/VFX/animation studio, it also lives for a long time in the field of game design.
+If _**procedural generation**_ is already ubiquitous in the art pipelines of most videogame/VFX/animation studio, it has also lived in the realm of game design for a long time.
 
 In this [series of short articles](/blog/tags/designing-randomness) called _**Designing randomness**_, I dive into the field of **procedural game design**.
 
@@ -43,7 +43,7 @@ Generating a dungeon then becomes choosing rooms from an existing library and li
 
 <br/>
 
-This subspace of procedural generation, _**scattering pre-existing content**_, is really natural for game design. Thus, design tasks are split in two layers: **designing individuals rooms** to serve the second to second gameplay, **designing the rules of assemblage** to serve the minute to minute exploration of our dungeon.
+This subspace of procedural generation, _**distributing pre-existing content**_, is well adapted to most designers' needs. Thus, design tasks are split in two layers: **designing individuals rooms** to serve the second to second gameplay, **designing the rules of assemblage** to serve the minute to minute exploration of our dungeon.
 
 This second layer is where procedural game design takes center stage: the **use of randomness is essential** to keep the world fresh and unpredictible for players, but we still need **a level of control on the assemblage algorithm to inject level design rules** (for pacing, logic, avoiding repetition). Easier said than done! Striking a design balance between the predictability of rules and the impredictability of their random use is key to generate endless amounts of enjoyable dungeons.
 
@@ -61,7 +61,7 @@ Let's simplify the problem a bit more: **let's say our dungeon is a straight cor
 
 With the last one, I tried to strike the balance between random and rules I talked earlier by using a **constraint based algorithm (the popular Wave Function Collapse): it's often simpler to say to the computer what you don't want and then let it generate something that respects that**.
 
-It's obviously applied on a very simple problem
+It's obviously applied on a very simple problem, but it will hopefully help you grasp what is at stake when we want to distribute content in a _design-sensitive_ way.
 
 <!--
 next steps :

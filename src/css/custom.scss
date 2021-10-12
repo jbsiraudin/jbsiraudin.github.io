@@ -119,3 +119,16 @@ body::-webkit-scrollbar-thumb,
   text-align: center;
   margin-top: -20px;
 }
+
+.katex-display {
+  font-size: 1.6em;
+}
+
+.carousel .slider-wrapper.axis-horizontal .slider {
+  align-items: center;
+}
+
+table {
+  width: fit-content;
+  margin: auto;
+}

@@ -299,3 +299,5 @@ make it better. I remind that this survey is, often like a science
 communication content itself, a restricted point of view on the truth.
 
 Thanks for reading !
+
+> Update 2021: Jesus Christ, I read that differently after the Covid pandemic 😐
