@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[408],{138:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/maths-for-game-design","name":"maths for game design","count":1,"permalink":"/blog/tags/maths-for-game-design"}')}}]);

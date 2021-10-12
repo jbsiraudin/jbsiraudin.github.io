@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[535],{5641:function(i){i.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Designing randomness: Content distribution","permalink":"/blog/content-distribution"},{"title":"Designing information: communicating science","permalink":"/blog/science-popularization"}]}')}}]);

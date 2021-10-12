@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jbsiraudin.github.io/blog</id>
     <title>jb siraudin's blog Blog</title>
-    <updated>2021-07-01T00:00:00.000Z</updated>
+    <updated>2021-07-02T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jbsiraudin.github.io/blog"/>
     <subtitle>jb siraudin's blog Blog</subtitle>
     <icon>https://jbsiraudin.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[How many different runs are in Hades?]]></title>
+        <id>binomial-hades</id>
+        <link href="https://jbsiraudin.github.io/blog/binomial-hades"/>
+        <updated>2021-07-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Let's conjure the old god Combinatorics' most overpowered boons.]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Designing randomness: Content distribution]]></title>
         <id>content-distribution</id>

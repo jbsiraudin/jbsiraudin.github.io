@@ -4,9 +4,16 @@
         <title>jb siraudin's blog Blog</title>
         <link>https://jbsiraudin.github.io/blog</link>
         <description>jb siraudin's blog Blog</description>
-        <lastBuildDate>Thu, 01 Jul 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 02 Jul 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[How many different runs are in Hades?]]></title>
+            <link>https://jbsiraudin.github.io/blog/binomial-hades</link>
+            <guid>binomial-hades</guid>
+            <pubDate>Fri, 02 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Let's conjure the old god Combinatorics' most overpowered boons.]]></description>
+        </item>
         <item>
             <title><![CDATA[Designing randomness: Content distribution]]></title>
             <link>https://jbsiraudin.github.io/blog/content-distribution</link>
