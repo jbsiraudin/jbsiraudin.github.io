@@ -9,20 +9,20 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <item>
             <title><![CDATA[How many different runs are in Hades?]]></title>
-            <link>https://jbsiraudin.github.io/blog/binomial-hades</link>
-            <guid>binomial-hades</guid>
+            <link>https://jbsiraudin.github.io/blog/arrangements-hades</link>
+            <guid>arrangements-hades</guid>
             <pubDate>Fri, 02 Jul 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Let's conjure the old god Combinatorics' most overpowered boons.]]></description>
         </item>
         <item>
-            <title><![CDATA[Designing randomness: Content distribution]]></title>
+            <title><![CDATA[Designing randomness: when generation is distribution]]></title>
             <link>https://jbsiraudin.github.io/blog/content-distribution</link>
             <guid>content-distribution</guid>
             <pubDate>Thu, 01 Jul 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Let's distribute cards. But better.]]></description>
         </item>
         <item>
-            <title><![CDATA[Designing information: communicating science]]></title>
+            <title><![CDATA[Designing information: why is it hard to communicate science]]></title>
             <link>https://jbsiraudin.github.io/blog/science-popularization</link>
             <guid>science-popularization</guid>
             <pubDate>Tue, 28 May 2019 00:00:00 GMT</pubDate>
