@@ -3,6 +3,7 @@ import _ from "lodash";
 import update from "immutability-helper";
 import { Network } from "vis-network/esnext/esm/vis-network";
 import { DataSet } from "vis-data/esnext/esm/vis-data";
+import useThemeContext from "@theme/hooks/useThemeContext";
 
 const defaultText = {
   actors: "entity",
@@ -12,51 +13,68 @@ const defaultText = {
 };
 // https://www.npmjs.com/package/vis-network
 
-const options = {
-  physics: {
-    solver: "barnesHut",
-  },
-  interaction: {
-    dragView: true,
-    zoomView: true,
-  },
-  edges: {
-    arrows: {
-      to: {
-        enabled: false,
+const olive = "#42af7e";
+const teal = "#39c7cc";
+const orange = "#ff851b";
+const red = "#ff4136";
+
+const options = (isDarkTheme) => {
+  return {
+    physics: {
+      solver: "barnesHut",
+    },
+    interaction: {
+      dragView: true,
+      zoomView: true,
+      selectable: false,
+    },
+    edges: {
+      width: 5,
+      arrows: {
+        to: {
+          enabled: true,
+        },
       },
-      middle: {
-        enabled: true,
+      color: {
+        color: olive,
+        highlight: "#848484",
+        hover: "#848484",
+        inherit: "from",
+        opacity: 1.0,
+      },
+      font: {
+        color: isDarkTheme ? "white" : "black",
+        strokeWidth: 0,
       },
     },
-    color: {
-      color: "#848484",
-      highlight: "#848484",
-      hover: "#848484",
-      inherit: "from",
-      opacity: 1.0,
-    },
-  },
-  nodes: {
-    borderWidth: 1,
-    borderWidthSelected: 2,
-    color: {
-      border: "#2B7CE9",
-      background: "#97C2FC",
-      highlight: {
+    nodes: {
+      borderWidth: 0,
+      borderWidthSelected: 0,
+      color: {
         border: "#2B7CE9",
-        background: "#D2E5FF",
+        background: "#97C2FC",
+        highlight: {
+          border: "#2B7CE9",
+          background: "#D2E5FF",
+        },
+        hover: {
+          border: "#2B7CE9",
+          background: "#D2E5FF",
+        },
       },
-      hover: {
-        border: "#2B7CE9",
-        background: "#D2E5FF",
+      shape: "dot",
+      size: 15,
+      font: {
+        color: isDarkTheme ? "white" : "black",
       },
     },
-    shape: "circle",
-  },
+  };
 };
 
+const labels = ["actor", "action", "subject", "effect"];
+
 function Rules() {
+  const { isDarkTheme, setLightTheme, setDarkTheme } = useThemeContext();
   const networkContainerRef = useRef(null);
   const networkRef = useRef(null);
 
@@ -139,21 +157,74 @@ function Rules() {
       edges: edges,
     };
 
-    networkRef.current = new Network(networkContainerRef.current, data, options);
-  });
+    networkRef.current = new Network(networkContainerRef.current, data, options(isDarkTheme));
+  }, []);
+
+  useEffect(() => {
+    networkRef.current.setOptions(options(isDarkTheme));
+  }, [isDarkTheme]);
 
   useEffect(() => {
     const nodes = new DataSet();
     const edges = new DataSet();
-    ingredients.actors.forEach((actor, i) => {
-      nodes.add({ id: `actor-${i}`, label: actor, color: "#FBE32F" });
-    });
-    ingredients.subjects.forEach((subject, i) => {
-      nodes.add({ id: `subject-${i}`, label: subject, color: "#2FDDED" });
-    });
+    const nodesObject = {};
+
+    for (let i = 0; i < ingredients.actors.length; i++) {
+      const actor = ingredients.actors[i];
+      if (!Object.keys(nodesObject).includes(actor)) {
+        nodesObject[actor] = {
+          actorIndex: i,
+          subjectIndex: null,
+        };
+      }
+    }
+
+    for (let i = 0; i < ingredients.subjects.length; i++) {
+      const subject = ingredients.subjects[i];
+      if (!Object.keys(nodesObject).includes(subject)) {
+        nodesObject[subject] = {
+          actorIndex: null,
+          subjectIndex: i,
+        };
+      } else {
+        nodesObject[subject].subjectIndex = i;
+      }
+    }
+
+    for (let i = 0; i < Object.keys(nodesObject).length; i++) {
+      const [key, value] = Object.entries(nodesObject)[i];
+
+      if (value.actorIndex !== null && value.subjectIndex === null) {
+        nodes.add({
+          id: key,
+          label: key,
+          color: { border: red, background: "transparent" },
+          borderWidth: 8,
+          borderWidthSelected: 8,
+        });
+      } else if (value.actorIndex !== null && value.subjectIndex === null) {
+        nodes.add({
+          id: key,
+          label: key,
+          color: { background: orange },
+        });
+      } else {
+        nodes.add({
+          id: key,
+          label: key,
+          color: { border: red, background: orange },
+          borderWidth: 8,
+          borderWidthSelected: 8,
+        });
+      }
+    }
 
     rules.forEach((rule, i) => {
-      edges.add({ from: `actor-${rule[0]}`, to: `subject-${rule[2]}`, label: `Rule ${i + 1}` });
+      edges.add({
+        from: ingredients.actors[rule[0]],
+        to: ingredients.subjects[rule[2]],
+        label: `Rule ${i + 1}`,
+      });
     });
 
     const data = {
@@ -188,19 +259,19 @@ function Rules() {
         {rules.length === 0 ? (
           <h3>
             When{" "}
-            <span className="colored">
+            <span className="actor-colored">
               <em>actor</em>
             </span>{" "}
             does{" "}
-            <span className="b-colored">
+            <span className="action-colored">
               <em>action</em>
             </span>
             ,{" "}
-            <span className="colored">
+            <span className="subject-colored">
               <em>subject</em>
             </span>{" "}
             undergoes{" "}
-            <span className="b-colored">
+            <span className="effect-colored">
               <em>effect</em>
             </span>
             .
@@ -211,17 +282,17 @@ function Rules() {
               .map((rule, i) => (
                 <h3 key={`rule-${i}`}>
                   #{i + 1} - When{" "}
-                  <span className="colored">
+                  <span className="actor-colored">
                     <em>{ingredients.actors[rule[0]]}</em>
                   </span>{" "}
-                  <span className="b-colored">
+                  <span className="action-colored">
                     <em>{ingredients.actions[rule[1]]}</em>
                   </span>
                   ,{" "}
-                  <span className="colored">
+                  <span className="subject-colored">
                     <em>{ingredients.subjects[rule[2]]}</em>
                   </span>{" "}
-                  <span className="b-colored">
+                  <span className="effect-colored">
                     <em>{ingredients.effects[rule[3]]}</em>
                   </span>
                   .
@@ -270,7 +341,7 @@ function Rules() {
               </div>
               <div className="lastLine">
                 <button className="outline-success" onClick={() => addIngredient(ingredient)}>
-                  Add constraint
+                  Add {labels[i]}
                 </button>
               </div>
             </div>

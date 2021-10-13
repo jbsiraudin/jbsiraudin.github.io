@@ -1,3 +1,11 @@
+$color-actor: #ffee1f;
+$color-action: #00ccff;
+
+$olive: #42af7e;
+$teal: #39c7cc;
+$orange: #ff851b;
+$red: #ff4136;
+
 .rules-app {
   position: relative;
   text-align: center;
@@ -64,11 +72,30 @@
     }
 
     .colored {
-      color: yellow;
+      padding: 5px;
+      color: #191919;
+      background-color: yellow;
     }
 
     .b-colored {
-      color: #00ccff;
+      color: #191919;
+      background-color: #00ccff;
+    }
+
+    .actor-colored {
+      color: $orange;
+    }
+
+    .action-colored {
+      color: $olive;
+    }
+
+    .subject-colored {
+      color: $red;
+    }
+
+    .effect-colored {
+      color: $teal;
     }
 
     h3 {
