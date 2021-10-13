@@ -133,9 +133,7 @@ $$
 A_{n}^k = \frac{n!}{(n-k)!}
 $$
 
-$$
-\text{\tiny k is the number of rooms to choose, n is the total number of rooms}
-$$
+$k$ is the number of rooms to choose, $n$ is the total number of rooms
 
 So in the case of Tartarus:
 

@@ -1,15 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import _ from "lodash";
 import update from "immutability-helper";
-import { Network } from "vis-network/esnext/esm/vis-network";
-import { DataSet } from "vis-data/esnext/esm/vis-data";
+import { Network, DataSet } from "vis-network/standalone";
 import useThemeContext from "@theme/hooks/useThemeContext";
 
 const defaultText = {
   actors: "entity",
   actions: "does something",
   subjects: "entity",
-  effects: "does something",
+  effects: "does something"
 };
 // https://www.npmjs.com/package/vis-network
 
@@ -21,31 +20,31 @@ const red = "#ff4136";
 const options = (isDarkTheme) => {
   return {
     physics: {
-      solver: "barnesHut",
+      solver: "barnesHut"
     },
     interaction: {
       dragView: true,
       zoomView: true,
-      selectable: false,
+      selectable: false
     },
     edges: {
       width: 5,
       arrows: {
         to: {
-          enabled: true,
-        },
+          enabled: true
+        }
       },
       color: {
         color: olive,
         highlight: "#848484",
         hover: "#848484",
         inherit: "from",
-        opacity: 1.0,
+        opacity: 1.0
       },
       font: {
         color: isDarkTheme ? "white" : "black",
-        strokeWidth: 0,
-      },
+        strokeWidth: 0
+      }
     },
     nodes: {
       borderWidth: 0,
@@ -55,19 +54,19 @@ const options = (isDarkTheme) => {
         background: "#97C2FC",
         highlight: {
           border: "#2B7CE9",
-          background: "#D2E5FF",
+          background: "#D2E5FF"
         },
         hover: {
           border: "#2B7CE9",
-          background: "#D2E5FF",
-        },
+          background: "#D2E5FF"
+        }
       },
       shape: "dot",
       size: 15,
       font: {
-        color: isDarkTheme ? "white" : "black",
-      },
-    },
+        color: isDarkTheme ? "white" : "black"
+      }
+    }
   };
 };
 
@@ -89,7 +88,7 @@ function Rules() {
       "kills an enemy",
       "pushes a block",
       "pulls a lever",
-      "crouches",
+      "crouches"
     ],
     subjects: ["player1", "player2", "player3", "player4", "an enemy", "a plant", "a door"],
     effects: [
@@ -102,15 +101,15 @@ function Rules() {
       "becomes invisible",
       "dashes forward",
       "freezes",
-      "is struck by lightning",
-    ],
+      "is struck by lightning"
+    ]
   });
   const [rules, setRules] = useState([]);
 
   function addIngredient(ingredient) {
     setIngredients(
       update(ingredients, {
-        [ingredient]: { $push: [defaultText[ingredient]] },
+        [ingredient]: { $push: [defaultText[ingredient]] }
       })
     );
   }
@@ -136,9 +135,9 @@ function Rules() {
             _.random(0, ingredients.actors.length - 1, false),
             _.random(0, ingredients.actions.length - 1, false),
             _.random(0, ingredients.subjects.length - 1, false),
-            _.random(0, ingredients.effects.length - 1, false),
-          ],
-        ],
+            _.random(0, ingredients.effects.length - 1, false)
+          ]
+        ]
       })
     );
   }
@@ -146,7 +145,7 @@ function Rules() {
   useEffect(() => {
     const nodes = new DataSet([
       { id: 1, label: "actor" },
-      { id: 2, label: "subject" },
+      { id: 2, label: "subject" }
     ]);
 
     // create an array with edges
@@ -154,7 +153,7 @@ function Rules() {
 
     const data = {
       nodes: nodes,
-      edges: edges,
+      edges: edges
     };
 
     networkRef.current = new Network(networkContainerRef.current, data, options(isDarkTheme));
@@ -174,7 +173,7 @@ function Rules() {
       if (!Object.keys(nodesObject).includes(actor)) {
         nodesObject[actor] = {
           actorIndex: i,
-          subjectIndex: null,
+          subjectIndex: null
         };
       }
     }
@@ -184,7 +183,7 @@ function Rules() {
       if (!Object.keys(nodesObject).includes(subject)) {
         nodesObject[subject] = {
           actorIndex: null,
-          subjectIndex: i,
+          subjectIndex: i
         };
       } else {
         nodesObject[subject].subjectIndex = i;
@@ -200,13 +199,13 @@ function Rules() {
           label: key,
           color: { border: red, background: "transparent" },
           borderWidth: 8,
-          borderWidthSelected: 8,
+          borderWidthSelected: 8
         });
       } else if (value.actorIndex !== null && value.subjectIndex === null) {
         nodes.add({
           id: key,
           label: key,
-          color: { background: orange },
+          color: { background: orange }
         });
       } else {
         nodes.add({
@@ -214,7 +213,7 @@ function Rules() {
           label: key,
           color: { border: red, background: orange },
           borderWidth: 8,
-          borderWidthSelected: 8,
+          borderWidthSelected: 8
         });
       }
     }
@@ -223,13 +222,13 @@ function Rules() {
       edges.add({
         from: ingredients.actors[rule[0]],
         to: ingredients.subjects[rule[2]],
-        label: `Rule ${i + 1}`,
+        label: `Rule ${i + 1}`
       });
     });
 
     const data = {
       nodes: nodes,
-      edges: edges,
+      edges: edges
     };
 
     networkRef.current.setData(data);
@@ -329,7 +328,7 @@ function Rules() {
                           borderRadius: "200px",
                           padding: 0,
                           paddingBottom: "2px",
-                          width: "28px",
+                          width: "28px"
                         }}
                         onClick={() => removeIngredient(ingredient, j)}
                       >

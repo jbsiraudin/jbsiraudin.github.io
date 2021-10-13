@@ -5,11 +5,10 @@ function Iframe({ srcUrl, width = 560, height = 315, legend = "" }) {
     <>
       <div
         style={{
-          width: "fit-content",
           display: "flex",
           justifyContent: "center",
           margin: "auto",
-          marginBottom: "30px",
+          marginBottom: "30px"
         }}
       >
         <iframe

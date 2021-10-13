@@ -129,6 +129,6 @@ body::-webkit-scrollbar-thumb,
 }
 
 table {
-  width: fit-content;
+  max-width: fit-content;
   margin: auto;
 }

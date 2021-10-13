@@ -27,7 +27,9 @@ const Configurations = () => {
           <div className="option" key={`option-${i}`}>
             <button onClick={() => moveDownOption(i)}>-</button>
             <div className="text">{option}</div>
-            <button onClick={() => moveUpOption(i)}>+</button>
+            <button onClick={() => moveUpOption(i)} disabled={sum(options) >= 10}>
+              +
+            </button>
           </div>
         ))}
       </div>

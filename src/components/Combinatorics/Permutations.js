@@ -38,7 +38,7 @@ const Permutations = () => {
     const result = Math.floor(factorial(n + k - 1) / (factorial(n) * factorial(k - 1)));
     const equation = String.raw`P(${n}, ${k}-1) =\frac{${n + k - 1}!}{${n}!${k - 1}!} = ${result}`;
     const html = katex.renderToString(equation, {
-      throwOnError: false,
+      throwOnError: false
     });
     spanRef.current.innerHTML = html;
   }, [n, k]);
@@ -79,7 +79,15 @@ const Permutations = () => {
   };
 
   return (
-    <div style={{ marginTop: 30, display: "flex", flexWrap: "wrap", alignItems: "center" }}>
+    <div
+      style={{
+        marginTop: 30,
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+        justifyContent: "center"
+      }}
+    >
       <div className="arrangements" style={{ flex: "1 1" }}>
         <div className="input-container">
           <div className="input" style={{ marginRight: 30 }}>
@@ -105,7 +113,9 @@ const Permutations = () => {
             <div className="option" key={`option-${i}`}>
               <button onClick={() => moveDownOption(i)}>-</button>
               <div className="text">{option}</div>
-              <button onClick={() => moveUpOption(i)}>+</button>
+              <button onClick={() => moveUpOption(i)} disabled={sum(options) >= n}>
+                +
+              </button>
             </div>
           ))}
         </div>
