@@ -5,7 +5,14 @@ import Link from "@docusaurus/Link";
 export default function Home() {
   return (
     <Layout description="Yet another game designer blog">
-      <main>
+      <main
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "65vh"
+        }}
+      >
         <div className="prose">
           <p>Hi, I'm Jean-Baptiste, previz & game designer at Ubisoft Paris.</p>
           <p>
