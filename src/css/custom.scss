@@ -38,6 +38,14 @@ html[data-theme="dark"] {
   .docusaurus-highlight-code-line {
     background-color: rgba(0, 0, 0, 0.3);
   }
+
+  .carousel .thumb {
+    border-color: #333;
+  }
+  .carousel .thumb.selected,
+  .carousel .thumb:hover {
+    border-color: #fff;
+  }
 }
 
 body {

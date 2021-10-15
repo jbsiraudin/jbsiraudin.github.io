@@ -8,7 +8,7 @@ const defaultText = {
   actors: "entity",
   actions: "does something",
   subjects: "entity",
-  effects: "does something"
+  effects: "does something",
 };
 // https://www.npmjs.com/package/vis-network
 
@@ -20,31 +20,32 @@ const red = "#ff4136";
 const options = (isDarkTheme) => {
   return {
     physics: {
-      solver: "barnesHut"
+      solver: "barnesHut",
     },
     interaction: {
       dragView: true,
       zoomView: true,
-      selectable: false
+      selectable: false,
     },
     edges: {
       width: 5,
       arrows: {
         to: {
-          enabled: true
-        }
+          enabled: true,
+        },
       },
       color: {
         color: olive,
-        highlight: "#848484",
-        hover: "#848484",
+        highlight: olive,
+        hover: olive,
         inherit: "from",
-        opacity: 1.0
+        opacity: 1.0,
       },
       font: {
-        color: isDarkTheme ? "white" : "black",
-        strokeWidth: 0
-      }
+        color: isDarkTheme ? "black" : "white",
+        strokeWidth: 0,
+        background: olive,
+      },
     },
     nodes: {
       borderWidth: 0,
@@ -54,19 +55,19 @@ const options = (isDarkTheme) => {
         background: "#97C2FC",
         highlight: {
           border: "#2B7CE9",
-          background: "#D2E5FF"
+          background: "#D2E5FF",
         },
         hover: {
           border: "#2B7CE9",
-          background: "#D2E5FF"
-        }
+          background: "#D2E5FF",
+        },
       },
       shape: "dot",
       size: 15,
       font: {
-        color: isDarkTheme ? "white" : "black"
-      }
-    }
+        color: isDarkTheme ? "white" : "black",
+      },
+    },
   };
 };
 
@@ -88,7 +89,7 @@ function Rules() {
       "kills an enemy",
       "pushes a block",
       "pulls a lever",
-      "crouches"
+      "crouches",
     ],
     subjects: ["player1", "player2", "player3", "player4", "an enemy", "a plant", "a door"],
     effects: [
@@ -101,15 +102,15 @@ function Rules() {
       "becomes invisible",
       "dashes forward",
       "freezes",
-      "is struck by lightning"
-    ]
+      "is struck by lightning",
+    ],
   });
   const [rules, setRules] = useState([]);
 
   function addIngredient(ingredient) {
     setIngredients(
       update(ingredients, {
-        [ingredient]: { $push: [defaultText[ingredient]] }
+        [ingredient]: { $push: [defaultText[ingredient]] },
       })
     );
   }
@@ -135,9 +136,9 @@ function Rules() {
             _.random(0, ingredients.actors.length - 1, false),
             _.random(0, ingredients.actions.length - 1, false),
             _.random(0, ingredients.subjects.length - 1, false),
-            _.random(0, ingredients.effects.length - 1, false)
-          ]
-        ]
+            _.random(0, ingredients.effects.length - 1, false),
+          ],
+        ],
       })
     );
   }
@@ -145,7 +146,7 @@ function Rules() {
   useEffect(() => {
     const nodes = new DataSet([
       { id: 1, label: "actor" },
-      { id: 2, label: "subject" }
+      { id: 2, label: "subject" },
     ]);
 
     // create an array with edges
@@ -153,7 +154,7 @@ function Rules() {
 
     const data = {
       nodes: nodes,
-      edges: edges
+      edges: edges,
     };
 
     networkRef.current = new Network(networkContainerRef.current, data, options(isDarkTheme));
@@ -173,7 +174,7 @@ function Rules() {
       if (!Object.keys(nodesObject).includes(actor)) {
         nodesObject[actor] = {
           actorIndex: i,
-          subjectIndex: null
+          subjectIndex: null,
         };
       }
     }
@@ -183,7 +184,7 @@ function Rules() {
       if (!Object.keys(nodesObject).includes(subject)) {
         nodesObject[subject] = {
           actorIndex: null,
-          subjectIndex: i
+          subjectIndex: i,
         };
       } else {
         nodesObject[subject].subjectIndex = i;
@@ -193,27 +194,31 @@ function Rules() {
     for (let i = 0; i < Object.keys(nodesObject).length; i++) {
       const [key, value] = Object.entries(nodesObject)[i];
 
-      if (value.actorIndex !== null && value.subjectIndex === null) {
+      if (value.actorIndex === null && value.subjectIndex !== null) {
         nodes.add({
           id: key,
           label: key,
           color: { border: red, background: "transparent" },
           borderWidth: 8,
-          borderWidthSelected: 8
+          borderWidthSelected: 8,
         });
       } else if (value.actorIndex !== null && value.subjectIndex === null) {
         nodes.add({
           id: key,
           label: key,
-          color: { background: orange }
+          color: { background: orange },
         });
       } else {
         nodes.add({
           id: key,
           label: key,
-          color: { border: red, background: orange },
+          color: {
+            border: red,
+            background: orange,
+            highlight: { border: red, background: orange },
+          },
           borderWidth: 8,
-          borderWidthSelected: 8
+          borderWidthSelected: 8,
         });
       }
     }
@@ -222,13 +227,13 @@ function Rules() {
       edges.add({
         from: ingredients.actors[rule[0]],
         to: ingredients.subjects[rule[2]],
-        label: `Rule ${i + 1}`
+        label: `#${i + 1}`,
       });
     });
 
     const data = {
       nodes: nodes,
-      edges: edges
+      edges: edges,
     };
 
     networkRef.current.setData(data);
@@ -236,15 +241,6 @@ function Rules() {
 
   return (
     <div className="rules-app">
-      <div className="app-header">
-        <h2>Rules game system</h2>
-        <p>Player finds scrolls during his/her exploration of the level.</p>
-        <p>Each scroll is a new rule procedurally built from the rule ingredients specified.</p>
-        <p>Exploration in the game becomes also an exploration of the rules of the game.</p>
-        <p>It provides gameplay variety between each run.</p>
-        <p>Half of the game is learning what you or others do.</p>
-      </div>
-
       <div className="buttons">
         <button className="reset" onClick={reset}>
           <span>RESET</span>
@@ -305,7 +301,7 @@ function Rules() {
       <div className="network-container" ref={networkContainerRef}></div>
 
       <div className="choices-container">
-        <h3>Sentences ingredients</h3>
+        <h3>Sentences' ingredients</h3>
         <div className="choices">
           {Object.keys(ingredients).map((ingredient, i) => (
             <div className="choice" key={`ingredient-${i}`}>
@@ -328,7 +324,7 @@ function Rules() {
                           borderRadius: "200px",
                           padding: 0,
                           paddingBottom: "2px",
-                          width: "28px"
+                          width: "28px",
                         }}
                         onClick={() => removeIngredient(ingredient, j)}
                       >

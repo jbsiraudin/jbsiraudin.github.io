@@ -38,18 +38,18 @@ $red: #ff4136;
       position: relative;
       font-size: 16px;
       padding: 10px 20px 10px 20px;
-      border: 1px #dfdfdf solid;
+      border: 1px var(--color) solid;
       border-radius: 3px;
       background-color: transparent;
       transition: all 0.1s ease;
       margin: 5px;
-      color: #dfdfdf;
+      color: var(--color);
     }
 
     button:hover {
       cursor: pointer;
-      color: #191919;
-      background-color: white;
+      color: var(--bg-color);
+      background-color: var(--color);
     }
 
     button:active {
@@ -57,16 +57,20 @@ $red: #ff4136;
     }
 
     .make {
+      color: #1d1d1d;
       border-color: #ffee1f;
-      color: #ffee1f;
+      background-color: #ffee1f;
     }
 
     .make:hover {
-      background-color: #ffee1f;
+      color: #1d1d1d;
+      background-color: #ffcb1f;
     }
   }
 
   .rules-container {
+    margin-bottom: 16px;
+
     .rules {
       text-align: left;
     }
@@ -122,7 +126,7 @@ $red: #ff4136;
         margin: 10px;
 
         .firstLine {
-          border-bottom: 1px solid #fff;
+          border-bottom: 1px solid var(--color);
           margin-bottom: 10px;
           padding-bottom: 5px;
         }

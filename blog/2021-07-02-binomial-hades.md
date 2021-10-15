@@ -425,7 +425,7 @@ The king didn't anticipate the crazy growth of a number doubled 63 times, probab
 
 :::info
 
-Sissa only asks for the quantity on the last square, since the last square contains as many grains as the rest of the squares on the board. Another fun and unintuitive properties of this problem.
+Sissa only asks for the quantity on the last square, since the last square contains as many grains as the rest of the squares on the board. Another fun and unintuitive property of this problem.
 
 :::
 
