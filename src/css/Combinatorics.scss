@@ -2,18 +2,24 @@
   .input-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 
     .input {
       font-size: 32px;
       font-family: "KaTeX_Main", "Times New Roman", serif;
       display: flex;
+      flex-wrap: nowrap;
       align-items: center;
       align-content: center;
-      margin-bottom: 24px;
+      margin: 0 5px 24px 5px;
 
       p {
-        margin: 0;
-        margin-right: 10px;
+        margin: 0 10px;
+      }
+
+      button {
+        height: 32px;
+        margin: 0 4px;
       }
 
       input {

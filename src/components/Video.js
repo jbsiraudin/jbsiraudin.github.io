@@ -1,20 +1,20 @@
 import React from "react";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-function Iframe({ srcVideo, width = 560, height = 315, legend = "" }) {
+function Video({ srcVideo, width = 560, height = 315, legend = "" }) {
   return (
     <>
       <div
         style={{
-          width: "fit-content",
+          //width: "fit-content",
           display: "flex",
           justifyContent: "center",
           margin: "auto",
           marginBottom: "30px",
         }}
       >
-        <video preload="auto" controls width={width} height={height}>
-          <source src={useBaseUrl(srcVideo)} type="video/webm" />
+        <video preload="auto" controls width={width}>
+          <source src={useBaseUrl(srcVideo)} type="video/mp4" />
           Sorry, your browser doesn't support embedded videos.
         </video>
       </div>
@@ -23,4 +23,4 @@ function Iframe({ srcVideo, width = 560, height = 315, legend = "" }) {
   );
 }
 
-export default Iframe;
+export default Video;

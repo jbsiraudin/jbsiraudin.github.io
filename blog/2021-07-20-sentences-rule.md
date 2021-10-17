@@ -1,7 +1,7 @@
 ---
 slug: sentences-rule
 title: "Sentences? They rule: syntax as a game mechanic"
-draft: true
+draft: false
 hide_table_of_contents: true
 tags: [procedural, game design]
 ---

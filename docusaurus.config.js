@@ -93,6 +93,7 @@ module.exports = {
             require.resolve("./src/css/ContentDistribution.scss"),
             require.resolve("./src/css/Combinatorics.scss"),
             require.resolve("./src/css/Rules.scss"),
+            require.resolve("./src/css/Dolly.scss"),
           ],
         },
       },

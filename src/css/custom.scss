@@ -140,3 +140,15 @@ table {
   max-width: fit-content;
   margin: auto;
 }
+
+video {
+  max-width: 100%;
+}
+
+video[align="right"] {
+  padding-left: var(--image-alignment-padding);
+}
+
+video[align="left"] {
+  padding-right: var(--image-alignment-padding);
+}

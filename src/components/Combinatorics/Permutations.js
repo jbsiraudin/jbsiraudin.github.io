@@ -38,15 +38,120 @@ const Permutations = () => {
     const result = Math.floor(factorial(n + k - 1) / (factorial(n) * factorial(k - 1)));
     const equation = String.raw`P(${n}, ${k}-1) =\frac{${n + k - 1}!}{${n}!${k - 1}!} = ${result}`;
     const html = katex.renderToString(equation, {
-      throwOnError: false
+      throwOnError: false,
     });
     spanRef.current.innerHTML = html;
+    setOptions(Array(k).fill(0));
   }, [n, k]);
 
   useEffect(() => {
     setPointsLeft(n - sum(options));
   }, [n, options]);
 
+  const sub10N = () => {
+    setN(n - 10);
+  };
+
+  const sub1N = () => {
+    setN(n - 1);
+  };
+
+  const add10N = () => {
+    setN(n + 10);
+  };
+
+  const add1N = () => {
+    setN(n + 1);
+  };
+
+  const sub10K = () => {
+    setK(k - 10);
+  };
+
+  const sub1K = () => {
+    setK(k - 1);
+  };
+
+  const add10K = () => {
+    setK(k + 10);
+  };
+
+  const add1K = () => {
+    setK(k + 1);
+  };
+
+  return (
+    <div
+      style={{
+        marginTop: 30,
+        display: "flex",
+        flexWrap: "wrap",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div className="arrangements" style={{ flex: "1 1" }}>
+        <div className="input-container">
+          <div className="input">
+            <p>n =</p>
+            <button className="sub" disabled={n < 11} onClick={sub10N}>
+              - 10
+            </button>
+            <button className="sub" disabled={n < 2} onClick={sub1N}>
+              - 1
+            </button>
+            <p>{n}</p>
+            <button className="add" onClick={add1N}>
+              + 1
+            </button>
+            <button className="add" onClick={add10N}>
+              + 10
+            </button>
+          </div>
+          <div className="input">
+            <p>k =</p>
+            <button className="sub" disabled={k < 11} onClick={sub10K}>
+              - 10
+            </button>
+            <button className="sub" disabled={k < 2} onClick={sub1K}>
+              - 1
+            </button>
+            <p>{k}</p>
+            <button className="add" onClick={add1K}>
+              + 1
+            </button>
+            <button className="add" onClick={add10K}>
+              + 10
+            </button>
+          </div>
+        </div>
+        <div className="math math-display">
+          <span ref={spanRef} className="katex-display" style={{ fontSize: "1.5em" }} />
+        </div>
+      </div>
+
+      <div className="pointDistribute" style={{ margin: "0 20px" }}>
+        <div className="options">
+          <div className="firstLine">
+            <div className="text">Points left: {pointsLeft}</div>
+          </div>
+          {options.map((option, i) => (
+            <div className="option" key={`option-${i}`}>
+              <button onClick={() => moveDownOption(i)} disabled={option <= 0}>
+                -
+              </button>
+              <div className="text">{option}</div>
+              <button onClick={() => moveUpOption(i)} disabled={sum(options) >= n}>
+                +
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
+  /* 
   const onChangeN = (e) => {
     const int = parseInt(e.target.value);
     if (!isNaN(int)) {
@@ -121,7 +226,7 @@ const Permutations = () => {
         </div>
       </div>
     </div>
-  );
+  ); */
 };
 
 export default Permutations;
