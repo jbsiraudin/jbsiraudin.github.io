@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
-import paper from "paper";
 import useThemeContext from "@theme/hooks/useThemeContext";
+import BrowserOnly from "@docusaurus/BrowserOnly";
 
 const script = `
 function drawAngle(center, angle, label, value) {
@@ -10,7 +10,7 @@ function drawAngle(center, angle, label, value) {
 	var through = from.rotate(angle / 2);
 	var to = from.rotate(angle);
 	var end = center + to;
-	const line = new Path.Line({
+	var line = new Path.Line({
 	    from: center,
 		to: center + new Point(radius + threshold, 0),
 	    strokeColor: '#8b8b8b',
@@ -47,7 +47,7 @@ function drawAngle(center, angle, label, value) {
 		// Angle Label
 		var text = new PointText(center
 				+ through.normalize(radius + 10) + new Point(0, -15));
-		text.content = 'zoom: ' + value;
+		text.content = 'zoom: ' + value.toFixed(2);
 		text.fontSize = 12;
     text.fillColor = colReadable;
 	}
@@ -92,17 +92,18 @@ function drawLength(from, to, sign, label, value, prefix) {
 		});
 		text.rotate(textAngle);
 		value = value || vector.length;
-		text.content = 'a: ' + (prefix || '') + Math.floor(value * 1000) / 1000;
+    var valueToPrint = Math.floor(value * 1000) / 1000
+		text.content = 'a: ' + (prefix || '') + valueToPrint.toFixed(2);
 	}
 }
 
-const w = 500;
-const h = 250;
+var w = 500;
+var h = 250;
 
 
-const aW = 3;
-const aH = 3;
-const zeroX = 0.6*w;
+var aW = 3;
+var aH = 3;
+var zeroX = 0.5*w;
 
 
 var sizeCam = 5;
@@ -113,23 +114,23 @@ function getTan(angle) {
 }
 
 function drawCamera(position, fov, color, id) {
-    const box = new Shape.Rectangle({
+    var box = new Shape.Rectangle({
         from: position - [sizeCam, sizeCam],
         to: position + [sizeCam, sizeCam],
         fillColor: color,
         strokeWidth: 0
     });
-    const line1 = new Path.Line({
+    var line1 = new Path.Line({
         from: position,
         to: position + [sizeH/getTan(fov/2), sizeH],
         strokeColor: color
     })
-    const line2 = new Path.Line({
+    var line2 = new Path.Line({
         from: position,
         to: position + [sizeH/getTan(fov/2), -sizeH],
         strokeColor: color
     })
-    const line3 = new Path.Line({
+    var line3 = new Path.Line({
         from: position + [sizeH/getTan(fov/2), sizeH],
         to: position + [sizeH/getTan(fov/2), -sizeH],
         strokeColor: color
@@ -144,41 +145,47 @@ function drawCamera(position, fov, color, id) {
     });
 }
 
-const fov = 60;
-const zero = new Point(zeroX, h/2);
+view.onFrame = function(event) {
+    project.clear();
+    var zoomAmplitude = (2-0.5)/2;
+    var z = 0.5 + (zoomAmplitude)*(1 + Math.sin(event.time*0.5));
+    var fov = 60;
+    var zero = new Point(zeroX, h/2);
 
-const axis = new Path.Line({
-    from: [0, h/2],
-    to: [w, h/2],
-    strokeColor: colReadable,
-    strokeWidth: 1,
-});
-const arrowAxis = new Path({
-    segments: [[w-aW, h/2-aH], [w, h/2], [w-aW, h/2+aH]],
-    fillColor: 'transparent',
-    strokeColor: colReadable,
-    strokeWidth: 1,
-});
+    var axis = new Path.Line({
+        from: [0, h/2],
+        to: [w, h/2],
+        strokeColor: colReadable,
+        strokeWidth: 1,
+    });
+    var arrowAxis = new Path({
+        segments: [[w-aW, h/2-aH], [w, h/2], [w-aW, h/2+aH]],
+        fillColor: 'transparent',
+        strokeColor: colReadable,
+        strokeWidth: 1,
+    });
 
-const segmentZero = new Path.Line({
-    from: [zeroX, h/2-5],
-    to: [zeroX, h/2+5],
-    strokeColor: colReadable,
-    strokeWidth: 1,
-})
+    var segmentZero = new Path.Line({
+        from: [zeroX, h/2-5],
+        to: [zeroX, h/2+5],
+        strokeColor: colReadable,
+        strokeWidth: 1,
+    })
 
-const cam1 = new Point(zeroX - 100, h/2);
-const a = getTan(fov/2)/getTan(fov/(2*z));
-const cam2 = new Point(zeroX - a*100, h/2);
+    var cam1 = new Point(zeroX - 100, h/2);
+    var a = getTan(fov/2)/getTan(fov/(2*z));
+    var cam2 = new Point(zeroX - a*100, h/2);
 
-drawCamera(cam1, fov, "red", "x0");
-drawCamera(cam2, fov/z, "green", "x1");
+    drawCamera(cam1, fov, "red", "x0");
+    drawCamera(cam2, fov/z, "green", "x1");
 
-drawLength(cam2 + [0, 40], zero + [0, 40], 1, true, a, "");
-drawAngle(cam2, fov/z, true, z);
+    drawLength(cam2 + [0, 40], zero + [0, 40], 1, true, a, "");
+    drawAngle(cam2, fov/z, true, z);
+}
 `;
 
-const Dolly = () => {
+/* const BrowserDolly = () => {
+  const paper = require("paper");
   const [zoom, setZoom] = useState(0.75);
   const { isDarkTheme, setLightTheme, setDarkTheme } = useThemeContext();
   const [colReadable, setColReadable] = useState("black");
@@ -216,6 +223,58 @@ const Dolly = () => {
         </div>
       </div>
       <canvas ref={canvasRef} width={500} height={250} />
+    </div>
+  );
+}; */
+
+const Dolly = () => {
+  const { isDarkTheme, setLightTheme, setDarkTheme } = useThemeContext();
+  const frameRef = useRef(null);
+
+  function updateCanvas() {
+    const codeToExecute = `
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Load the Paper.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.15/paper-full.js" integrity="sha512-XV5MGZ7Tv+G60rzU8P7tPUlaf0yz7SJ/uI9CLAwyLcZKl9kzxJQFs3nsBNZVNVAwNOkBLqrzMvjGMEycDccqiA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Define inlined PaperScript associate it with myCanvas -->
+<script type="text/paperscript" canvas="paper-canvas">
+  var colReadable = ${isDarkTheme ? "'white'" : "'black'"};
+  ${script}
+</script>
+<style>
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* Scale canvas with resize attribute to full size */
+canvas {
+    width: 100%;
+    height: 100%;
+}
+</style>
+</head>
+<body>
+	<canvas id="paper-canvas" resize></canvas>
+</body>
+</html>
+    `;
+    frameRef.current.contentDocument.open();
+    frameRef.current.contentDocument.write(codeToExecute);
+    frameRef.current.contentDocument.close();
+  }
+
+  useEffect(() => {
+    updateCanvas();
+  }, [isDarkTheme]);
+
+  return (
+    <div className="dolly">
+      <iframe ref={frameRef} width={500} height={250} />
     </div>
   );
 };

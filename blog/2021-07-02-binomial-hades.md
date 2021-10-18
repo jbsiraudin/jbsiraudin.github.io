@@ -400,6 +400,12 @@ Elysium picks 8 rooms out of its 13 choices,<br/>so you'll see <b>61%</b> of the
 
 And that is **by design**: a roguelike like Hades rewards learning through repetition. If you step into a completely new room you're not gonna feel as in control as if you step into a room you crossed 50 times already. And like most games, **Hades**' players thrive on the power fantasy the game offers.
 
+:::note
+
+It's very logical that the % of coverage increases across the biomes: Statistically, you'll see Tartarus way more than Elysium, so it makes sense that Tartarus is more diverse. Another reason would be on the production side: Hades was in early access and the later biomes came in title updates, when you don't necessarly have as much cooking time as for the first biomes.
+
+:::
+
 **Striking a balance between variety and familiarity on the same game system is tough, that's why roguelikes found a neat technique : just make two game systems on top of each other.** One is predictible (the dungeon generation) and you can learn it quickly, and the other is way more _random_ so you can't predict its behavior easily (the character build per run system). This separation allows the two game systems to have more focused role while complementing each other.
 
 Indeed, you want players to keep building their runs on the knowledge accumulated on the first system, enough to give them the confidence to improvise and try something new in the other system. **The _variety feel_ is created by the players themselves through their engagement in a complex system, made possible by their mastery of another underlying one.**
@@ -429,7 +435,7 @@ Sissa only asks for the quantity on the last square, since the last square conta
 
 :::
 
-We all have a lot of automatisms in order to simplify an issue, trying to bring it under 10 in order to solve this on our fingers. **Thus, if I come across a menu with 10 points to distribute across 5 sliders, I will see 5 choices to make, not 1 choice out of 1001 combinations**.
+We all have a lot of automatisms in order to simplify an issue, trying to bring it under 10 in order to solve this on our fingers. **Thus, if I come across a menu with 10 points to distribute across 5 sliders, I will see 5 choices to make, not 1 choice out of 1001 combinations**. To further cancel this potential complexity, most games won't allow you to reinvest freely your points into an entirely new build: you spend your points one by one, without reimbursement, so you make your way into the system, 5 choices at a time.
 
 As designers, programmers, game makers, ... we might know the full complexity of our systems, but we must never assume that players will or should have that knowledge.
 

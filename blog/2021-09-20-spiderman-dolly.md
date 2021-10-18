@@ -1,7 +1,7 @@
 ---
 slug: spiderman-dolly
 title: "The almost unintentional dolly of Insomniac's Spidercam"
-draft: true
+draft: false
 hide_table_of_contents: true
 tags: [game design, 3C, camera]
 ---
@@ -116,7 +116,7 @@ $$
 x_{1} = \frac{tan(\frac{\alpha}{2})}{tan(\frac{\alpha}{2*z})}*x_{0} = a*x_{0}
 $$
 
-You can control below the zoom factor to see how $a$ evolves on the drawing:
+You can see below how $a$ evolves according to the zoom factor on this drawing:
 
 <Dolly />
 
