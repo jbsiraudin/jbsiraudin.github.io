@@ -24,6 +24,18 @@ Game Design & Previz on Skull & Bones, an AAA Ubisoft Original.
 
 I can't say much until the game is out! I'll update this section when I'm able to.
 
+<br/>
+
+### [papertoy.dev](https://www.papertoy.dev/) (2021)
+
+<Image srcImage="img/illustrations/papertoy.png" legend="Papertoy Code Editor (October 2021)"/>
+
+Inspired by [Shadertoy](https://www.shadertoy.com), **Papertoy** lets you build interactive prototypes in your browser, with Javascript and Paper.js. It is targeted to console developers, with full gamepad support.
+
+I developed this code editor in a few days after a year of experimenting with web UX/UI prototyping at Ubisoft. I gave a conference about what I built and people were interested in adopting this kind of workflow, but without the barrier of knowing web development basics.
+
+The project is still young and riddled with issues, but is very promising and will eventually be my main tool for building my own prototypes!
+
 ---
 
 ## [Scinema](https://www.youtube.com/c/Scinemax)
