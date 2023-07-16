@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[451],{8274:a=>{a.exports=JSON.parse('{"label":"scinema","permalink":"/blog/tags/scinema","allTagsPath":"/blog/tags","count":1}')}}]);

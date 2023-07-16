@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[4469],{3279:s=>{s.exports=JSON.parse('{"label":"designing randomness","permalink":"/blog/tags/designing-randomness","allTagsPath":"/blog/tags","count":1}')}}]);
