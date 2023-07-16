@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import _ from "lodash";
 import update from "immutability-helper";
 import { Network, DataSet } from "vis-network/standalone";
-import useThemeContext from "@theme/hooks/useThemeContext";
+import { useColorMode } from "@docusaurus/theme-common";
 
 const defaultText = {
   actors: "entity",
@@ -74,7 +74,7 @@ const options = (isDarkTheme) => {
 const labels = ["actor", "action", "subject", "effect"];
 
 function Rules() {
-  const { isDarkTheme, setLightTheme, setDarkTheme } = useThemeContext();
+  const { colorMode, setColorMode } = useColorMode();
   const networkContainerRef = useRef(null);
   const networkRef = useRef(null);
 
@@ -157,12 +157,16 @@ function Rules() {
       edges: edges,
     };
 
-    networkRef.current = new Network(networkContainerRef.current, data, options(isDarkTheme));
+    networkRef.current = new Network(
+      networkContainerRef.current,
+      data,
+      options(colorMode === "dark")
+    );
   }, []);
 
   useEffect(() => {
-    networkRef.current.setOptions(options(isDarkTheme));
-  }, [isDarkTheme]);
+    networkRef.current.setOptions(options(colorMode === "dark"));
+  }, [colorMode]);
 
   useEffect(() => {
     const nodes = new DataSet();

@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import useThemeContext from "@theme/hooks/useThemeContext";
-import BrowserOnly from "@docusaurus/BrowserOnly";
+import { useColorMode } from "@docusaurus/theme-common";
 
 const script = `
 function drawAngle(center, angle, label, value) {
@@ -184,51 +183,8 @@ view.onFrame = function(event) {
 }
 `;
 
-/* const BrowserDolly = () => {
-  const paper = require("paper");
-  const [zoom, setZoom] = useState(0.75);
-  const { isDarkTheme, setLightTheme, setDarkTheme } = useThemeContext();
-  const [colReadable, setColReadable] = useState("black");
-  const canvasRef = useRef(null);
-
-  function updateCanvas() {
-    const codeToExecute = `
-      const z = ${zoom};
-      const colReadable = ${isDarkTheme ? "'white'" : "'black'"};
-      ${script}
-    `;
-    paper.project.clear();
-    paper.execute(codeToExecute);
-  }
-
-  useEffect(() => {
-    paper.setup(canvasRef.current);
-  }, []);
-
-  useEffect(() => {
-    updateCanvas();
-  }, [zoom, isDarkTheme]);
-
-  function onChangeZoom(e) {
-    setZoom(e.target.valueAsNumber);
-  }
-
-  return (
-    <div className="dolly">
-      <div className="input-container">
-        <div className="input">
-          <p>z =</p>
-          <input type="range" step="0.01" min="0.5" max="2" value={zoom} onChange={onChangeZoom} />
-          <p>{zoom.toFixed(2)}</p>
-        </div>
-      </div>
-      <canvas ref={canvasRef} width={500} height={250} />
-    </div>
-  );
-}; */
-
 const Dolly = () => {
-  const { isDarkTheme, setLightTheme, setDarkTheme } = useThemeContext();
+  const { colorMode, setColorMode } = useColorMode();
   const frameRef = useRef(null);
 
   function updateCanvas() {
@@ -240,7 +196,7 @@ const Dolly = () => {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.15/paper-full.js" integrity="sha512-XV5MGZ7Tv+G60rzU8P7tPUlaf0yz7SJ/uI9CLAwyLcZKl9kzxJQFs3nsBNZVNVAwNOkBLqrzMvjGMEycDccqiA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- Define inlined PaperScript associate it with myCanvas -->
 <script type="text/paperscript" canvas="paper-canvas">
-  var colReadable = ${isDarkTheme ? "'white'" : "'black'"};
+  var colReadable = ${colorMode === "dark" ? "'white'" : "'black'"};
   ${script}
 </script>
 <style>
@@ -270,7 +226,7 @@ canvas {
 
   useEffect(() => {
     updateCanvas();
-  }, [isDarkTheme]);
+  }, [colorMode]);
 
   return (
     <div className="dolly">

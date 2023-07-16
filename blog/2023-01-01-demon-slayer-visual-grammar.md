@@ -36,7 +36,7 @@ And the anime adaptation does all of that and more. It expands dramatically on a
 <Iframe srcUrl="https://www.youtube.com/embed/yo1Rn8za-Uo" legend="Breakdown of a Heaven's Feel shot, the prior work of Ufotable before Demon Slayer" />
 <br/>
 
-If you are more curious about Ufotable and how they work, I'd recommend [this interview of Yuichi Terao](https://www.animenewsnetwork.com/feature/2018-01-10/interview-yuichi-terao-chief-of-ufotable-digital-team/.125658), compositing director at Ufotable. 
+If you are more curious about Ufotable and how they work, I'd recommend [this interview of Yuichi Terao](https://www.animenewsnetwork.com/feature/2018-01-10/interview-yuichi-terao-chief-of-ufotable-digital-team/.125658), compositing director at Ufotable.
 
 This 2D/3D DNA is of course found in Demon Slayer with smooth camera movements framing 2D characters in 3D environments or the different breathing techniques which are built from 2D animation painted on top of 3D renders.
 
@@ -60,6 +60,7 @@ But enough with the introduction! Let's take a shot and analyze it :
 <br/>
 
 **Why this shot?**
+
 1. Pretty simple framing so better to see the VFX and compositing techniques I want to talk about
 2. Still very action-packed, with 5 attacks in 8 seconds!
 3. It's a very personal thought, but I really like Inosuke's animation in the show
@@ -73,6 +74,7 @@ But there are exceptions, the shot can dynamically change if the action needs it
 <CarouselImage srcImages={["img/illustrations/demonSlayer8.png", "img/illustrations/demonSlayer9.png", "img/illustrations/demonSlayer10.png", "img/illustrations/demonSlayer11.png"]} keyInit="demonSlayer3" />
 
 The action follows a simple but effective rythm:
+
 1. **Prepare (long)**
 2. **Strike (short)**
 3. **Relax (long)**
@@ -97,10 +99,10 @@ Now that we know what we work with, we can look at the first principle: center f
 <Video srcVideo="img/illustrations/demonslayer/1 - Framing.mp4" legend="Framing breakdown" />
 <br/>
 
-Action is compressed at the center of the frame so that the eye doesn't have to move too much, in order to follow what is happening without getting tired despite the intensity. This is something planned at the storyboard stage obviously. 
+Action is compressed at the center of the frame so that the eye doesn't have to move too much, in order to follow what is happening without getting tired despite the intensity. This is something planned at the storyboard stage obviously.
 
 It's a classic principle in the action movies, easing a lot the editing work in post-production.
-One of the best examples you can found is _Mad Max: Fury Road_: 
+One of the best examples you can found is *Mad Max: Fury Road*:
 
 <br/>
 <Iframe srcUrl="https://www.youtube.com/embed/CR7ejkmf8Y4" legend="DP John Seale about Mad Max Fury Road" />
@@ -113,7 +115,7 @@ Second technique still on the camera side: shake. This **camera shake is animate
 <Video srcVideo="img/illustrations/demonslayer/2 - CameraShake.mp4" legend="Camera Shake breakdown" />
 <br/>
 
-On top of it, on each impact, the **camera is bumped in the direction of the strike**. This shake add articifial motion blur which makes the impact frames even more chaotic (in a good way)! 
+On top of it, on each impact, the **camera is bumped in the direction of the strike**. This shake add articifial motion blur which makes the impact frames even more chaotic (in a good way)!
 
 <Image srcImage="img/illustrations/demonSlayer14.png" altText="blurry-strike" legend="A blurry strike (it gets less blurry afterwards)" />
 
@@ -131,9 +133,9 @@ To see the third technique, we better switch the shot to black and white:
 <Video srcVideo="img/illustrations/demonslayer/0 - Base B&W.mp4" legend="Shot B&W" />
 <br/>
 
-With that, you should see how it **flashes** in intensity. 
+With that, you should see how it **flashes** in intensity.
 
-Each sword strike is announced by a _glint_ on the sword, then reinforced by a light shape and sparks.
+Each sword strike is announced by a *glint* on the sword, then reinforced by a light shape and sparks.
 Conversely, each fabric strike is announced by a softer, blurrier light invading the screen.
 
 <CarouselImage srcImages={["img/illustrations/demonSlayer12.png", "img/illustrations/demonSlayer15.png"]} keyInit="demonSlayer4" />
@@ -146,7 +148,7 @@ Beyond the form that the light takes, the **light color is also important: blue 
 
 ### Impact Frames
 
-The last light principle is quite widespread but Ufotable excels at it: impact frames. The idea is to **insert a particularly contrasted frame at the moment of impact to give it an additional visual _impact_**:
+The last light principle is quite widespread but Ufotable excels at it: impact frames. The idea is to **insert a particularly contrasted frame at the moment of impact to give it an additional visual *impact***:
 
 <CarouselImage srcImages={["img/illustrations/demonSlayer16.png", "img/illustrations/demonSlayer17.png", "img/illustrations/demonSlayer18.png"]} keyInit="demonSlayer5" />
 
