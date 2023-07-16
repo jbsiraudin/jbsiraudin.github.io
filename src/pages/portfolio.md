@@ -1,4 +1,4 @@
-# jb siraudin's portfolio (2021)
+# jb siraudin's portfolio (2023)
 
 import Image from "../components/Image";
 import Iframe from "../components/Iframe";
@@ -11,9 +11,15 @@ Here is a collection of visuals showcasing the various projects I worked on or c
 
 ## Games
 
-### Skull and Bones (2020-...)
+### Star Wars Outlaws (2022-...)
 
-<Image srcImage="https://upload.wikimedia.org/wikipedia/en/8/81/Skull_%26_Bones_video_game.jpg" legend="The latest official poster of Skull and Bones ... until the new one is revealed!"/>
+<Image srcImage="https://upload.wikimedia.org/wikipedia/en/6/60/Star_Wars_Outlaws_2023.jpeg" legend="Star Wars Outlaws Key Art"/>
+
+Game Design on Star Wars Outlaws, an AAA Ubisoft Original.
+
+### Skull and Bones (2020-2022)
+
+<Image srcImage="https://upload.wikimedia.org/wikipedia/en/8/81/Skull_%26_Bones_video_game.jpg" legend="Skull and Bones Key Art"/>
 
 Game Design & Previz on Skull & Bones, an AAA Ubisoft Original.
 

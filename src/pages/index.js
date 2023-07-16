@@ -10,11 +10,11 @@ export default function Home() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          minHeight: "65vh"
+          minHeight: "65vh",
         }}
       >
         <div className="prose">
-          <p>Hi, I'm Jean-Baptiste, previz & game designer at Ubisoft Paris.</p>
+          <p>Hi, I'm Jean-Baptiste, game designer at Ubisoft Paris.</p>
           <p>
             <strong>I enjoy making games and experiences that makes you think differently</strong>.
             I also practice maths, graphics programming, video editing and writing as a hobbyist. I
