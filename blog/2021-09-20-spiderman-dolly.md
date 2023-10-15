@@ -106,7 +106,7 @@ https://en.wikipedia.org/wiki/Dolly_zoom
 https://giphy.com/explore/the-dolly-zoom
 
 <Iframe srcUrl="https://www.shadertoy.com/embed/tljcDK?gui=false&t=0&paused=true&muted=true" />
- -->
+-->
 
 ---
 
@@ -121,3 +121,13 @@ You can see below how $a$ evolves according to the zoom factor on this drawing:
 <Dolly />
 
 <p style={{fontSize: 12}}>All the Spider-Man additional gameplay of this article was extracted from <a href="https://youtu.be/eEPG4TMhwtk" target="_blank" rel="noopener noreferrer">this video</a>.</p>
+
+---
+
+Now, **should you put a Dolly Zoom in everything?** Please god, no.
+
+It's a fine line to walk between _smart reuse of a proven recipe_ and _gimmicky reuse of an identified recipe_. And I don't want to Dolly Zoom to be the Wilhem scream of video games cameras.
+
+Personally, I'm more and more attracted by doing more with less. For example, if I have to buy a new lens for my DSLR, I always go towards prime lenses, a fixed focal length lens. What you lose in versatility, you gain in optical quality, weight and maximum aperture. Designing constraints that are not only closing doors but opening others is liberating for any creative process.
+
+As Spiderman 2 is probably in the works, I'm wondering what trickery Insomniac can cook this time. But I know what I'd like: something simple, effective born out of opinionated constraints.
