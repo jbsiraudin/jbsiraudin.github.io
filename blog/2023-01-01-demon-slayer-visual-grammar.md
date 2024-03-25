@@ -170,7 +170,7 @@ These techniques are not magic, they only accentuate the initial animation, they
 <Video srcVideo="img/illustrations/demonslayer/4 - Explanation.mp4" legend="Shot full breakdown" />
 <br/>
 
-For example, the game Sify shares some of this DNA on its visual feedbacks:
+For example, the game _Sifu_ shares some of this DNA on its visual feedbacks:
 
 <CarouselImage srcImages={["img/illustrations/sifu1.png", "img/illustrations/sifu2.png", "img/illustrations/sifu3.png", "img/illustrations/sifu4.png"]} keyInit="sifu1" />
 

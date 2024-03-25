@@ -23,12 +23,13 @@ Game Design on Star Wars Outlaws, an AAA Ubisoft Original.
 
 Game Design & Previz on Skull & Bones, an AAA Ubisoft Original.
 
-- Helped multiple internal teams with design problems in a transversal previz role, with a focus on realization and user experience.
+- Helped ground gameplay teams in a transversal previz role, delivering prototypes and design documents, with a focus on realization and user experience for the ground cache and treasure maps features.
+- Designer on [The Helm](https://youtu.be/DwNegC92x_s), an end-game feature, with a focus on PvPvE gameplay combat challenges, economy and UI, leading its implementation in the Anvil pipeline.
+- Public speaker at Ubisoft Forward September 2022 public event at Ubisoft HQ to present Skull & Bones and answer questions about the game.
 - Developed dozens of UX and design prototypes, written with Javascript and playable with a gamepad.
-- Design owner on two PvPvE gameplay features, leading the implementation in the Anvil pipeline while collaborating with multiple departments.
 - Edited 10 internal videos to showcase the work of the Paris team on important milestones.
 
-I can't say much until the game is out! I'll update this section when I'm able to.
+Left the project at the end of 2022, soon after the planned release of November 2022, to join Star Wars Outlaws.
 
 <br/>
 
@@ -195,49 +196,6 @@ It was first a school project, and I made another implementation in Unity with c
 <br/>
 
 <Iframe srcUrl="https://www.youtube.com/embed/icINRLGSq4Y" />
-
-<br/>
-
----
-
-## Random stuff
-
-### Animated posters
-
-I really like [Kevin Tong's work](https://tragic-sunshine.myshopify.com/") so I took a shot at animating the two posters he did for Naughty Dog. All work was done with Photoshop and After Effects.
-
-<div className="gallery">
-  <Image
-    srcImage="img/portfolio/tlou1.jpg"
-    halfWidth
-  />
-  <Image
-    srcImage="img/portfolio/tlou2.jpg"
-    halfWidth
-  />
-</div>
-
-<p class="legend">Kevin Tong's original posters</p>
-
-<div className="gallery">
-  <Video
-    srcVideo="img/portfolio/tlouanim1.mp4"
-    width="400"
-    height="600"
-  />
-  <Video
-    srcVideo="img/portfolio/tlouanim2.mp4"
-    width="400"
-    height="600"
-  />
-</div>
-
-<p class="legend">My animated versions of the posters</p>
-
-### [Chrome extension "Buy mode"](https://chrome.google.com/webstore/detail/buy-mode/chelhfjncfodagiaajlcedabncohepag?hl=en)
-
-A silly little chrome extension that launches The Sims' Buy Mode music playlist when you enter Amazon's website and stops it when you leave it.
-The code is [available on my GitHub](https://github.com/jbsiraudin/buymode-amazon).
 
 <br/>
 <br/>
