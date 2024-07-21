@@ -17,6 +17,14 @@ Here is a collection of visuals showcasing the various projects I worked on or c
 
 Game Design on Star Wars Outlaws, an AAA Ubisoft Original.
 
+- Feature owner and designer for 2 gameplay activities (Sabacc and Fathier Races), leading the implementation in the Snowdrop engine using visual scripting
+- Collaborated with up to 50 people on one feature, in art, animation, narrative, sound and tech departments, providing feedbacks and guidance to achieve a cohesive experience
+- Stage director on gameplay motion-capture sessions
+- Developed 3 python scripts to improve the team workflow in the Snowdrop engine (sequencer, excel-to-data import/export, data sorter/renamer)
+- Joined the tech team as a technical game designer for the production of the DLC quests
+
+<br/>
+
 ### Skull and Bones (2020-2022)
 
 <Image srcImage="https://upload.wikimedia.org/wikipedia/en/8/81/Skull_%26_Bones_video_game.jpg" legend="Skull and Bones Key Art"/>
@@ -41,7 +49,7 @@ Inspired by [Shadertoy](https://www.shadertoy.com), **Papertoy** lets you build 
 
 I developed this code editor in a few days after a year of experimenting with web UX/UI prototyping at Ubisoft. I gave a conference about what I built and people were interested in adopting this kind of workflow, but without the barrier of knowing web development basics.
 
-The project is still young and riddled with issues, but is very promising and will eventually be my main tool for building my own prototypes!
+The project is still young and riddled with small QoL issues, but is very promising and is my main tool for building my own prototypes!
 
 ---
 

@@ -1,4 +1,4 @@
-# jb siraudin's misc stuff (2023)
+# jb siraudin's misc stuff (2024)
 
 import Image from "../components/Image";
 import CarouselImage from "../components/CarouselImage";
@@ -15,6 +15,8 @@ Random collection of small stuff I made.
 <Iframe srcUrl="https://www.shadertoy.com/embed/Wd2fWR?gui=true&t=10&paused=true&muted=false" width="640" height="360" legend="Pure 2D sdf drawing to reacreate a 3D isometric effect" />
 <br/>
 <Iframe srcUrl="https://www.shadertoy.com/embed/M3SXzV?gui=true&t=10&paused=true&muted=false" width="640" height="360" legend="Super simple color vortex" />
+<br/>
+<Iframe srcUrl="https://www.shadertoy.com/embed/4cK3WV?gui=true&t=10&paused=true&muted=false" width="640" height="360" legend="X-Wing Targeting Computer" />
 <br/>
 
 ### THPS
