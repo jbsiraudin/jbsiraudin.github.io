@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[6401],{8969:l=>{l.exports=JSON.parse('{"label":"procedural","permalink":"/blog/tags/procedural","allTagsPath":"/blog/tags","count":4,"unlisted":false}')}}]);

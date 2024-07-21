@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[1616],{852:l=>{l.exports=JSON.parse('{"label":"3C","permalink":"/blog/tags/3-c","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
