@@ -32,7 +32,7 @@
     "react-dom": "^17.0.1",
     "react-responsive-carousel": "^3.2.21",
     "react-tooltip": "^4.2.21",
-    "rehype-katex": "^4.0.0",
+    "rehype-katex": "^7.0.1",
     "remark-math": "^3.0.1",
     "sass": "^1.37.5",
     "url-loader": "^4.1.1",
