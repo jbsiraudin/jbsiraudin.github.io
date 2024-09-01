@@ -1,4 +1,4 @@
-# jb siraudin's portfolio (2023)
+# jb siraudin's portfolio
 
 import Image from "../components/Image";
 import Iframe from "../components/Iframe";
@@ -15,13 +15,20 @@ Here is a collection of visuals showcasing the various projects I worked on or c
 
 <Image srcImage="https://upload.wikimedia.org/wikipedia/en/6/60/Star_Wars_Outlaws_2023.jpeg" legend="Star Wars Outlaws Key Art"/>
 
-Game Design on Star Wars Outlaws, an AAA Ubisoft Original.
+Game Design on Star Wars Outlaws, an AAA Ubisoft Original, released on August 30, 2024.
 
 - Feature owner and designer for 2 gameplay activities (Kessel Sabacc and Fathier Races), leading the implementation in the Snowdrop engine using visual scripting
 - Collaborated with up to 50 people on Sabacc, in art, animation, narrative, sound and tech departments, providing feedbacks and guidance to achieve a cohesive experience
 - Stage director on gameplay motion-capture sessions
 - Developed 3 python scripts to improve the team workflow in the Snowdrop engine (sequencer, excel-to-data import/export, data sorter/renamer)
 - Joined the tech team as a technical game designer for the production of the DLC quests
+
+<br/>
+
+<Iframe srcUrl="https://www.youtube.com/embed/-qgjgMYlcAA" legend="Star Wars Outlaws: Defeating Lando in Sabacc" />
+
+<br/>
+
 
 A few press quotes about Kessel Sabacc:
 
@@ -41,7 +48,7 @@ A few press quotes about Kessel Sabacc:
 
 <Image srcImage="https://upload.wikimedia.org/wikipedia/en/8/81/Skull_%26_Bones_video_game.jpg" legend="Skull and Bones Key Art"/>
 
-Game Design & Previz on Skull & Bones, an AAA Ubisoft Original.
+Game Design & Previz on Skull & Bones, an AAA Ubisoft Original, released on February 16, 2024.
 
 - Helped ground gameplay teams in a transversal previz role, delivering prototypes and design documents, with a focus on realization and user experience for the ground cache and treasure maps features.
 - Designer on [The Helm](https://youtu.be/DwNegC92x_s), an end-game feature, with a focus on PvPvE gameplay combat challenges, economy and UI, leading its implementation in the Anvil pipeline.
