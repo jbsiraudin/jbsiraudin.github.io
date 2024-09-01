@@ -17,11 +17,23 @@ Here is a collection of visuals showcasing the various projects I worked on or c
 
 Game Design on Star Wars Outlaws, an AAA Ubisoft Original.
 
-- Feature owner and designer for 2 gameplay activities (Sabacc and Fathier Races), leading the implementation in the Snowdrop engine using visual scripting
-- Collaborated with up to 50 people on one feature, in art, animation, narrative, sound and tech departments, providing feedbacks and guidance to achieve a cohesive experience
+- Feature owner and designer for 2 gameplay activities (Kessel Sabacc and Fathier Races), leading the implementation in the Snowdrop engine using visual scripting
+- Collaborated with up to 50 people on Sabacc, in art, animation, narrative, sound and tech departments, providing feedbacks and guidance to achieve a cohesive experience
 - Stage director on gameplay motion-capture sessions
 - Developed 3 python scripts to improve the team workflow in the Snowdrop engine (sequencer, excel-to-data import/export, data sorter/renamer)
 - Joined the tech team as a technical game designer for the production of the DLC quests
+
+A few press quotes about Kessel Sabacc:
+
+> If nothing else, I've had a wonderful time playing Sabacc. The new variant, Kessel Sabacc, invented for Star Wars Outlaws is infinitely moreish, a simple card game that takes elements of Blackjack and Poker and a few others, and blends them into an eminently snackable bit of video game gambling. In the simplest terms, four players are each dealt a hand of two cards and take turns, through three rounds, to attempt to make a pair of the two lowest numbers possible. Drawing a new card costs a token, as does coming anywhere but first at the end of each set of rounds. When you're out of tokens you're out of the game; last player standing wins. I could play it all day. [Chris Tapsell for Eurogamer](https://www.eurogamer.net/star-wars-outlaws-review)
+
+> You might get lost in Sabacc, an addictive, complicated card game that plays like a cross between poker, blackjack and Uno. [Jason Schreier from Bloomberg](https://www.bloomberg.com/news/newsletters/2024-08-30/-star-wars-outlaws-is-better-than-reviews-suggest)
+
+> I’m particularly partial to Kessel Sabacc, a card game that’s kind of like blackjack, if blackjack also had Uno house rules designed to make everyone else hate you. It might be the best thing in the game. [Joshua Rivera for Vulture](https://www.vulture.com/article/star-wars-outlaws-review.html)
+
+> The last bit of roleplaying that rounds out the scoundrel experience is a card game called Kessel Sabacc. Like any open world game worth its salt (The Witcher 3, Final Fantasy VII Rebirth), Outlaws’ take on a card-based minigame is quickly addictive. Unlike The Witcher 3’s Gwent, Sabacc delivers both the strategy of play with the scummy joy of gambling in a sleazy bar, complete with the ability to cheat. The rules are complicated to explain, but just know that this is a game where you can sit across a table with the likes of Lando Calrissian himself, nervously eyeballing your hand while your sidekick Nix peers at his cards over the shoulder. [Christopher Cruz for RollingStone](https://www.rollingstone.com/culture/rs-gaming/star-wars-outlaws-review-1235084628/)
+
+
 
 <br/>
 
