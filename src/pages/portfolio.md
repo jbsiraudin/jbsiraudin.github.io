@@ -11,7 +11,7 @@ Here is a collection of visuals showcasing the various projects I worked on or c
 
 ## Games
 
-### Star Wars Outlaws (2022-...)
+### Star Wars Outlaws (2022-2024)
 
 <Image srcImage="https://upload.wikimedia.org/wikipedia/en/6/60/Star_Wars_Outlaws_2023.jpeg" legend="Star Wars Outlaws Key Art"/>
 
