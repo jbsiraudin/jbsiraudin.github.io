@@ -47,6 +47,10 @@ module.exports = {
               href: 'https://twitter.com/scinema_x',
             },
             {
+              label: 'Bluesky',
+              href: 'https://bsky.app/profile/jbsiraudin.bsky.social',
+            },
+            {
               label: 'LinkedIn',
               href: 'https://www.linkedin.com/in/jean-baptiste-siraudin/',
             },
@@ -67,6 +71,10 @@ module.exports = {
             {
               label: 'The Shape of Movies',
               href: 'https://theshapeofmovies.com',
+            },
+            {
+              label: 'Papertoy',
+              href: 'https://papertoy.dev',
             },
           ],
         },
