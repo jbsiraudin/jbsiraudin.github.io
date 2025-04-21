@@ -1,6 +1,7 @@
 # jb siraudin's portfolio
 
 import Image from "../components/Image";
+import CarouselImage from "../components/CarouselImage";
 import Iframe from "../components/Iframe";
 import Video from "../components/Video";
 import Small from "../components/Small";
@@ -23,6 +24,7 @@ Game Design on Star Wars Outlaws, an AAA Ubisoft Original, released on August 30
 - Developed 3 python scripts to improve the team workflow in the Snowdrop engine (sequencer, excel-to-data import/export, data sorter/renamer)
 - Joined the tech team as a technical game designer for the production of the DLC quests
 
+
 <br/>
 
 <Iframe srcUrl="https://www.youtube.com/embed/-qgjgMYlcAA" legend="Star Wars Outlaws: Defeating Lando in Sabacc" />
@@ -40,7 +42,13 @@ A few press quotes about Kessel Sabacc:
 
 > The last bit of roleplaying that rounds out the scoundrel experience is a card game called Kessel Sabacc. Like any open world game worth its salt (The Witcher 3, Final Fantasy VII Rebirth), Outlaws’ take on a card-based minigame is quickly addictive. Unlike The Witcher 3’s Gwent, Sabacc delivers both the strategy of play with the scummy joy of gambling in a sleazy bar, complete with the ability to cheat. The rules are complicated to explain, but just know that this is a game where you can sit across a table with the likes of Lando Calrissian himself, nervously eyeballing your hand while your sidekick Nix peers at his cards over the shoulder. [Christopher Cruz for RollingStone](https://www.rollingstone.com/culture/rs-gaming/star-wars-outlaws-review-1235084628/)
 
+<br/>
 
+I was also lucky to be a speaker at GDC 2025 for 2 talks about Sabacc, representing the work done by our team at Ubisoft Paris:
+  - [Crafting Sabacc in 'Star Wars Outlaws'](https://gdcvault.com/play/1035137/Crafting-Sabacc-in-Star-Wars)
+  - [Designing Emotions in 'Star Wars Outlaws' Sabacc NPCs](https://gdcvault.com/play/1035173/Game-AI-Summit-Designing-Emotions)
+
+<CarouselImage srcImages={["img/misc/GDC2025_bis.png", "img/misc/GDC2025.png"]} keyInit="gdc" />
 
 <br/>
 
