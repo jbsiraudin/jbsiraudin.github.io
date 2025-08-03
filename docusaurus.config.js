@@ -30,6 +30,7 @@ module.exports = {
         { to: '/blog', label: 'Blog', position: 'left' },
         { to: '/portfolio', label: 'Portfolio', position: 'left' },
         { to: '/misc', label: 'Misc', position: 'left' },
+        { to: '/timeliner', label: 'Timeliner', position: 'left' },
       ],
     },
     footer: {
@@ -107,6 +108,7 @@ module.exports = {
             require.resolve('./src/css/Combinatorics.scss'),
             require.resolve('./src/css/Rules.scss'),
             require.resolve('./src/css/Dolly.scss'),
+            require.resolve('./src/css/Timeliner.scss'),
           ],
         },
       },
