@@ -101,14 +101,14 @@ module.exports = {
         },
         theme: {
           customCss: [
-            require.resolve('./src/css/custom.scss'),
-            require.resolve('./src/css/ToggleSwitch.scss'),
-            require.resolve('./src/css/TimelineViewer.scss'),
-            require.resolve('./src/css/ContentDistribution.scss'),
-            require.resolve('./src/css/Combinatorics.scss'),
-            require.resolve('./src/css/Rules.scss'),
-            require.resolve('./src/css/Dolly.scss'),
-            require.resolve('./src/css/Timeliner.scss'),
+            './src/css/custom.scss',
+            './src/css/ToggleSwitch.scss',
+            './src/css/TimelineViewer.scss',
+            './src/css/ContentDistribution.scss',
+            './src/css/Combinatorics.scss',
+            './src/css/Rules.scss',
+            './src/css/Dolly.scss',
+            './src/css/Timeliner.scss',
           ],
         },
       },
@@ -122,5 +122,8 @@ module.exports = {
       crossorigin: 'anonymous',
     },
   ],
-  plugins: ['docusaurus-plugin-sass'],
+  plugins: [
+    'docusaurus-plugin-sass',
+    require.resolve('./plugins/timeliner-plugin'),
+  ],
 };
