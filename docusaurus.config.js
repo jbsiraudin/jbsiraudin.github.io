@@ -10,6 +10,7 @@ module.exports = {
   projectName: 'jbsiraudin.github.io',
   url: 'https://jbsiraudin.github.io',
   baseUrl: '/',
+  deploymentBranch: 'gh-pages',
   trailingSlash: false,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
