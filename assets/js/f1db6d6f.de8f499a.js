@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[1868],{1554:o=>{o.exports=JSON.parse('{"permalink":"/blog/tags/tools","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

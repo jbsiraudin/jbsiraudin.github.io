@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[8339],{4956:s=>{s.exports=JSON.parse('{"label":"hades","permalink":"/blog/tags/hades","allTagsPath":"/blog/tags","count":2,"unlisted":false}')}}]);

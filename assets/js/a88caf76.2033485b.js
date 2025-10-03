@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[1405],{6365:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/science-popularization","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[5114],{4867:s=>{s.exports=JSON.parse('{"label":"designing information","permalink":"/blog/tags/designing-information","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

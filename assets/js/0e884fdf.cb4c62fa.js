@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[9026],{1774:e=>{e.exports=JSON.parse('{"label":"game design","permalink":"/blog/tags/game-design","allTagsPath":"/blog/tags","count":6,"unlisted":false}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[407],{9014:s=>{s.exports=JSON.parse('{"label":"movies","permalink":"/blog/tags/movies","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkjb_blog=self.webpackChunkjb_blog||[]).push([[3475],{4065:a=>{a.exports=JSON.parse('{"label":"benchmark","permalink":"/blog/tags/benchmark","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
