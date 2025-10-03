@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .app-container {
   position: relative;
   top: 30px;
@@ -35,9 +37,9 @@
   transform: translateX(-50%);
 }
 
-$color-bo: transparentize(
-  $color: white,
-  $amount: 0.05,
+$color-bo: color.adjust(
+  white,
+  $alpha: -0.05,
 );
 
 .bo-container {
