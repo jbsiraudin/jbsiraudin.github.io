@@ -68,6 +68,9 @@ next steps :
 - [ ] card analyzer
 - [ ] dungeon analyzer (dire si répétition)
 - [ ] fix bug: initial list of constraints is not respected
+
+"Design randomness" laisse un peu un sentiment bizarre, tu passes un peu vite sur les sujets: "c'est pas du procédural, c'est de la distribution" (bonne intro en soi) "mais osef c'est utile quand même" "btw voici une façon de le faire"
+peut-être que cette entrée en matière est pas vraiment la bonne pour le sujet réel qui est "comment faire du bon random", mais du coup sur ce réel sujet on manque de développement (un exemple moins abstrait que des cartes, expliquer les différents intérêts/coûts de design cette randomness)
 -->
 
 <ContentDistribution />

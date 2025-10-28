@@ -17,6 +17,11 @@ import Rules from "../src/components/Rules/Rules"
 
 ---
 
+<!--
+[20/10/2021 09:59] Jean-Baptiste Oger
+Pour celui sur les sentences, j'ai eu l'impression que ça finissait trop tôt, le sujet est tellement intéressant et tu le présentes bien, mais je manquais de takeaways: en quoi c'est intéressant de créer un système comme ça? Le proto final avec la dataviz me donne l'impression qu'il y a toute une dimension supplémentaire derrière le rideau. Ou peut-être que le message du post c'est surtout "c'est trop cool de jouer avec ces systèmes, allez tester ces jeux"
+-->
+
 <p style={{fontSize: 36, textAlign: "center", fontWeight: "bold"}}>
 I love puns.
 </p>
