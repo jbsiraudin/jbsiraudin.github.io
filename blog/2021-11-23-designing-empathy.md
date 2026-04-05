@@ -12,3 +12,6 @@ https://slash7.com/2006/12/22/vampires/
 <!--truncate-->
 
 ---
+
+Rewards represents directly the sets of values of your system.
+How do you design rewards to promote healthy values?
