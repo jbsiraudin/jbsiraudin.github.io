@@ -1,0 +1,26 @@
+---
+title: NPC systems
+description: "Notes on NPC systems for open world games."
+date: 2026-02-06
+draft: true
+tags: [game design]
+---
+
+
+
+Village of NPCs prototype
+
+home : link vers les pages
+page 1 : wedding table problem
+page 2 : demo, a timeline of colors
+page 3 : demo, a character day
+page 4 : demo, a village day
+page 5 : demo, facs animation system
+page 6 : concept, data analysis and player stories
+
+
+Have a system to set the weights more easily?
+
+perceived complexity vs real complexity 
+https://x.com/thestanduppod/status/2024560100325609834?s=20 
+from simple interactions, complex emergent consequences

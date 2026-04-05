@@ -1,0 +1,161 @@
+fieldset legend {
+    font-weight: bold;
+}
+
+fieldset div label {
+    margin-right: 2px;
+    text-align: left;
+    font-size: 12px;
+}
+
+.paper-canvas {
+    border: 1px solid #cccccc;
+}
+
+.Timeliner-App {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 500px;
+    margin-top: 28px;
+}
+
+.Timeliner-App-input {
+    display: block;
+    padding: 12px;
+}
+
+.Timeliner-App-input label {
+    margin-right: 8px;
+}
+
+.export-buttons button {
+    margin: 5px;
+}
+
+.Timeliner-App .base {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+    width: 100%;
+}
+
+.display-options {
+    background-color: #eeeeee;
+    width: 200px;
+    text-align: left;
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    z-index: 101;
+}
+
+.timeline-options {
+    position: fixed;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 102;
+    width: 100%;
+}
+
+.timeline-options .fieldset-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.fieldset-container fieldset {
+    background-color: #eeeeee;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 12px;
+    margin: 0 6px;
+    display: inline-block;
+}
+
+.option-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.option {
+    display: inline-flex;
+    padding: 4px 0px;
+}
+
+.text-input {
+    width: 150px;
+}
+
+.beats-container {
+    display: block;
+    width: 420px;
+}
+
+.beat-container {
+    padding: 6px;
+    border: 1px solid #cccccc;
+}
+
+.beat-container .beat-line {
+    display: inline-flex;
+    width: 100%;
+}
+
+.create-beat {
+    width: 250px;
+}
+
+.reset-button {
+    color: firebrick;
+    padding: 0;
+    height: 19px;
+}
+
+.delete-button {
+    color: firebrick;
+    width: 27px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+.range-slider {
+    margin-left: 10px;
+}
+
+.range-slider .range-slider__thumb {
+    width: 16px;
+    height: 16px;
+}
+
+input[type="color"] {
+    height: 24px;
+}
+
+input[type="color" i] {
+    padding: 0px 1px;
+}
+
+.tutorial {
+    margin-top: 100px;
+    max-width: 1200px;
+    width: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+}
+
+.tutorial h2 {
+    margin-bottom: 0;
+}
+
+.tutorial img {
+    width: 100%;
+}

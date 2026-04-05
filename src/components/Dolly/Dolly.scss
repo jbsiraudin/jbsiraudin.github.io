@@ -1,0 +1,38 @@
+.dolly {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  canvas {
+    max-width: 500px;
+  }
+
+  iframe {
+    max-width: 500px;
+    overflow: visible;
+    width: 100%;
+  }
+
+  .input-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .input {
+      font-size: 32px;
+      font-family: "KaTeX_Main", "Times New Roman", serif;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      align-content: center;
+      margin: 0 5px 24px 5px;
+
+      p {
+        margin: 0 10px;
+      }
+
+      input {
+      }
+    }
+  }
+}
