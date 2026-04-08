@@ -1,10 +1,8 @@
 ---
-layout: "@layouts/PageLayout.astro"
+layout: "@layouts/MdxLayout.astro"
 title: "Misc"
 description: "A random collection of small projects and experiments."
 ---
-
-# jb siraudin's misc stuff (2024)
 
 import Image from "@components/Image";
 import CarouselImage from "@components/CarouselImage";
@@ -41,11 +39,11 @@ I really like [Kevin Tong's work](https://tragic-sunshine.myshopify.com/") so I 
 
 <div className="gallery">
   <Image
-    srcImage="img/misc/tlou1.jpg"
+    srcImage="/img/misc/tlou1.jpg"
     halfWidth
   />
   <Image
-    srcImage="img/misc/tlou2.jpg"
+    srcImage="/img/misc/tlou2.jpg"
     halfWidth
   />
 </div>
@@ -53,16 +51,8 @@ I really like [Kevin Tong's work](https://tragic-sunshine.myshopify.com/") so I 
 <p className="legend">Kevin Tong's original posters</p>
 
 <div className="gallery">
-  <Video
-    srcVideo="img/misc/tlouanim1.mp4"
-    width="400"
-    height="600"
-  />
-  <Video
-    srcVideo="img/misc/tlouanim2.mp4"
-    width="400"
-    height="600"
-  />
+  <Video client:load srcVideo="/img/misc/tlouanim1.mp4" width="400" height="600" />
+  <Video client:load srcVideo="/img/misc/tlouanim2.mp4" width="400" height="600" />
 </div>
 
 <p className="legend">My animated versions of the posters</p>

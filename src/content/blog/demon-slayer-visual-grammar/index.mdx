@@ -6,17 +6,16 @@ draft: false
 tags: [design, movies, analysis]
 ---
 
-Ufotable is killing it, with simple but sharp tools.
-
-
 import Image from "@components/Image"
 import Video from "@components/Video"
 import Iframe from "@components/Iframe"
 import CarouselImage from "@components/CarouselImage"
 
+Ufotable is killing it, with simple but sharp tools.
+
 ---
 
-<Image srcImage="img/illustrations/demonSlayer0.png" altText="inosuke-surprised" legend="An anime article? What is this?" />
+<Image srcImage="/img/illustrations/demonSlayer0.png" altText="inosuke-surprised" legend="An anime article? What is this?" />
 
 Here is a short article adapted from a [twitter 🧵 thread 🧵 I wrote](https://twitter.com/scinema_x/status/1609959007728373760) about the visual design of Demon Slayer, a very popular anime that I love.
 
@@ -39,23 +38,23 @@ If you are more curious about Ufotable and how they work, I'd recommend [this in
 
 This 2D/3D DNA is of course found in Demon Slayer with smooth camera movements framing 2D characters in 3D environments or the different breathing techniques which are built from 2D animation painted on top of 3D renders.
 
-<CarouselImage client:load srcImages={["img/illustrations/demonSlayer1.png", "img/illustrations/demonSlayer2.png"]} keyInit="demonSlayer1" />
+<CarouselImage client:load srcImages={["/img/illustrations/demonSlayer1.png", "/img/illustrations/demonSlayer2.png"]} keyInit="demonSlayer1" />
 
 Often very appealing but sometimes you end up with badly shaded flesh tentacles that don't seem like they belong in the frame.
 
-<Image srcImage="img/illustrations/demonSlayer3.png" altText="flesh-tentacles" legend="Not their best work..." />
+<Image srcImage="/img/illustrations/demonSlayer3.png" altText="flesh-tentacles" legend="Not their best work..." />
 <br/>
 
 A lot of animators are contributing to the success of Ufotable, but the most famous one has to be Nozomu Abe, responsible of most of the "money" shots of the first 2 seasons of the show.
 
-<CarouselImage client:load srcImages={["img/illustrations/demonSlayer4.png", "img/illustrations/demonSlayer5.png", "img/illustrations/demonSlayer6.png", "img/illustrations/demonSlayer7.png"]} keyInit="demonSlayer2" />
+<CarouselImage client:load srcImages={["/img/illustrations/demonSlayer4.png", "/img/illustrations/demonSlayer5.png", "/img/illustrations/demonSlayer6.png", "/img/illustrations/demonSlayer7.png"]} keyInit="demonSlayer2" />
 
 ## The scene
 
 But enough with the introduction! Let's take a shot and analyze it :
 
 <br/>
-<Video srcVideo="img/illustrations/demonslayer/0 - Base.mp4" legend="A shot from season 2 episode 9" />
+<Video client:load srcVideo="/img/illustrations/demonslayer/0 - Base.mp4" legend="A shot from season 2 episode 9" />
 <br/>
 
 **Why this shot?**
@@ -70,7 +69,7 @@ Let's begin by looking at the animation frames to understand the base material. 
 
 But there are exceptions, the shot can dynamically change if the action needs it like this body rotation: 4 drawings in 4 frames, with motion blur directly drawn in. Other slowmo effects are also animated "on ones" to create a better smoothing feeling.
 
-<CarouselImage client:load srcImages={["img/illustrations/demonSlayer8.png", "img/illustrations/demonSlayer9.png", "img/illustrations/demonSlayer10.png", "img/illustrations/demonSlayer11.png"]} keyInit="demonSlayer3" />
+<CarouselImage client:load srcImages={["/img/illustrations/demonSlayer8.png", "/img/illustrations/demonSlayer9.png", "/img/illustrations/demonSlayer10.png", "/img/illustrations/demonSlayer11.png"]} keyInit="demonSlayer3" />
 
 The action follows a simple but effective rythm:
 
@@ -80,12 +79,12 @@ The action follows a simple but effective rythm:
 
 The strike itself is often made in just one frame, with a brutal change of pose:
 
-<CarouselImage client:load srcImages={["img/illustrations/demonSlayer12.png", "img/illustrations/demonSlayer13.png"]} keyInit="demonSlayer4" />
+<CarouselImage client:load srcImages={["/img/illustrations/demonSlayer12.png", "/img/illustrations/demonSlayer13.png"]} keyInit="demonSlayer4" />
 
 But the **preparation and effect of the strike are felt for a long long time on the character pose**. Here is a video to visualize what I mean (each point is a different drawing, red dots mark important pose changes) :
 
 <br/>
-<Video srcVideo="img/illustrations/demonslayer/5 - Animation.mp4" legend="Animation breakdown" />
+<Video client:load srcVideo="/img/illustrations/demonslayer/5 - Animation.mp4" legend="Animation breakdown" />
 <br/>
 
 Demon Slayer's fight choregraphies are forged in this rythm, sometimes adding slowmo to artificially create breathing moments in very hectic scenes.
@@ -95,7 +94,7 @@ Demon Slayer's fight choregraphies are forged in this rythm, sometimes adding sl
 Now that we know what we work with, we can look at the first principle: center framed.
 
 <br/>
-<Video srcVideo="img/illustrations/demonslayer/1 - Framing.mp4" legend="Framing breakdown" />
+<Video client:load srcVideo="/img/illustrations/demonslayer/1 - Framing.mp4" legend="Framing breakdown" />
 <br/>
 
 Action is compressed at the center of the frame so that the eye doesn't have to move too much, in order to follow what is happening without getting tired despite the intensity. This is something planned at the storyboard stage obviously.
@@ -111,17 +110,17 @@ One of the best examples you can found is *Mad Max: Fury Road*:
 Second technique still on the camera side: shake. This **camera shake is animated at 24fps**, helping to fluidify the overall 12 fps animation. Here is a visualization of the camera shake added on top of the basic animation:
 
 <br/>
-<Video srcVideo="img/illustrations/demonslayer/2 - CameraShake.mp4" legend="Camera Shake breakdown" />
+<Video client:load srcVideo="/img/illustrations/demonslayer/2 - CameraShake.mp4" legend="Camera Shake breakdown" />
 <br/>
 
 On top of it, on each impact, the **camera is bumped in the direction of the strike**. This shake add articifial motion blur which makes the impact frames even more chaotic (in a good way)!
 
-<Image srcImage="img/illustrations/demonSlayer14.png" altText="blurry-strike" legend="A blurry strike (it gets less blurry afterwards)" />
+<Image srcImage="/img/illustrations/demonSlayer14.png" altText="blurry-strike" legend="A blurry strike (it gets less blurry afterwards)" />
 
 And here is the shot without any camera shake, immediately very different (stabilized by hand, forgive the small issues):
 
 <br/>
-<Video srcVideo="img/illustrations/demonslayer/2 - CameraShake Stab.mp4" legend="Shot without camera shake" />
+<Video client:load srcVideo="/img/illustrations/demonslayer/2 - CameraShake Stab.mp4" legend="Shot without camera shake" />
 <br/>
 
 ### Light
@@ -129,7 +128,7 @@ And here is the shot without any camera shake, immediately very different (stabi
 To see the third technique, we better switch the shot to black and white:
 
 <br/>
-<Video srcVideo="img/illustrations/demonslayer/0 - Base B&W.mp4" legend="Shot B&W" />
+<Video client:load srcVideo="/img/illustrations/demonslayer/0 - Base B&W.mp4" legend="Shot B&W" />
 <br/>
 
 With that, you should see how it **flashes** in intensity.
@@ -137,24 +136,24 @@ With that, you should see how it **flashes** in intensity.
 Each sword strike is announced by a *glint* on the sword, then reinforced by a light shape and sparks.
 Conversely, each fabric strike is announced by a softer, blurrier light invading the screen.
 
-<CarouselImage client:load srcImages={["img/illustrations/demonSlayer12.png", "img/illustrations/demonSlayer15.png"]} keyInit="demonSlayer4" />
+<CarouselImage client:load srcImages={["/img/illustrations/demonSlayer12.png", "/img/illustrations/demonSlayer15.png"]} keyInit="demonSlayer4" />
 
 Beyond the form that the light takes, the **light color is also important: blue for the sword, purple for the enemy, gold for the sparks**. All of this combined gives us very clear signals about who is doing what and when.
 
 <br/>
-<Video srcVideo="img/illustrations/demonslayer/3 - Light.mp4" legend="Light breakdown" />
+<Video client:load srcVideo="/img/illustrations/demonslayer/3 - Light.mp4" legend="Light breakdown" />
 <br/>
 
 ### Impact Frames
 
 The last light principle is quite widespread but Ufotable excels at it: impact frames. The idea is to **insert a particularly contrasted frame at the moment of impact to give it an additional visual *impact***:
 
-<CarouselImage client:load srcImages={["img/illustrations/demonSlayer16.png", "img/illustrations/demonSlayer17.png", "img/illustrations/demonSlayer18.png"]} keyInit="demonSlayer5" />
+<CarouselImage client:load srcImages={["/img/illustrations/demonSlayer16.png", "/img/illustrations/demonSlayer17.png", "/img/illustrations/demonSlayer18.png"]} keyInit="demonSlayer5" />
 
 Here the impact frames are rather timid, creating contrast by darkening areas, but if we go back to Nozomu Abe, he applies this technique absolutely all the time in his shots by **creating contrast thanks to the silhouettes** of the characters:
 
 <br/>
-<Video srcVideo="img/illustrations/demonslayer/AbeImpact.mp4" legend="Impact frames in Nozomu Abe shots" />
+<Video client:load srcVideo="/img/illustrations/demonslayer/AbeImpact.mp4" legend="Impact frames in Nozomu Abe shots" />
 <br/>
 
 ## Conclusion
@@ -166,13 +165,13 @@ The purpose of all this visual and sound grammar, simple but perfectly applied, 
 These techniques are not magic, they only accentuate the initial animation, they do not replace anything. They interest me as a science communicator and game designer for their “unconsciously didactic” side.
 
 <br/>
-<Video srcVideo="img/illustrations/demonslayer/4 - Explanation.mp4" legend="Shot full breakdown" />
+<Video client:load srcVideo="/img/illustrations/demonslayer/4 - Explanation.mp4" legend="Shot full breakdown" />
 <br/>
 
 For example, the game _Sifu_ shares some of this DNA on its visual feedbacks:
 
-<CarouselImage client:load srcImages={["img/illustrations/sifu1.png", "img/illustrations/sifu2.png", "img/illustrations/sifu3.png", "img/illustrations/sifu4.png"]} keyInit="sifu1" />
+<CarouselImage client:load srcImages={["/img/illustrations/sifu1.png", "/img/illustrations/sifu2.png", "/img/illustrations/sifu3.png", "/img/illustrations/sifu4.png"]} keyInit="sifu1" />
 
 The realization of Ufotable on Demon Slayer is not exempt from any reproach but remains very impressive for a series... and considering how the manga evolves, we are going to be entitled to beautiful things in animation until the end!
 
-<Image srcImage="img/illustrations/demonSlayerFinal.png" altText="ufotable" legend="Let them cook :)" />
+<Image srcImage="/img/illustrations/demonSlayerFinal.png" altText="ufotable" legend="Let them cook :)" />

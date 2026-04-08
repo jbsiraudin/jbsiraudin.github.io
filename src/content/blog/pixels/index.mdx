@@ -6,16 +6,15 @@ draft: false
 tags: [science popularization]
 ---
 
-This memo could be an information dump in a Christopher Nolan movie. Zero shame.
-
-
 import Image from "@components/Image";
 import Iframe from "@components/Iframe";
 import Small from "@components/Small";
 
+This memo could be an information dump in a Christopher Nolan movie. Zero shame.
+
 <br />
 
-<Image srcImage="img/illustrations/cube_companion.png" altText="cube-companion" />
+<Image srcImage="/img/illustrations/cube_companion.png" altText="cube-companion" />
 
 <p style={{ textAlign: "center", fontWeight: "bold", marginTop: "20px", fontSize: "24px" }}>
   « A pixel is not a little square,
@@ -89,33 +88,33 @@ this memo is not to detail all of them, or to explain the maths behind
 them but to show you the basics.
 
 Let’s take a picture:
-<Image srcImage="img/illustrations/voxel (1).png" />
+<Image srcImage="/img/illustrations/voxel (1).png" />
 <br/>
 
 Our picture has here 5x4 pixels, which contain color information. To fill
 the blanks, we will use a reconstruction filter, which can be modelled
 with its footprint:
-<Image srcImage="img/illustrations/voxel (2).png" />
+<Image srcImage="/img/illustrations/voxel (2).png" />
 <br/>
 
 What this shows is that this filter will consider 5 pixels around a pixel
 center to build color inside its footprint (this is a huge simplification
 but it’s the general idea). So, when you apply a filter to each pixel, you
 get something like this:
-<Image srcImage="img/illustrations/voxel (3).png" />
+<Image srcImage="/img/illustrations/voxel (3).png" />
 <br/>
 
 So, the final image will “look” like this:
-<Image srcImage="img/illustrations/voxel (4).png" />
+<Image srcImage="/img/illustrations/voxel (4).png" />
 <br/>
 
 If we change our reconstruction filter, for a “bigger” one, one that will
 consider more pixel information to build its color, such as this one:
-<Image srcImage="img/illustrations/voxel (5).png" />
+<Image srcImage="/img/illustrations/voxel (5).png" />
 <br/>
 
 Then the final image will “look” like this:
-<Image srcImage="img/illustrations/voxel (6).png" />
+<Image srcImage="/img/illustrations/voxel (6).png" />
 <br/>
 
 You normally _feel_ that it’s a better reconstruction: there is a
@@ -125,11 +124,11 @@ for that, but it’s the general idea).
 
 Now let’s look at the worst case: a box filter. Which looks like our
 little square model right?
-<Image srcImage="img/illustrations/voxel (7).png" />
+<Image srcImage="/img/illustrations/voxel (7).png" />
 <br/>
 
 Then our image is reconstructed like this:
-<Image srcImage="img/illustrations/voxel (8).png" />
+<Image srcImage="/img/illustrations/voxel (8).png" />
 <br/>
 
 It is a valid reconstruction, but very poor in quality compared to the
@@ -264,9 +263,9 @@ set of data so you don’t need to manually create links between systems. I
 believe more in _this_ as the key to create complex intricate systems, not
 to modelize everything in the world as little cubes.
 
-<!-- 
+{/*
 ## Making a game out of reconstruction filters
 
 Detective game = gathering information, recreating the whole picture by defining groups of samples
 information is scattered based on how it is scattered on the set
- -->
+*/}

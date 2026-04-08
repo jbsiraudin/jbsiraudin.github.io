@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./Rules.scss";
 import _ from "lodash";
 import update from "immutability-helper";
-import { Network, DataSet } from "vis-network/standalone";
+import { Network, DataSet } from "vis-network/standalone/esm/vis-network.min.js";
 
 function useIsDarkTheme() {
   const [isDark, setIsDark] = useState(false);

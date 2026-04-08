@@ -6,18 +6,17 @@ draft: false
 tags: [designing randomness, procedural, game design, tools]
 ---
 
-Let's distribute cards. But better.
-
-
 import ContentDistribution from "@components/ContentDistribution/ContentDistribution"
 import Image from "@components/Image"
 import Iframe from "@components/Iframe"
+
+Let's distribute cards. But better.
 
 ---
 
 _**Procedural generation**_ is a term probably overused in videogame production. It's so trendy, it makes your system sound so smart where you often just call `random()` a bunch of times.
 
-<Image srcImage="img/illustrations/wiki-procedural.png" altText="wiki-procedural" legend="Randomly generated redirects here. Oof." />
+<Image srcImage="/img/illustrations/wiki-procedural.png" altText="wiki-procedural" legend="Randomly generated redirects here. Oof." />
 
 I personally see _**procedural generation**_ as a glorified name to designate **a function with a small input that spits out a big output**. And for me, this is the whole point: from a minimal set of handcrafted parameters, get the maximal results you can thanks to a _procedure_, an _algorithm_, a _piece of code_, ... to avoid doing everything yourself.
 
@@ -63,7 +62,7 @@ With the last one, I tried to strike the balance between random and rules I talk
 
 It's obviously applied on a very simple problem, but it will hopefully help you grasp what is at stake when we want to distribute content in a _design-sensitive_ way.
 
-<!--
+{/*
 next steps :
 - [ ] card analyzer
 - [ ] dungeon analyzer (dire si répétition)
@@ -71,7 +70,7 @@ next steps :
 
 "Design randomness" laisse un peu un sentiment bizarre, tu passes un peu vite sur les sujets: "c'est pas du procédural, c'est de la distribution" (bonne intro en soi) "mais osef c'est utile quand même" "btw voici une façon de le faire"
 peut-être que cette entrée en matière est pas vraiment la bonne pour le sujet réel qui est "comment faire du bon random", mais du coup sur ce réel sujet on manque de développement (un exemple moins abstrait que des cartes, expliquer les différents intérêts/coûts de design cette randomness)
--->
+*/}
 
 <ContentDistribution client:load />
 

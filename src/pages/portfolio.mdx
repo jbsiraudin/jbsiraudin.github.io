@@ -1,10 +1,8 @@
 ---
-layout: "@layouts/PageLayout.astro"
+layout: "@layouts/MdxLayout.astro"
 title: "Portfolio"
 description: "A collection of visuals showcasing projects jb siraudin worked on."
 ---
-
-# jb siraudin's portfolio
 
 import Image from "@components/Image";
 import CarouselImage from "@components/CarouselImage";
@@ -30,13 +28,11 @@ Game Design on Star Wars Outlaws, an AAA Ubisoft Original, released on August 30
 - Developed 3 python scripts to improve the team workflow in the Snowdrop engine (sequencer, excel-to-data import/export, data sorter/renamer)
 - Joined the tech team as a technical game designer for the production of the DLC quests
 
-
 <br/>
 
 <Iframe srcUrl="https://www.youtube.com/embed/-qgjgMYlcAA" legend="Star Wars Outlaws: Defeating Lando in Sabacc" />
 
 <br/>
-
 
 A few press quotes about Kessel Sabacc:
 
@@ -44,9 +40,9 @@ A few press quotes about Kessel Sabacc:
 
 > You might get lost in Sabacc, an addictive, complicated card game that plays like a cross between poker, blackjack and Uno. [Jason Schreier from Bloomberg](https://www.bloomberg.com/news/newsletters/2024-08-30/-star-wars-outlaws-is-better-than-reviews-suggest)
 
-> I’m particularly partial to Kessel Sabacc, a card game that’s kind of like blackjack, if blackjack also had Uno house rules designed to make everyone else hate you. It might be the best thing in the game. [Joshua Rivera for Vulture](https://www.vulture.com/article/star-wars-outlaws-review.html)
+> I'm particularly partial to Kessel Sabacc, a card game that's kind of like blackjack, if blackjack also had Uno house rules designed to make everyone else hate you. It might be the best thing in the game. [Joshua Rivera for Vulture](https://www.vulture.com/article/star-wars-outlaws-review.html)
 
-> The last bit of roleplaying that rounds out the scoundrel experience is a card game called Kessel Sabacc. Like any open world game worth its salt (The Witcher 3, Final Fantasy VII Rebirth), Outlaws’ take on a card-based minigame is quickly addictive. Unlike The Witcher 3’s Gwent, Sabacc delivers both the strategy of play with the scummy joy of gambling in a sleazy bar, complete with the ability to cheat. The rules are complicated to explain, but just know that this is a game where you can sit across a table with the likes of Lando Calrissian himself, nervously eyeballing your hand while your sidekick Nix peers at his cards over the shoulder. [Christopher Cruz for RollingStone](https://www.rollingstone.com/culture/rs-gaming/star-wars-outlaws-review-1235084628/)
+> The last bit of roleplaying that rounds out the scoundrel experience is a card game called Kessel Sabacc. Like any open world game worth its salt (The Witcher 3, Final Fantasy VII Rebirth), Outlaws' take on a card-based minigame is quickly addictive. Unlike The Witcher 3's Gwent, Sabacc delivers both the strategy of play with the scummy joy of gambling in a sleazy bar, complete with the ability to cheat. The rules are complicated to explain, but just know that this is a game where you can sit across a table with the likes of Lando Calrissian himself, nervously eyeballing your hand while your sidekick Nix peers at his cards over the shoulder. [Christopher Cruz for RollingStone](https://www.rollingstone.com/culture/rs-gaming/star-wars-outlaws-review-1235084628/)
 
 <br/>
 
@@ -54,7 +50,7 @@ I was also lucky to be a speaker at GDC 2025 for 2 talks about Sabacc, represent
   - [Crafting Sabacc in 'Star Wars Outlaws'](https://gdcvault.com/play/1035137/Crafting-Sabacc-in-Star-Wars)
   - [Designing Emotions in 'Star Wars Outlaws' Sabacc NPCs](https://gdcvault.com/play/1035173/Game-AI-Summit-Designing-Emotions)
 
-<CarouselImage client:load srcImages={["img/misc/GDC2025_bis.png", "img/misc/GDC2025.png"]} keyInit="gdc" />
+<CarouselImage client:load srcImages={["/img/misc/GDC2025_bis.png", "/img/misc/GDC2025.png"]} keyInit="gdc" />
 
 <br/>
 
@@ -76,7 +72,7 @@ Left the project at the end of 2022, soon after the planned release of November 
 
 ### [papertoy.dev](https://www.papertoy.dev/) (2021)
 
-<Image srcImage="img/illustrations/papertoy.png" legend="Papertoy Code Editor (October 2021)"/>
+<Image srcImage="/img/illustrations/papertoy.png" legend="Papertoy Code Editor (October 2021)"/>
 
 Inspired by [Shadertoy](https://www.shadertoy.com), **Papertoy** lets you build interactive prototypes in your browser, with Javascript and Paper.js. It is targeted to console developers, with full gamepad support.
 
@@ -125,24 +121,24 @@ What kind of monster would use children for their energy industry? Well ... a Pi
   <p>
   As you may have noticed I reanimated the Monsters Inc's title sequence on the film. Here is a video comparing the two sequences.
   </p>
-  
+
   <Iframe srcUrl="https://www.youtube.com/embed/LEk66Nasgjk" />
   <br/>
   <p>
   Everything is animated with After Effects, with a custom expression system for generating the look of each doors, leveraging master properties.
   </p>
   <Image
-    srcImage="img/portfolio/mcie1.gif"
+    srcImage="/img/portfolio/mcie1.gif"
   />
   <p className="legend">A demo workflow for working with the doors</p>
   <br />
   <div className="gallery">
     <Image
-      srcImage="img/portfolio/mcie2.gif"
+      srcImage="/img/portfolio/mcie2.gif"
       halfWidth
     />
     <Image
-      srcImage="img/portfolio/mcie3.gif"
+      srcImage="/img/portfolio/mcie3.gif"
       halfWidth
     />
   </div>
@@ -154,31 +150,31 @@ What kind of monster would use children for their energy industry? Well ... a Pi
   </p>
   <div className="gallery">
     <Image
-      srcImage="img/portfolio/mcie6.png"
+      srcImage="/img/portfolio/mcie6.png"
       halfWidth
     />
     <Image
-      srcImage="img/portfolio/mcie7.png"
-      halfWidth
-    />
-  </div>
-  <div className="gallery">
-    <Image
-      srcImage="img/portfolio/mcie8.gif"
-      halfWidth
-    />
-    <Image
-      srcImage="img/portfolio/mcie9.gif"
+      srcImage="/img/portfolio/mcie7.png"
       halfWidth
     />
   </div>
   <div className="gallery">
     <Image
-      srcImage="img/portfolio/mcie4.png"
+      srcImage="/img/portfolio/mcie8.gif"
       halfWidth
     />
     <Image
-      srcImage="img/portfolio/mcie5.png"
+      srcImage="/img/portfolio/mcie9.gif"
+      halfWidth
+    />
+  </div>
+  <div className="gallery">
+    <Image
+      srcImage="/img/portfolio/mcie4.png"
+      halfWidth
+    />
+    <Image
+      srcImage="/img/portfolio/mcie5.png"
       halfWidth
     />
   </div>
@@ -202,7 +198,7 @@ I developed the offline program to get the color palette of every frame of a mov
 The design of the website is inspired by the plainness of scientific papers made with LateX.
 
 <Image
-  srcImage="img/portfolio/tsom2.png"
+  srcImage="/img/portfolio/tsom2.png"
   altText="previous-website-look"
   legend="Demo look for a search request on the website"
 />
@@ -212,7 +208,7 @@ Other cool projects like the [Colors of Motion](https://thecolorsofmotion.com/) 
 I recently remade the website with NextJS to make it easier for me to handle in the future.
 
 <Image
-  srcImage="img/portfolio/tsom1.png"
+  srcImage="/img/portfolio/tsom1.png"
   altText="current-website-look"
   legend="Front page of The Shape of Movies"
 />
@@ -221,14 +217,13 @@ I recently remade the website with NextJS to make it easier for me to handle in 
 
 #### Streamlining a sculpting method for animation purposes
 
-The idea is to apply sculpting brushes dynamically. I chose the Kelvinlets brush for their flexibility and scalability both in space and time. For the [github version build in C++ and Qt](https://github.com/jbsiraudin/unikel), you create a path with keyPoints, each keyPoint containing brush sculpting parameters (scale, rotation, radius of the brush, ...). The program create brushes along the path, interpolating the values of the keyPoints, always applying the translate brush. 3 brushes are applied at a time, selected close to the center of the bounding box of the model to ensure that the model "travels" along the
-path.
+The idea is to apply sculpting brushes dynamically. I chose the Kelvinlets brush for their flexibility and scalability both in space and time. For the [github version build in C++ and Qt](https://github.com/jbsiraudin/unikel), you create a path with keyPoints, each keyPoint containing brush sculpting parameters (scale, rotation, radius of the brush, ...). The program create brushes along the path, interpolating the values of the keyPoints, always applying the translate brush. 3 brushes are applied at a time, selected close to the center of the bounding box of the model to ensure that the model "travels" along the path.
 
 Initially thought to be a solution for designing a vortex animation for a 3D animated short, I expanded the capacities with the implementation of Dynamic Kelvinlets, for secondary elastic movements.
 
-<Video srcVideo="/img/portfolio/test1.webm" />
+<Video client:load srcVideo="/img/portfolio/test1.webm" />
 
-<Video srcVideo="/img/portfolio/test2.webm" />
+<Video client:load srcVideo="/img/portfolio/test2.webm" />
 
 <br/>
 

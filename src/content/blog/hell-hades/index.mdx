@@ -6,13 +6,13 @@ draft: false
 tags: [maths for game design, hades, procedural, game design]
 ---
 
-Let's conjure the old god **Combinatorics**' most overpowered boons.
-
-
 import Image from "@components/Image"
 import Iframe from "@components/Iframe"
 import Arrangements from "@components/Combinatorics/Arrangements"
 import HadesCarousel from "@components/Combinatorics/HadesCarousel"
+import Admonition from "@components/Admonition"
+
+Let's conjure the old god **Combinatorics**' most overpowered boons.
 
 ---
 
@@ -34,9 +34,7 @@ import HadesCarousel from "@components/Combinatorics/HadesCarousel"
 
 **Hades** is a phenomenal game that shines in every department: it is a blast to play its combat, a joy to marvel at its art, a pleasure to dive in its narrative.
 
-:::caution
-**Wether you like roguelikes or not, you should play Hades.** And this article spoils a large part of its game systems, so I strongly advise you to play it first.
-:::
+<Admonition type="caution">**Wether you like roguelikes or not, you should play Hades.** And this article spoils a large part of its game systems, so I strongly advise you to play it first.</Admonition>
 
 ---
 
@@ -94,19 +92,19 @@ For Tartarus, that means that **we have to pick 12 rooms in our 24 rooms library
   In this context, how many different Tartarus configurations exist?
 </p>
 
-<!--
+{/*
 // https://fr.wikiversity.org/wiki/Combinatoire/Arrangements_sans_r%C3%A9p%C3%A9tition
 https://fr.wikipedia.org/wiki/Arrangement
 https://fr.wikipedia.org/wiki/Principe_des_tiroirs
--->
+*/}
 
-<!--
+{/*
 https://www.alloprof.qc.ca/fr/eleves/bv/mathematiques/les-permutations-les-arrangements-et-les-combinai-m1346
 
 Arrangement = order is important
 Combination = order is not important
 
- -->
+ */}
 
 Since the order of the rooms is important, the combinatrics _boon_ we are going to use is **permutation**, an ordered arrangement of elements.
 
@@ -160,11 +158,7 @@ You can set up your own numbers and calculate the number of arrangements directl
 
 <br/>
 
-:::note
-
-I find this calculus fun for hero-based arena games, like _League of Legends_ or _Rainbow Six Siege_. The roster of the characters is often huge, theoretically offering unique combinations each game.
-
-:::
+<Admonition type="note">I find this calculus fun for hero-based arena games, like _League of Legends_ or _Rainbow Six Siege_. The roster of the characters is often huge, theoretically offering unique combinations each game.</Admonition>
 
 ---
 
@@ -196,11 +190,7 @@ Elysium picks 8 rooms out of its 13 choices,<br/>so you'll see <b>61%</b> of the
 
 And that is **by design**: a roguelike like Hades rewards learning through repetition. If you step into a completely new room you're not gonna feel as in control as if you step into a room you crossed 50 times already. And like most games, **Hades**' players thrive on the power fantasy the game offers.
 
-:::note
-
-It's very logical that the % of coverage increases across the biomes: Statistically, you'll see Tartarus way more than Elysium, so it makes sense that Tartarus is more diverse. Another reason would be on the production side: Hades was in early access and the later biomes came in title updates, when you don't necessarly have as much cooking time as for the first biomes.
-
-:::
+<Admonition type="note">It's very logical that the % of coverage increases across the biomes: Statistically, you'll see Tartarus way more than Elysium, so it makes sense that Tartarus is more diverse. Another reason would be on the production side: Hades was in early access and the later biomes came in title updates, when you don't necessarly have as much cooking time as for the first biomes.</Admonition>
 
 **Striking a balance between variety and familiarity on the same game system is tough, that's why roguelikes found a neat technique : just make two game systems on top of each other.** One is predictible (the dungeon generation) and you can learn it quickly, and the other is way more _random_ so you can't predict its behavior easily (the character build per run system). This separation allows the two game systems to have more focused role while complementing each other.
 

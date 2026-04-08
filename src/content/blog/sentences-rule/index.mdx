@@ -6,20 +6,19 @@ draft: false
 tags: [procedural, game design]
 ---
 
-Language is just another complex game system, out of the box.
-
-
 import Image from "@components/Image"
 import Iframe from "@components/Iframe"
 import CarouselImage from "@components/CarouselImage"
 import Rules from "@components/Rules/Rules"
 
+Language is just another complex game system, out of the box.
+
 ---
 
-<!--
+{/*
 [20/10/2021 09:59] Jean-Baptiste Oger
 Pour celui sur les sentences, j'ai eu l'impression que ça finissait trop tôt, le sujet est tellement intéressant et tu le présentes bien, mais je manquais de takeaways: en quoi c'est intéressant de créer un système comme ça? Le proto final avec la dataviz me donne l'impression qu'il y a toute une dimension supplémentaire derrière le rideau. Ou peut-être que le message du post c'est surtout "c'est trop cool de jouer avec ces systèmes, allez tester ces jeux"
--->
+*/}
 
 <p style={{fontSize: 36, textAlign: "center", fontWeight: "bold"}}>
 I love puns.
@@ -55,7 +54,7 @@ Thus, the core game system of **Baba Is You** is actually _the syntax of the Eng
 **Baba Is You use the internal rules of the English language as the pillar on top of which players will form sentences by moving some blocks and assembling them in the correct order**. So it's more that just using words: every game uses words, just by the fact that you have to read text while playing, but they can be easily translated to any language whereas **Baba Is You**'s mechanics are so deeply rooted in English that a translation seems impossible without changing the whole game.
 
 <br/>
-<Image srcImage="img/illustrations/babaIsYou2.jpg" legend="A level can accumulate of lots of rules." />
+<Image srcImage="/img/illustrations/babaIsYou2.jpg" legend="A level can accumulate of lots of rules." />
 <br/>
 
 Of course, the end goal is not to make elaborate litterature, but to manipulate **rules**: rules that controls who the player is, what they can push, what the obstacles are and even what the winning objective is.
@@ -63,7 +62,7 @@ Of course, the end goal is not to make elaborate litterature, but to manipulate 
 And **Baba Is You** encourages you to be creative, to bend the levels with literal _puns_ in order to solve its puzzles. The game is often built for this, forcing you to adopt a particularly non-sensical solution in order to create a "surprise", an "epiphany" moment when you discover the trick you needed. It's not my favorite type of puzzle, because it creates a lot of frustrating moments where you're just stuck on a level, missing the _mental trick_ to go through at all.
 
 <br/>
-<Image srcImage="img/illustrations/babaIsYou1.png" legend="If 'WALLS IS BABA AND BABA IS YOU' then all the walls becomes Baba and you can control all of them at the same time." />
+<Image srcImage="/img/illustrations/babaIsYou1.png" legend="If 'WALLS IS BABA AND BABA IS YOU' then all the walls becomes Baba and you can control all of them at the same time." />
 <br/>
 
 But I still love **Baba Is You** because I'm obsessed with **rules**. Engaging the player in the definition of the game, writing and rewriting the game as you progress, ... I can't think of a more fascinating design sandbox. This is the kind of sandbox where you can profit or suffer from _design puns_, where the game is playful with itself and the player.
@@ -71,7 +70,7 @@ But I still love **Baba Is You** because I'm obsessed with **rules**. Engaging t
 One of my absolute favorite implementation of the **rules** philosophy is in the mobile roguelike **Seven Scrolls**:
 
 <br/>
-<Image srcImage="img/illustrations/7scrolls0.png" legend="In Seven Scrolls, you're a Monk trying to survive in a dungeon. Sort of a follow-up to The Name of the Rose." />
+<Image srcImage="/img/illustrations/7scrolls0.png" legend="In Seven Scrolls, you're a Monk trying to survive in a dungeon. Sort of a follow-up to The Name of the Rose." />
 <br/>
 
 **Seven Scrolls** is a turn-based strategy puzzler, where you can move in 4 directions, shoot beams to fight and kill monsters. Collect the key to unlock the access to the next floor and move to the stairs to go there. Simple.
@@ -84,7 +83,7 @@ When <span style={{color: "#ff851b"}}>[trigger]</span> happens, <span style={{co
 
 <p>Each <span style={{color: "#ff851b"}}>[trigger]</span> and <span style={{color: "#39c7cc"}}>[effect]</span> is randomly picked from a different list that the player uncovers as things progress and as spells are picked up. The <span style={{color: "#ff4136"}}>[target]</span> is always the Monk or a Monster.</p>
 
-<CarouselImage client:load srcImages={["img/illustrations/7scrolls1.png", "img/illustrations/7scrolls2.png", "img/illustrations/7scrolls3.png", "img/illustrations/7scrolls4.png"]} keyInit="7scrolls" />
+<CarouselImage client:load srcImages={["/img/illustrations/7scrolls1.png", "/img/illustrations/7scrolls2.png", "/img/illustrations/7scrolls3.png", "/img/illustrations/7scrolls4.png"]} keyInit="7scrolls" />
 
 Quickly, **you'll find yourself chaining or avoiding triggers to use your spells in the most effective way**. You can also trigger a spell manually, with the caveat that its scroll will be removed after use but it's necessary to make room for new ones or discard unwanted ones.
 

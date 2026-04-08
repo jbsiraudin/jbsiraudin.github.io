@@ -6,14 +6,14 @@ draft: false
 tags: [maths for game design, hades, procedural, game design]
 ---
 
-**Combinatorics** is not dead. Let's take another stab at it.
-
-
 import Image from "@components/Image"
 import Iframe from "@components/Iframe"
 import Configurations from "@components/Combinatorics/Configurations"
 import SimplePointDistribute from "@components/Combinatorics/SimplePointDistribute"
 import Permutations from "@components/Combinatorics/Permutations"
+import Admonition from "@components/Admonition"
+
+**Combinatorics** is not dead. Let's take another stab at it.
 
 ---
 
@@ -210,7 +210,7 @@ Again, passing a thousand possibilities with those small numbers seems crazy, an
 
 <br/>
 
-:::info
+<Admonition type="info">
 
 An interesting thing to note here is that:
 
@@ -220,7 +220,7 @@ $$
 
 The [_binomial coefficient_](https://en.wikipedia.org/wiki/Binomial_coefficient) finds its way into our calculus (as it usually does).
 
-:::
+</Admonition>
 
 ---
 
@@ -236,11 +236,7 @@ The 64th square would contain $2^{64} = 9,223,372,036,854,775,808$ grains of ric
 
 The king didn't anticipate the crazy growth of a number doubled 63 times, probably because 63 is already a big number to apprehend for us! Like the king, nowadays against the exponential growth of the pandemic or climate change, we are not equipped mentally to imagine the consequences.
 
-:::info
-
-Sissa only asks for the quantity on the last square, since the last square contains as many grains as the rest of the squares on the board. Another fun and unintuitive property of this problem.
-
-:::
+<Admonition type="info">Sissa only asks for the quantity on the last square, since the last square contains as many grains as the rest of the squares on the board. Another fun and unintuitive property of this problem.</Admonition>
 
 We all have a lot of automatisms in order to simplify an issue, trying to bring it under 10 in order to solve this on our fingers. **Thus, if I come across a menu with 10 points to distribute across 5 sliders, I will see 5 choices to make, not 1 choice out of 1001 combinations**. To further cancel this potential complexity, most games won't allow you to reinvest freely your points into an entirely new build: you spend your points one by one, without reimbursement, so you make your way into the system, 5 choices at a time.
 

@@ -20,7 +20,7 @@ export default defineConfig({
   },
   vite: {
     ssr: {
-      noExternal: ["react-range-slider-input", "react-toastify"],
+      noExternal: ["react-range-slider-input", "react-toastify", "vis-network"],
     },
   },
 });
