@@ -41,11 +41,12 @@ function Video({ srcVideo, width = 560, height = 315, legend = "" }) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", margin: "0 0 30px" }}>
-      <div style={{ position: "relative", background: "#000", cursor: "pointer", lineHeight: 0, aspectRatio: `${width}/${height}` }} onClick={toggle}>
+      <div style={{ position: "relative", background: "#000", cursor: "pointer", lineHeight: 0 }} onClick={toggle}>
         <video
           ref={videoRef}
           preload="metadata"
-          style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+          width={width}
+          style={{ display: "block", width: "100%" }}
           onTimeUpdate={onTimeUpdate}
           onLoadedMetadata={onLoaded}
           onEnded={onEnded}
