@@ -1,20 +1,39 @@
 ---
 import type { CollectionEntry } from "astro:content";
 
-type Props = {
-  entry: CollectionEntry<"blog"> | CollectionEntry<"projects">;
-}
+type Entry = CollectionEntry<"blog"> | CollectionEntry<"projects">;
 
-const { entry } = Astro.props;
+type Props =
+  | {
+      entry: Entry;
+      href?: never;
+      title?: never;
+      description?: never;
+    }
+  | {
+      entry?: never;
+      href: string;
+      title: string;
+      description: string;
+    };
+
+const { entry, href, title, description } = Astro.props as Props;
+const cardHref = entry
+  ? `/${entry.collection}/${entry.slug}`
+  : href;
+const cardTitle = entry ? entry.data.title : title;
+const cardDescription = entry
+  ? entry.data.description
+  : description;
 ---
 
-<a href={`/${entry.collection}/${entry.slug}`} class="relative group flex flex-nowrap py-3 px-4 pr-10 rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
+<a href={cardHref} class="relative group flex flex-nowrap py-3 px-4 pr-10 rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
   <div class="flex flex-col flex-1 truncate">
     <div class="font-semibold">
-      {entry.data.title}
+      {cardTitle}
     </div>
     <div class="text-sm">
-      {entry.data.description}
+      {cardDescription}
     </div>
   </div>
   <svg 
