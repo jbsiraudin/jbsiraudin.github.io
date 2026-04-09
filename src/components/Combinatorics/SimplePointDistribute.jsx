@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import update from "immutability-helper";
-import { sum } from "lodash";
+import sum from "lodash/sum";
 
 const Configurations = () => {
   const [options, setOptions] = useState([3, 1, 3, 2, 1]);

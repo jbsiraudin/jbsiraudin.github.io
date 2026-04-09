@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import katex from "katex";
 import "./Combinatorics.scss";
 import update from "immutability-helper";
-import { sum } from "lodash";
+import sum from "lodash/sum";
 
 const Permutations = () => {
   const [n, setN] = useState(15);
