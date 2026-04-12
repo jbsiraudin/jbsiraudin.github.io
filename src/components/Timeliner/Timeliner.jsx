@@ -1,9 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import _ from 'lodash';
-import * as paper from 'paper';
-import { ToastContainer, toast } from 'react-toastify';
+import paper from 'paper';
 import RangeSlider from 'react-range-slider-input';
-import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/range-slider.css';
 import {
   Cross2Icon,
@@ -11,15 +9,9 @@ import {
   DownloadIcon,
   ChevronUpIcon,
   ChevronDownIcon,
-  ChatBubbleIcon,
-  EnvelopeClosedIcon,
 } from '@radix-ui/react-icons';
 import { testXml } from '../XmlTest';
 import './Timeliner.scss';
-
-const prpro = '/img/timeliner/TimelinePremierePro.png';
-const prproexport = '/img/timeliner/TimelinePremiereProExport.png';
-const timelinerui = '/img/timeliner/TimelinerUI.png';
 
 // Constants
 const CANVAS_SIZE = [1920, 1080];
@@ -86,32 +78,31 @@ function itemIntersectsGroup(item = new paper.Item(), group = new paper.Group())
   return false;
 }
 
-function Tutorial() {
-  return (
-    <details className="tutorial"><summary>How to create a timeline with Timeliner</summary>
-      <p>Cut your video and distribute clips between tracks by type:</p>
-      <img src={prpro} alt="Premiere Pro timeline" />
-      <br />
-      <p>
-        With the sequence in focus, export it thanks to{' '}
-        <i>
-          File{'>'}Export{'>'}Final Cut Pro XML...
-        </i>
-        :
-      </p>
-      <img src={prproexport} alt="Premiere Pro export" />
-      <br />
-      <p>Import the .xml file in Timeliner and create your timeline:</p>
-      <img src={timelinerui} alt="Timeliner tool" />
-    </details>
+function useToast() {
+  const [toasts, setToasts] = useState([]);
+  const idRef = useRef(0);
+
+  const show = useCallback((message, type = 'info', duration = 3000) => {
+    const id = ++idRef.current;
+    setToasts((prev) => [...prev, { id, message, type }]);
+    setTimeout(() => setToasts((prev) => prev.filter((t) => t.id !== id)), duration);
+  }, []);
+
+  const container = toasts.length > 0 && (
+    <div className="toast-container">
+      {toasts.map((t) => (
+        <div key={t.id} className={`toast toast-${t.type}`}>
+          {t.message}
+        </div>
+      ))}
+    </div>
   );
+
+  return { show, container };
 }
 
 export function Timeliner() {
-  if ( typeof window === 'undefined' ) {
-    return null;
-  }
-
+  const toast = useToast();
   const canvasRef = useRef(null);
   const inputRef = useRef(null);
   const paperLayerRef = useRef(null);
@@ -135,6 +126,10 @@ export function Timeliner() {
   const [bgColor, setBgColor] = useState('#ffffff');
   const [baseColor, setBaseColor] = useState(FONT_COLOR);
 
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
   function readFile(e) {
     var file = e.currentTarget.files[0];
     var reader = new FileReader();
@@ -150,7 +145,7 @@ export function Timeliner() {
         setFile(txt);
       };
     } else {
-      toast.error('Import failed: Not an xml file!');
+      toast.show('Import failed: Not an xml file!', 'error');
       console.error('Import failed: Not an xml file!');
     }
     reader.readAsText(file);
@@ -258,17 +253,13 @@ export function Timeliner() {
   }
 
   async function copyCanvas() {
-    canvasRef.current.toBlob((blob) => {
-      const copyPromise = navigator.clipboard.write([
-        new ClipboardItem({
-          [blob.type]: blob,
-        }),
-      ]);
-      toast.promise(copyPromise, {
-        pending: 'In Progress',
-        success: 'Canvas copied to clipboard 👌',
-        error: 'Unfortunate error 🤯',
-      });
+    canvasRef.current.toBlob(async (blob) => {
+      try {
+        await navigator.clipboard.write([new ClipboardItem({ [blob.type]: blob })]);
+        toast.show('Canvas copied to clipboard', 'success');
+      } catch {
+        toast.show('Failed to copy to clipboard', 'error');
+      }
     });
   }
 
@@ -839,7 +830,6 @@ export function Timeliner() {
     <div className="Timeliner-App">
       {fileEntered ? displayOptionsWidget() : <></>}
       <div className="base">
-        {fileEntered ? <></> : <Tutorial />}
         {fileInputWidget()}
         {fileEntered ? (
           <div className="export-buttons">
@@ -854,12 +844,12 @@ export function Timeliner() {
           <></>
         )}
         <div
+          className="canvas-wrapper"
           style={{
             width: `${canvasWidth}px`,
             height: fileEntered ? 'auto' : '0',
             visibility: fileEntered ? 'visible' : 'hidden',
             marginBottom: 20,
-            backgroundColor: '#eeeeee',
           }}
         >
           <canvas
@@ -1100,7 +1090,7 @@ export function Timeliner() {
         <></>
       )}
 
-      <ToastContainer />
+      {toast.container}
     </div>
   );
 }

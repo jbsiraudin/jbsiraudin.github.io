@@ -9,6 +9,7 @@ tags: [designing randomness, procedural, game design, tools]
 import ContentDistribution from "@components/ContentDistribution/ContentDistribution"
 import Image from "@components/Image"
 import Iframe from "@components/Iframe"
+import Highlight from "@components/Highlight.astro"
 
 Let's distribute cards. But better.
 
@@ -30,9 +31,9 @@ In game design, _**procedural generation**_ is often focused on _**generating ga
 
 Dungeons in roguelikes are not generated through some kind of superpowerful algorithm, redrawing every position of every brick to create a new yet coherent piece of architecture. The problem is much simpler, and it starts with defining a dungeon from a level design perspective:
 
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: "20px", fontSize: "18px" }}>
+<Highlight bold size="18px" mt="20px">
   99,9% of the time, a dungeon is an assemblage of pre-made rooms.
-</p>
+</Highlight>
 
 Generating a dungeon then becomes choosing rooms from an existing library and linking rooms with doors. Much better!
 

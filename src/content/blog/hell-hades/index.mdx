@@ -11,6 +11,7 @@ import Iframe from "@components/Iframe"
 import Arrangements from "@components/Combinatorics/Arrangements"
 import HadesCarousel from "@components/Combinatorics/HadesCarousel"
 import Admonition from "@components/Admonition"
+import Highlight from "@components/Highlight.astro"
 
 Let's conjure the old god **Combinatorics**' most overpowered boons.
 
@@ -46,10 +47,10 @@ Let's conjure the old god **Combinatorics**' most overpowered boons.
 
 Being a roguelike, **Hades** is focused on **replayability**: each run must be new, yet using the same grammar so that the player can still learn the game and get better at it. Procedural generation is essential to both the design of a roguelike (to keep things fresh yet familiar) and the production team.
 
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: "20px", fontSize: "18px" }}>
+<Highlight bold size="18px" mt="20px">
   You want to create a game with an infinite amount of runs,<br/>
   with a very finite amount of time and resources.
-</p>
+</Highlight>
 
 Scoping this kind of project is a tough task, so let's crunch some numbers!
 
@@ -67,17 +68,17 @@ This technique is great because it automatically gives you a distributed design 
 
 Here are the standard rooms of the first 3 biomes ([source](https://www.hades-guides.ovh/index.php/chamber-layout/)):
 
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: 20, marginBottom: 10, fontSize: "24px" }}>
+<Highlight bold size="24px" mt={20} mb={10}>
   24 rooms of Tartarus
-</p>
+</Highlight>
 <HadesCarousel client:load world="Tartarus" length={24} />
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: 20, marginBottom: 10, fontSize: "24px" }}>
+<Highlight bold size="24px" mt={20} mb={10}>
   11 rooms of Asphodel
-</p>
+</Highlight>
 <HadesCarousel client:load world="Asphodel" length={11} />
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: 20, marginBottom: 10, fontSize: "24px" }}>
+<Highlight bold size="24px" mt={20} mb={10}>
   13 rooms of Elysium
-</p>
+</Highlight>
 <HadesCarousel client:load world="Elysium" length={13} />
 
 **The number of rooms you will cross in those 3 biomes is fixed for each run** :
@@ -88,9 +89,9 @@ Here are the standard rooms of the first 3 biomes ([source](https://www.hades-gu
 
 For Tartarus, that means that **we have to pick 12 rooms in our 24 rooms library**.
 
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: 20, fontSize: "21px" }}>
+<Highlight bold size="21px" mt={20}>
   In this context, how many different Tartarus configurations exist?
-</p>
+</Highlight>
 
 {/*
 // https://fr.wikiversity.org/wiki/Combinatoire/Arrangements_sans_r%C3%A9p%C3%A9tition
@@ -148,9 +149,9 @@ $$
 
 Just for the first biome, we have a number with 16 digits. And the situation is even more crazy since each chamber can be mirrored, each chamber can welcome different challenges, each chamber can contain or not chests and pots. And I don't count the special chambers or internal mini-bosses in the mix. **In any case, the real number of arrangements is of course higher**.
 
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: 20, fontSize: "21px" }}>
+<Highlight bold size="21px" mt={20}>
   With those kind of numbers,<br/>a player will never pass through the same version of Hell.
-</p>
+</Highlight>
 
 You can set up your own numbers and calculate the number of arrangements directly below (until it goes over the maximum integer authorized by JS):
 
@@ -168,9 +169,9 @@ I didn't present all the systems of **Hades** that introduces differences for ea
 
 And now, the hard truth:
 
-<p style={{ textAlign: "center", fontWeight: "bolder", marginTop: 20, fontSize: "21px", color: "crimson" }}>
+<Highlight bold="bolder" size="21px" mt={20} color="crimson">
   The mathematical variations are <span style={{color: "red"}}>not</span> game design variations.
-</p>
+</Highlight>
 
 The numbers I developed do not represent the _**variety feel**_ of players in **Hades**. It doesn't mean that it's completely useless, it means that we need to reinterpret them a bit. And my first argument is:
 
@@ -178,15 +179,15 @@ The numbers I developed do not represent the _**variety feel**_ of players in **
 
 The size of Hell doesn't matter that much because players won't make a huge deal out of the fact that they won't cross the same rooms in the exact same order as their last run. What is important for sizing Hell is how many rooms do I cross each time out of how many rooms exist, so the **coverage** of the set of rooms.
 
-<p style={{ textAlign: "center"}}>
+<Highlight>
 Tartarus picks 12 rooms out of its 24 choices,<br/>so you'll see <b>50%</b> of the library on each run.
-</p>
-<p style={{ textAlign: "center"}}>
+</Highlight>
+<Highlight>
 Asphodel picks 6 rooms out of its 11 choices,<br/>so you'll see <b>54%</b> of the library on each run.
-</p>
-<p style={{ textAlign: "center"}}>
+</Highlight>
+<Highlight>
 Elysium picks 8 rooms out of its 13 choices,<br/>so you'll see <b>61%</b> of the library on each run.
-</p>
+</Highlight>
 
 And that is **by design**: a roguelike like Hades rewards learning through repetition. If you step into a completely new room you're not gonna feel as in control as if you step into a room you crossed 50 times already. And like most games, **Hades**' players thrive on the power fantasy the game offers.
 

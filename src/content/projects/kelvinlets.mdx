@@ -1,0 +1,27 @@
+---
+title: "Animation with Kelvinlets"
+description: "Research prototypes using dynamic Kelvinlets mesh deformations for sculpting-based animation, implemented in C++, Qt, and Unity."
+date: "10/01/2019"
+repoURL: "https://github.com/jbsiraudin/unikel"
+---
+
+import Video from "@components/Video";
+import Iframe from "@components/Iframe";
+
+## Streamlining a sculpting method for animation purposes
+
+The idea is to apply sculpting brushes dynamically. I chose the Kelvinlets brush for their flexibility and scalability both in space and time. For the [github version built in C++ and Qt](https://github.com/jbsiraudin/unikel), you create a path with keyPoints, each keyPoint containing brush sculpting parameters (scale, rotation, radius of the brush, ...). The program creates brushes along the path, interpolating the values of the keyPoints, always applying the translate brush. 3 brushes are applied at a time, selected close to the center of the bounding box of the model to ensure that the model "travels" along the path.
+
+Initially thought to be a solution for designing a vortex animation for a 3D animated short, I expanded the capacities with the implementation of Dynamic Kelvinlets, for secondary elastic movements.
+
+<Video client:load srcVideo="/img/portfolio/test1.webm" />
+
+<Video client:load srcVideo="/img/portfolio/test2.webm" />
+
+<br/>
+
+It was first a school project, and I made another implementation in Unity with compute shaders.
+
+<br/>
+
+<Iframe srcUrl="https://www.youtube.com/embed/icINRLGSq4Y" />

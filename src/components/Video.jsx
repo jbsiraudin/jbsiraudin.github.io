@@ -40,7 +40,7 @@ function Video({ srcVideo, width = 560, height = 315, legend = "" }) {
   const progress = duration ? (current / duration) * 100 : 0;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", margin: "0 0 30px" }}>
+    <div style={{ display: "flex", flexDirection: "column", margin: "0 0 30px", flex: 1 }}>
       <div style={{ position: "relative", background: "#000", cursor: "pointer", lineHeight: 0 }} onClick={toggle}>
         <video
           ref={videoRef}

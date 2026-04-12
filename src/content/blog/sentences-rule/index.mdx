@@ -10,6 +10,7 @@ import Image from "@components/Image"
 import Iframe from "@components/Iframe"
 import CarouselImage from "@components/CarouselImage"
 import Rules from "@components/Rules/Rules"
+import Highlight from "@components/Highlight.astro"
 
 Language is just another complex game system, out of the box.
 
@@ -20,9 +21,9 @@ Language is just another complex game system, out of the box.
 Pour celui sur les sentences, j'ai eu l'impression que ça finissait trop tôt, le sujet est tellement intéressant et tu le présentes bien, mais je manquais de takeaways: en quoi c'est intéressant de créer un système comme ça? Le proto final avec la dataviz me donne l'impression qu'il y a toute une dimension supplémentaire derrière le rideau. Ou peut-être que le message du post c'est surtout "c'est trop cool de jouer avec ces systèmes, allez tester ces jeux"
 */}
 
-<p style={{fontSize: 36, textAlign: "center", fontWeight: "bold"}}>
+<Highlight bold size={36}>
 I love puns.
-</p>
+</Highlight>
 
 Making jokes with the language itself is fascinating to me: it defies and collides with our social rules of communications in order to explore uncharted shores of our brains. Without puns, no language would progress or evolve. Next time you make a pun, think of it as an active act of evolution of the humankind, and it might alleviate the pain of your probable social demise.
 
@@ -77,9 +78,9 @@ One of my absolute favorite implementation of the **rules** philosophy is in the
 
 But on each floor, you can also collect **_scrolls_**, up to seven of them of course, which unlocks a particular **_spell_**. A **_spell_** is structured like so:
 
-<p style={{fontSize: 21, textAlign: "center", fontWeight: "bold"}}>
+<Highlight bold size={21}>
 When <span style={{color: "#ff851b"}}>[trigger]</span> happens, <span style={{color: "#ff4136"}}>[target]</span> receives <span style={{color: "#39c7cc"}}>[effect]</span>.
-</p>
+</Highlight>
 
 <p>Each <span style={{color: "#ff851b"}}>[trigger]</span> and <span style={{color: "#39c7cc"}}>[effect]</span> is randomly picked from a different list that the player uncovers as things progress and as spells are picked up. The <span style={{color: "#ff4136"}}>[target]</span> is always the Monk or a Monster.</p>
 

@@ -1,0 +1,310 @@
+.alexandrin-wrapper {
+  --ink: #1a1410;
+  --parchment: #f5f0e8;
+  --parchment-dark: #ede6d4;
+  --gold: #c8922a;
+  --gold-light: #e8b84b;
+  --red-verse: #8b2020;
+  --green-verse: #1a4a1a;
+  --muted: #7a6f5e;
+  --rule: rgba(139, 110, 60, 0.25);
+
+  position: relative;
+
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 20%, rgba(200, 146, 42, 0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(200, 146, 42, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // Main card
+  .alex-card {
+    background: var(--parchment);
+    border-radius: 2px;
+    overflow: hidden;
+    animation: alexFadeUp 0.8s 0.2s ease both;
+  }
+
+  // Toolbar
+  .alex-toolbar {
+    background: var(--parchment-dark);
+    border-bottom: 1px solid var(--rule);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    .toolbar-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .alex-legend {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      .alex-legend-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .alex-legend-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        flex-shrink: 0;
+
+        &.dot-perfect { background: var(--green-verse); }
+        &.dot-close   { background: var(--gold); }
+        &.dot-over    { background: var(--red-verse); }
+      }
+    }
+
+    .toolbar-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+  }
+
+  // Buttons
+  .alex-btn {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 1px;
+
+    &:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(200, 146, 42, 0.05);
+    }
+  }
+
+  // Editor area
+  .alex-editor-area {
+    display: flex;
+    min-height: 420px;
+  }
+
+  // Gutter
+  .alex-gutter {
+    width: 52px;
+    flex-shrink: 0;
+    background: var(--parchment-dark);
+    border-right: 1px solid var(--rule);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+
+    .gutter-cell {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--muted);
+      transition: color 0.2s, font-weight 0.2s;
+
+      span {
+        width: 28px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        transition: background 0.2s;
+      }
+
+      &.perfect {
+        color: var(--green-verse);
+        font-weight: 600;
+        span { background: rgba(26, 74, 26, 0.1); }
+      }
+
+      &.close {
+        color: var(--gold);
+      }
+
+      &.over {
+        color: var(--red-verse);
+        font-weight: 600;
+        span { background: rgba(139, 32, 32, 0.1); }
+      }
+    }
+  }
+
+  // Editor inner
+  .alex-editor-inner {
+    flex: 1;
+    position: relative;
+    overflow-x: auto;
+  }
+
+  .alex-editor {
+    min-width: 100%;
+    width: max-content;
+    min-height: 420px;
+    padding: 20px 24px;
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 1rem;
+    line-height: 36px;
+    color: var(--ink);
+    caret-color: var(--gold);
+    overflow: visible;
+    white-space: pre;
+
+    &:empty::before {
+      content: attr(data-placeholder);
+      color: rgba(122, 111, 94, 0.45);
+      font-style: italic;
+      pointer-events: none;
+    }
+  }
+
+  // Current line highlight
+  .current-line-bg {
+    position: absolute;
+    left: 0;
+    min-width: 100%;
+    width: max-content;
+    height: 36px;
+    background: rgba(200, 146, 42, 0.06);
+    pointer-events: none;
+    transition: top 0.1s;
+  }
+
+  // Stats bar
+  .alex-stats-bar {
+    background: var(--parchment-dark);
+    border-top: 1px solid var(--rule);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .stat-value {
+      font-family: 'IM Fell English', serif;
+      font-size: 1rem;
+      color: var(--ink);
+      font-weight: 400;
+    }
+
+    .stat-perfect .stat-value { color: var(--green-verse); }
+
+    .stat-hint {
+      margin-left: auto;
+      font-style: italic;
+      font-size: 0.78rem;
+      color: rgba(122, 111, 94, 0.6);
+    }
+  }
+
+  // Help panel
+  .alex-help-panel {
+    background: rgba(245, 240, 232, 0.07);
+    border: 1px solid rgba(200, 146, 42, 0.2);
+    border-radius: 2px;
+    padding: 20px 24px;
+    animation: alexFadeUp 0.8s 0.4s ease both;
+
+    .help-title {
+      font-family: 'IM Fell English', serif;
+      font-size: 1rem;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      &::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: rgba(200, 146, 42, 0.2);
+      }
+    }
+
+    .help-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px 24px;
+    }
+
+    .help-item {
+      color: rgba(245, 240, 232, 0.65);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      font-style: italic;
+
+      strong {
+        color: var(--gold);
+        font-style: normal;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+// Syllable popup (fixed position, outside wrapper)
+.alex-syl-popup {
+  position: fixed;
+  background: #1a1410;
+  color: #e8b84b;
+  font-family: 'IM Fell English', serif;
+  font-size: 1.1rem;
+  padding: 6px 14px;
+  border-radius: 2px;
+  border: 1px solid #c8922a;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 100;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+  &.visible { opacity: 1; }
+}
+
+@keyframes alexFadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes alexFadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

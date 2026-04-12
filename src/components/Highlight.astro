@@ -1,0 +1,28 @@
+---
+interface Props {
+  align?: "center" | "left" | "right";
+  bold?: boolean | "bolder";
+  size?: string | number;
+  color?: string;
+  mt?: string | number;
+  mb?: string | number;
+}
+
+const { align = "center", bold = false, size, color, mt, mb } = Astro.props;
+
+function px(v: string | number | undefined) {
+  if (v === undefined) return undefined;
+  return typeof v === "number" ? `${v}px` : v;
+}
+
+const inlineStyle = [
+  `text-align:${align}`,
+  bold === "bolder" ? "font-weight:bolder" : bold ? "font-weight:bold" : "",
+  size ? `font-size:${px(size)}` : "",
+  color ? `color:${color}` : "",
+  mt !== undefined ? `margin-top:${px(mt)}` : "",
+  mb !== undefined ? `margin-bottom:${px(mb)}` : "",
+].filter(Boolean).join(";");
+---
+
+<div style={inlineStyle}><slot /></div>

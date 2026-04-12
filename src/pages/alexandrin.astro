@@ -1,0 +1,14 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { Alexandrin as AlexandrinEditor } from "@components/Alexandrin/Alexandrin.jsx";
+---
+
+<PageLayout title="Alexandrin" description="An editor to write classical verses in alexandrins with syllable counting.">
+  <Container>
+    <div class="font-semibold text-black dark:text-white">
+      Alexandrin
+    </div>
+  </Container>
+  <AlexandrinEditor client:only="react" />
+</PageLayout>

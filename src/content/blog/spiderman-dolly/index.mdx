@@ -10,6 +10,7 @@ import Image from "@components/Image"
 import Iframe from "@components/Iframe"
 import Video from "@components/Video"
 import Dolly from "@components/Dolly/Dolly"
+import Highlight from "@components/Highlight.astro"
 
 Let's face it: Alfred Hitchcock didn't plan for this.
 
@@ -71,9 +72,9 @@ You can spot dolly zooms in the camera work of video games too, sometimes as a d
 
 <Iframe srcUrl="https://www.youtube.com/embed/YpTI8wpKDk8" legend="In The Last of Us 2, Abby is terrified of heights." />
 
-<p style={{fontSize: 24, textAlign: "center", fontWeight: "bold", marginTop: 72 }}>
+<Highlight bold size={24} mt={72}>
 But why do we even have a Dolly effect in Spider-Man?
-</p>
+</Highlight>
 
 The principle behind the Dolly effect we see in Spider-Man or Vertigo is to **zoom out with the lens while moving the camera forward**. But as Doug Sheahan showed us, **the FoV and the Follow Distance both increase as the acceleration kick in: isn't this the wrong setup?**.
 
@@ -118,7 +119,7 @@ You can see below how $a$ evolves according to the zoom factor on this drawing:
 
 <Dolly client:only="react" />
 
-<p style={{fontSize: 12}}>All the Spider-Man additional gameplay of this article was extracted from <a href="https://youtu.be/eEPG4TMhwtk" target="_blank" rel="noopener noreferrer">this video</a>.</p>
+<Highlight size={12} align="left">All the Spider-Man additional gameplay of this article was extracted from <a href="https://youtu.be/eEPG4TMhwtk" target="_blank" rel="noopener noreferrer">this video</a>.</Highlight>
 
 ---
 

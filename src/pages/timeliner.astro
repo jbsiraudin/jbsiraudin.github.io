@@ -1,8 +1,16 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import Tutorial from "@components/Timeliner/Tutorial.astro";
 import { Timeliner as TimelineEditor } from "@components/Timeliner/Timeliner.jsx";
 ---
 
 <PageLayout title="Timeliner" description="A tool to create images of video editing timelines from Final Cut Pro XML exports.">
+  <Container>
+    <div class="font-semibold text-black dark:text-white">
+      Timeliner
+    </div>
+    <Tutorial />
+  </Container>
   <TimelineEditor client:only="react" />
 </PageLayout>

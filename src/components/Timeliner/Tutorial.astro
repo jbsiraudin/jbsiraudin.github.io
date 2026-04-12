@@ -1,0 +1,55 @@
+---
+const prpro = '/img/timeliner/TimelinePremierePro.png';
+const prproexport = '/img/timeliner/TimelinePremiereProExport.png';
+const timelinerui = '/img/timeliner/TimelinerUI.png';
+---
+
+<details class="tutorial">
+  <summary>How to create a timeline with Timeliner</summary>
+  <div class="tutorial-body">
+    <p>Cut your video and distribute clips between tracks by type:</p>
+    <img src={prpro} alt="Premiere Pro timeline" />
+    <p>
+      With the sequence in focus, export it thanks to
+      <i>File &gt; Export &gt; Final Cut Pro XML...</i>:
+    </p>
+    <img src={prproexport} alt="Premiere Pro export" />
+    <p>Import the .xml file in Timeliner and create your timeline:</p>
+    <img src={timelinerui} alt="Timeliner tool" />
+  </div>
+</details>
+
+<style>
+  .tutorial {
+    text-align: left;
+  }
+
+  .tutorial summary {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 12px 0;
+  }
+
+  .tutorial h2 {
+    margin-bottom: 0;
+  }
+
+  .tutorial-body p {
+    font-size: 12px;
+    opacity: 0.75;
+    margin: 6px 0;
+  }
+
+  .tutorial img {
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    display: block;
+    margin: 8px 0;
+  }
+
+  :global(.dark) .tutorial img {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+</style>

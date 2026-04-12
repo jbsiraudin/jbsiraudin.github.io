@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
+import ArrowCard from "@components/ArrowCard.astro";
 import { dateRange } from "@lib/utils";
 import { WORK } from "@consts";
 
@@ -14,6 +15,16 @@ const work = await Promise.all(
     return { ...item, Content };
   })
 );
+
+const educationCollection = (await getCollection("education"))
+  .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf());
+
+const education = await Promise.all(
+  educationCollection.map(async (item) => {
+    const { Content } = await item.render();
+    return { ...item, Content };
+  })
+);
 ---
 
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
@@ -22,7 +33,10 @@ const work = await Promise.all(
       <div class="animate font-semibold text-black dark:text-white">
         Work
       </div>
-      <ul class="flex flex-col space-y-4">
+      <div class="animate">
+        <ArrowCard href="/files/JeanBaptisteSiraudinResume.pdf" title="Resume" description="Download or view my resume (PDF)" target="_blank" rel="noopener noreferrer" />
+      </div>
+      <ul class="flex flex-col space-y-10">
         { 
           work.map(entry => (
             <li class="animate">
@@ -35,17 +49,36 @@ const work = await Promise.all(
               <div class="text-sm opacity-75">
                 {entry.data.role}
               </div>
-              <article>
+              <article class="prose dark:prose-invert mt-2">
                 <entry.Content />
               </article>
             </li>
           ))
         }
       </ul>
-<!-- 
-      <ul class="animate flex flex-col gap-4">
-
-      </ul> -->
+      <div class="animate font-semibold text-black dark:text-white">
+        Education
+      </div>
+      <ul class="flex flex-col space-y-4">
+        {
+          education.map(entry => (
+            <li class="animate">
+              <div class="text-sm opacity-75">
+                {dateRange(entry.data.dateStart, entry.data.dateEnd)}
+              </div>
+              <div class="font-semibold text-black dark:text-white">
+                {entry.data.institution}
+              </div>
+              <div class="text-sm opacity-75">
+                {entry.data.degree}
+              </div>
+              <article class="prose dark:prose-invert mt-2">
+                <entry.Content />
+              </article>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </Container>
 </PageLayout>

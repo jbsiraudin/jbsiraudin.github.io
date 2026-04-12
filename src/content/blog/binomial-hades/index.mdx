@@ -12,6 +12,7 @@ import Configurations from "@components/Combinatorics/Configurations"
 import SimplePointDistribute from "@components/Combinatorics/SimplePointDistribute"
 import Permutations from "@components/Combinatorics/Permutations"
 import Admonition from "@components/Admonition"
+import Highlight from "@components/Highlight.astro"
 
 **Combinatorics** is not dead. Let's take another stab at it.
 
@@ -45,9 +46,9 @@ Giving the players the choice of their challenge is a genius move, as it involve
 
 <Image srcImage="https://interfaceingame.com/wp-content/uploads/shadow-of-the-tomb-raider/shadow-of-the-tomb-raider-select-difficulty-1920x1080.jpg" legend="Shadow the Tomb Raider drops the overall difficulty [Easy, Normal, Hard] for something more granular on its 3 gameplay pillars: combat, exploration, puzzle." />
 
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: 20, fontSize: "21px" }}>
+<Highlight bold size="21px" mt={20}>
   But exactly how many choices does this kind of menu create for players? How many configurations of the <i>Pact of Punishment</i> exist?
-</p>
+</Highlight>
 
 Well for the total number of configurations, the answer is really easy to compute. As reminder here is a summary of the **_Pact of Punishment_** options, and how many "ranks" there is per option:
 <br/>
@@ -94,9 +95,9 @@ Because of the <span style={{fontWeight: "bold", color: "red"}}>heat</span> valu
 
 So, according to me, an interesting question would be:
 
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: 20, fontSize: "21px" }}>
+<Highlight bold size="21px" mt={20}>
   At a given <span style={{fontWeight: "bold", color: "red"}}>heat</span>, how many configurations<br/> of the <i>Pact of Punishment</i> exist?
-</p>
+</Highlight>
 
 Because each option has a different maximum attributed, it would make the whole calculation very very complex, so we'll make this much more simpler.
 
@@ -104,17 +105,17 @@ Let's say I have 10 points to distribute into 5 differents categories like this:
 
 <SimplePointDistribute client:load />
 
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: 20, fontSize: "21px" }}>
+<Highlight bold size="21px" mt={20}>
   How many point distributions exist?
-</p>
+</Highlight>
 
 To discover this formula, **we're gonna change the problem again and make it look like another problem where we might know the answer.**
 
 Fundamentally speaking, a distribution is an addition of 5 elements that equals to 10. So the question becomes:
 
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: 20, fontSize: "21px" }}>
+<Highlight bold size="21px" mt={20}>
   How many ways to cut 10 in 5 exist?
-</p>
+</Highlight>
 
 Now let's say I represent 10 with 10 symbols such as this star $*$. A distribution becomes something like this:
 
@@ -152,15 +153,15 @@ $$
 
 So the problem becomes:
 
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: 20, fontSize: "21px" }}>
+<Highlight bold size="21px" mt={20}>
   How many words can we make with 10 A and 4 B?
-</p>
+</Highlight>
 
 Or in a more mathematic way:
 
-<p style={{ textAlign: "center", fontWeight: "bold", marginTop: 20, fontSize: "21px" }}>
+<Highlight bold size="21px" mt={20}>
   How many permutations of 14 symbols (10 * and 4 +) exist?
-</p>
+</Highlight>
 
 In mathematics, we're saying that we're looking for the number of **permutations with repetitions**.
 
