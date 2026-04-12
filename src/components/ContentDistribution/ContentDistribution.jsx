@@ -17,33 +17,18 @@ import ToggleSwitch from "../ToggleSwitch";
 import update from "immutability-helper";
 // https://github.com/cardmeister/cardmeister.github.io
 
-const Description = ({ mode }) => {
-  let content = null;
-  if (mode === 0) {
-    content = <p>At each position, we pick a card from a full 52-cards deck.</p>;
-  } else if (mode === 1) {
-    content = (
-      <p>At each position, we pick a card from a deck and we take out the card from the deck.</p>
-    );
-  } else if (mode === 2) {
-    content = (
-      <p>
-        At each position, we pick a card from a weighted deck we define.
-        <br /> A card with weight 10 will have 10 times more chances to be picked than a card with
-        weight 1.
-      </p>
-    );
-  } else {
-    content = (
-      <p>
-        We apply a constraint-based algorithm (Wave Function Collapse) to distribute our cards.
-        <br />
-        You can define the constraints below.
-      </p>
-    );
-  }
-  return <div className="app-header">{content}</div>;
-};
+const descriptions = [
+  "Each slot draws independently from a full 52-card deck — any card can land anywhere, duplicates included. Pure randomness, no memory.",
+  "Cards are drawn from a single deck without replacement. Every card appears exactly once across the 52 slots — a perfect shuffle.",
+  "Each slot still draws from a fresh deck, but you bias the odds. A card with weight 10 is 10× more likely to be picked than one with weight 1.",
+  "Cards are placed using Wave Function Collapse: you define rules (forbidden neighbours, position preferences) and the algorithm finds a valid distribution.",
+];
+
+const Description = ({ mode }) => (
+  <div className="app-header">
+    <p>{descriptions[mode]}</p>
+  </div>
+);
 
 Description.propTypes = {
   mode: PropTypes.number,
@@ -308,81 +293,70 @@ export class ContentDistribution extends React.Component {
           continue;
       }
 
-      if (!only) {
-        if (constraint[1] === "0" && constraint[2] === "0") {
-          this.updateConstraint(i, 0, false);
-          continue;
-        } else if (constraint[1] === "0" && constraint[2] !== "0") {
-          const dataFiltered = _.filter(this.data, (o) => {
-            return o.cid.charAt(1) === constraint[2];
-          });
-          for (let j = 0; j < dataFiltered.length; j++) {
-            entryIdList.push(dataFiltered[j].id);
-          }
-        } else if (constraint[1] !== "0" && constraint[2] === "0") {
-          const dataFiltered = _.filter(this.data, (o) => {
-            return o.cid.charAt(0) === constraint[1];
-          });
-          for (let j = 0; j < dataFiltered.length; j++) {
-            entryIdList.push(dataFiltered[j].id);
-          }
-        } else {
-          const idx = _.findIndex(this.data, (o) => {
-            return o.cid === `${constraint[1]}${constraint[2]}`;
-          });
-          entryIdList.push(this.data[idx].id);
+      // Entry: always select the matching cards (only flag does NOT invert the entry)
+      if (constraint[1] === "0" && constraint[2] === "0") {
+        this.updateConstraint(i, 0, false);
+        continue;
+      } else if (constraint[1] === "0" && constraint[2] !== "0") {
+        const dataFiltered = _.filter(this.data, (o) => {
+          return o.cid.charAt(1) === constraint[2];
+        });
+        for (let j = 0; j < dataFiltered.length; j++) {
+          entryIdList.push(dataFiltered[j].id);
+        }
+      } else if (constraint[1] !== "0" && constraint[2] === "0") {
+        const dataFiltered = _.filter(this.data, (o) => {
+          return o.cid.charAt(0) === constraint[1];
+        });
+        for (let j = 0; j < dataFiltered.length; j++) {
+          entryIdList.push(dataFiltered[j].id);
         }
       } else {
-        if (constraint[1] === "0" && constraint[2] === "0") {
-          this.updateConstraint(i, 0, false);
-          continue;
-        } else if (constraint[1] === "0" && constraint[2] !== "0") {
-          const dataFiltered = _.filter(this.data, (o) => {
-            return o.cid.charAt(1) !== constraint[2];
-          });
-          for (let j = 0; j < dataFiltered.length; j++) {
-            entryIdList.push(dataFiltered[j].id);
-          }
-        } else if (constraint[1] !== "0" && constraint[2] === "0") {
-          const dataFiltered = _.filter(this.data, (o) => {
-            return o.cid.charAt(0) !== constraint[1];
-          });
-          for (let j = 0; j < dataFiltered.length; j++) {
-            entryIdList.push(dataFiltered[j].id);
-          }
-        } else {
-          const dataFiltered = _.filter(this.data, (o) => {
-            return o.cid === `${constraint[1]}${constraint[2]}`;
-          });
-          for (let j = 0; j < dataFiltered.length; j++) {
-            entryIdList.push(dataFiltered[j].id);
-          }
-        }
+        const idx = _.findIndex(this.data, (o) => {
+          return o.cid === `${constraint[1]}${constraint[2]}`;
+        });
+        entryIdList.push(this.data[idx].id);
       }
 
+      // Exit: for "only-*" constraints, invert the exit selection so that
+      // the entry card can only be adjacent to the specified reference card.
+      // e.g. "2s must be after Qd" → exitIdList = all cards except Qd.
       if (constraintMode < 2) {
         if (constraint[4] === "0" && constraint[5] === "0") {
           this.updateConstraint(i, 0, false);
           continue;
         } else if (constraint[4] === "0" && constraint[5] !== "0") {
           const dataFiltered = _.filter(this.data, (o) => {
-            return o.cid.charAt(1) === constraint[5];
+            return only
+              ? o.cid.charAt(1) !== constraint[5]
+              : o.cid.charAt(1) === constraint[5];
           });
           for (let j = 0; j < dataFiltered.length; j++) {
             exitIdList.push(dataFiltered[j].id);
           }
         } else if (constraint[4] !== "0" && constraint[5] === "0") {
           const dataFiltered = _.filter(this.data, (o) => {
-            return o.cid.charAt(0) === constraint[4];
+            return only
+              ? o.cid.charAt(0) !== constraint[4]
+              : o.cid.charAt(0) === constraint[4];
           });
           for (let j = 0; j < dataFiltered.length; j++) {
             exitIdList.push(dataFiltered[j].id);
           }
         } else {
-          const idx = _.findIndex(this.data, (o) => {
-            return o.cid === `${constraint[4]}${constraint[5]}`;
-          });
-          exitIdList.push(this.data[idx].id);
+          if (only) {
+            const dataFiltered = _.filter(this.data, (o) => {
+              return o.cid !== `${constraint[4]}${constraint[5]}`;
+            });
+            for (let j = 0; j < dataFiltered.length; j++) {
+              exitIdList.push(dataFiltered[j].id);
+            }
+          } else {
+            const idx = _.findIndex(this.data, (o) => {
+              return o.cid === `${constraint[4]}${constraint[5]}`;
+            });
+            exitIdList.push(this.data[idx].id);
+          }
         }
       } else {
         exitIdList.push(parseInt(constraint[6]));
@@ -390,8 +364,12 @@ export class ContentDistribution extends React.Component {
 
       if (constraintMode < 2) {
         this.wfcGenerator.applyConstraint(entryIdList, constraintMode, exitIdList);
+      } else if (valueWeight > 0) {
+        // "Must be at spot": deterministically force these tiles to that position
+        this.wfcGenerator.forceAt(entryIdList, exitIdList[0]);
       } else {
-        this.wfcGenerator.applyWeight(entryIdList, exitIdList, valueWeight);
+        // "Can't be at spot": zero out weight at that position
+        this.wfcGenerator.applyWeight(entryIdList, exitIdList[0], valueWeight);
       }
     }
   }
@@ -404,7 +382,7 @@ export class ContentDistribution extends React.Component {
           <ToggleSwitch
             values={[
               "Many full decks",
-              "One deck distributed",
+              "One full deck",
               "Weighted decks",
               "Constrained decks",
             ]}

@@ -1,26 +1,31 @@
 @use "sass:color";
 
 .app-container {
-  position: relative;
-  top: 30px;
 
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+
+  .timeline {
+    margin-top: 20px;
+  }
   //color: white;
 
   transition: all 0.5s ease;
   margin-bottom: 100px;
 
   .app-header {
-    position: absolute;
-    top: 60px;
-    margin-bottom: 16px;
+    max-width: 520px;
+    margin-top: 16px;
+    margin-bottom: 0;
 
     p {
-      font-size: 14px;
+      font-size: 13px;
+      opacity: 0.6;
+      line-height: 1.5;
+      margin: 0;
     }
   }
 }

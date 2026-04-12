@@ -242,7 +242,7 @@ canvas {
 
   return (
     <div className="dolly">
-      <iframe ref={frameRef} width={500} height={250} />
+      <iframe ref={frameRef} width={500} height={250} scrolling="no" style={{ pointerEvents: 'none', overflow: 'hidden' }} />
     </div>
   );
 };

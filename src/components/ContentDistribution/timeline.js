@@ -1,21 +1,8 @@
 import _ from "lodash";
+export { WFC } from "./wfc.js";
 
-function pickOne(array) {
-  let index = 0;
-  let selector = Math.random();
-  while (selector > 0) {
-    selector -= array[index].distribution;
-    index++;
-  }
-  // Because the selector was decremented before key was
-  // incremented we need to decrement the key to get the
-  // element that actually exited the loop.
-  index--;
-
-  return index;
-}
-
-export class WFC {
+// Legacy WFC class kept only as a historical reference — no longer used.
+class _WFC_LEGACY {
   constructor(n, tiles) {
     this.n = n;
     // timeline array is gonna contain the final choices for each slot
@@ -41,8 +28,8 @@ export class WFC {
     this.wave_save = new Array(n);
 
     this.constraints_propagator = [
-      new Array(this.n_tiles).fill(new Array(this.n_tiles).fill(true)),
-      new Array(this.n_tiles).fill(new Array(this.n_tiles).fill(true)),
+      Array.from({ length: this.n_tiles }, () => new Array(this.n_tiles).fill(true)),
+      Array.from({ length: this.n_tiles }, () => new Array(this.n_tiles).fill(true)),
     ];
     this.preferences_propagator = [];
 
@@ -71,8 +58,8 @@ export class WFC {
 
   resetConstraints() {
     this.constraints_propagator = [
-      new Array(this.n_tiles).fill(new Array(this.n_tiles).fill(true)),
-      new Array(this.n_tiles).fill(new Array(this.n_tiles).fill(true)),
+      Array.from({ length: this.n_tiles }, () => new Array(this.n_tiles).fill(true)),
+      Array.from({ length: this.n_tiles }, () => new Array(this.n_tiles).fill(true)),
     ];
   }
 
@@ -100,8 +87,8 @@ export class WFC {
 
   setupPropagators() {
     this.constraints_propagator = [
-      new Array(this.n_tiles).fill(new Array(this.n_tiles).fill(true)),
-      new Array(this.n_tiles).fill(new Array(this.n_tiles).fill(true)),
+      Array.from({ length: this.n_tiles }, () => new Array(this.n_tiles).fill(true)),
+      Array.from({ length: this.n_tiles }, () => new Array(this.n_tiles).fill(true)),
     ];
 
     /* this.preferences_propagator = [
@@ -141,6 +128,14 @@ export class WFC {
   resetWeights() {
     for (let i = 0; i < this.tiles.length; i++) {
       this.tiles[i].weights = new Array(this.n).fill(1);
+    }
+  }
+
+  // Deterministic placement: zero-out all other tiles at spotIdx so only the
+  // specified tiles can land there.
+  forceAt(tileIdxList, spotIdx) {
+    for (let i = 0; i < this.tiles.length; i++) {
+      this.tiles[i].weights[spotIdx] = tileIdxList.includes(i) ? 1 : 0;
     }
   }
 

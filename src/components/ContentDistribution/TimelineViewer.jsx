@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "../Timeliner/TimelineViewer.scss";
 //import ReactTooltip from "react-tooltip";
 
 const colors = ["blue", "green", "orange", "red"];
