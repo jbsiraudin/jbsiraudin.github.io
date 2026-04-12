@@ -6,9 +6,141 @@ import { Alexandrin as AlexandrinEditor } from "@components/Alexandrin/Alexandri
 
 <PageLayout title="Alexandrin" description="An editor to write classical verses in alexandrins with syllable counting.">
   <Container>
-    <div class="font-semibold text-black dark:text-white">
-      Alexandrin
+    <div class="space-y-4">
+      <div class="font-semibold text-black dark:text-white">
+        Alexandrin
+      </div>
+      <p class="text-sm text-black/50 dark:text-white/50 leading-relaxed max-w-lg">
+        A French verse editor that counts syllables in real time according to classical prosody rules — <em>e</em> muet, élision, diérèse — and highlights whether each line is a valid alexandrin (12 syllables). With coding assistance by Claude Sonnet 4.6.
+      </p>
+      <details class="alex-details">
+        <summary>How it works</summary>
+        <div class="alex-details-body">
+          <h3>The syllable-counting algorithm</h3>
+          <p>
+            French syllable counting is notoriously tricky. Each word is scanned vowel-by-vowel using classical versification rules:
+          </p>
+          <ul>
+            <li><strong>E muet</strong> — A word-final <em>e</em> (or <em>es</em>, <em>ent</em>) after a consonant counts as a syllable before another consonant, but is elided (dropped) before a vowel.</li>
+            <li><strong>Synérèse</strong> — Common vowel pairs like <em>ou</em>, <em>eu</em>, <em>ai</em>, <em>oi</em> are counted as one syllable.</li>
+            <li><strong>Diérèse</strong> — Other adjacent vowels (e.g. <em>vi·o·lon</em>) are counted separately, as the classical poet would pronounce them.</li>
+            <li><strong>Élision</strong> — Contracted forms like <em>l'</em>, <em>d'</em>, <em>j'</em> are expanded before counting so the elided vowel doesn't add a syllable.</li>
+          </ul>
+          <p>
+            Each line is scored and coloured: green for a perfect alexandrin (12 syl.), muted for close (10–13), red for out of measure.
+          </p>
+        </div>
+      </details>
     </div>
   </Container>
   <AlexandrinEditor client:only="react" />
 </PageLayout>
+
+<style>
+  .alex-details {
+    max-width: 32rem;
+  }
+
+  .alex-details summary {
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.4);
+    padding: 4px 0;
+    transition: color 0.2s;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .alex-details summary::before {
+    content: '▸';
+    font-size: 0.65rem;
+    transition: transform 0.2s;
+  }
+
+  .alex-details[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .alex-details summary:hover {
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  :global(.dark) .alex-details summary {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  :global(.dark) .alex-details summary:hover {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .alex-details-body {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .alex-details-body h3 {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 8px;
+  }
+
+  :global(.dark) .alex-details-body h3 {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .alex-details-body p,
+  .alex-details-body li {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  :global(.dark) .alex-details-body p,
+  :global(.dark) .alex-details-body li {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
+  .alex-details-body ul {
+    padding-left: 1.2em;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .alex-details-body strong {
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 600;
+  }
+
+  :global(.dark) .alex-details-body strong {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .alex-details-body a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: rgba(0, 0, 0, 0.2);
+    transition: color 0.2s;
+  }
+
+  .alex-details-body a:hover {
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  :global(.dark) .alex-details-body a {
+    text-decoration-color: rgba(255, 255, 255, 0.2);
+  }
+
+  :global(.dark) .alex-details-body a:hover {
+    color: rgba(255, 255, 255, 0.8);
+  }
+</style>
