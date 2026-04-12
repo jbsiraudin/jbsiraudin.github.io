@@ -1,74 +1,94 @@
 .alexandrin-wrapper {
-  --ink: #1a1410;
-  --parchment: #f5f0e8;
-  --parchment-dark: #ede6d4;
-  --gold: #c8922a;
-  --gold-light: #e8b84b;
-  --red-verse: #8b2020;
-  --green-verse: #1a4a1a;
-  --muted: #7a6f5e;
-  --rule: rgba(139, 110, 60, 0.25);
+  // Light mode
+  --alex-bg: #f5f5f4;         // stone-100
+  --alex-surface: #ffffff;
+  --alex-surface-alt: #e7e5e4; // stone-200
+  --alex-border: rgba(0, 0, 0, 0.08);
+  --alex-ink: rgba(0, 0, 0, 0.85);
+  --alex-muted: rgba(0, 0, 0, 0.4);
+  --alex-hint: rgba(0, 0, 0, 0.25);
+  --alex-caret: rgba(0, 0, 0, 0.7);
+  --alex-highlight: rgba(0, 0, 0, 0.04);
+  --alex-perfect: #166534;    // green-800
+  --alex-perfect-bg: rgba(22, 101, 52, 0.07);
+  --alex-close: rgba(0, 0, 0, 0.5);
+  --alex-over: #991b1b;       // red-800
+  --alex-over-bg: rgba(153, 27, 27, 0.07);
+  --alex-popup-bg: #1c1917;   // stone-900
+  --alex-popup-fg: #f5f5f4;   // stone-100
 
   position: relative;
 
-  &::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      radial-gradient(ellipse at 20% 20%, rgba(200, 146, 42, 0.04) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 80%, rgba(200, 146, 42, 0.03) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
+  // Dark mode overrides
+  html.dark & {
+    --alex-bg: #18181b;         // zinc-900
+    --alex-surface: #27272a;    // zinc-800
+    --alex-surface-alt: #3f3f46; // zinc-700
+    --alex-border: rgba(255, 255, 255, 0.08);
+    --alex-ink: rgba(255, 255, 255, 0.85);
+    --alex-muted: rgba(255, 255, 255, 0.4);
+    --alex-hint: rgba(255, 255, 255, 0.2);
+    --alex-caret: rgba(255, 255, 255, 0.7);
+    --alex-highlight: rgba(255, 255, 255, 0.05);
+    --alex-perfect: #4ade80;    // green-400
+    --alex-perfect-bg: rgba(74, 222, 128, 0.08);
+    --alex-close: rgba(255, 255, 255, 0.5);
+    --alex-over: #f87171;       // red-400
+    --alex-over-bg: rgba(248, 113, 113, 0.08);
+    --alex-popup-bg: #f5f5f4;
+    --alex-popup-fg: #1c1917;
   }
 
   // Main card
   .alex-card {
-    background: var(--parchment);
-    border-radius: 2px;
+    background: var(--alex-surface);
+    border-radius: 4px;
+    border: 1px solid var(--alex-border);
     overflow: hidden;
-    animation: alexFadeUp 0.8s 0.2s ease both;
+    animation: alexFadeUp 0.6s ease both;
   }
 
   // Toolbar
   .alex-toolbar {
-    background: var(--parchment-dark);
-    border-bottom: 1px solid var(--rule);
-    padding: 12px 20px;
+    background: var(--alex-surface-alt);
+    border-bottom: 1px solid var(--alex-border);
+    padding: 10px 16px;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 16px;
     flex-wrap: wrap;
 
     .toolbar-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--alex-muted);
+      font-family: "Barlow", sans-serif;
     }
 
     .alex-legend {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
 
       .alex-legend-item {
         display: flex;
         align-items: center;
-        gap: 6px;
-        font-size: 0.82rem;
-        color: var(--muted);
+        gap: 5px;
+        font-size: 0.78rem;
+        color: var(--alex-muted);
+        font-family: "Barlow", sans-serif;
       }
 
       .alex-legend-dot {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         border-radius: 50%;
         flex-shrink: 0;
 
-        &.dot-perfect { background: var(--green-verse); }
-        &.dot-close   { background: var(--gold); }
-        &.dot-over    { background: var(--red-verse); }
+        &.dot-perfect { background: var(--alex-perfect); }
+        &.dot-close   { background: var(--alex-close); }
+        &.dot-over    { background: var(--alex-over); }
       }
     }
 
@@ -76,28 +96,28 @@
       margin-left: auto;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
     }
   }
 
   // Buttons
   .alex-btn {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
+    font-family: "Barlow", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 6px 14px;
-    border: 1px solid var(--rule);
+    padding: 5px 12px;
+    border: 1px solid var(--alex-border);
     background: transparent;
-    color: var(--muted);
+    color: var(--alex-muted);
     cursor: pointer;
-    transition: all 0.2s;
-    border-radius: 1px;
+    transition: all 0.15s;
+    border-radius: 3px;
 
     &:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-      background: rgba(200, 146, 42, 0.05);
+      border-color: var(--alex-ink);
+      color: var(--alex-ink);
+      background: var(--alex-highlight);
     }
   }
 
@@ -109,10 +129,10 @@
 
   // Gutter
   .alex-gutter {
-    width: 52px;
+    width: 48px;
     flex-shrink: 0;
-    background: var(--parchment-dark);
-    border-right: 1px solid var(--rule);
+    background: var(--alex-surface-alt);
+    border-right: 1px solid var(--alex-border);
     padding: 20px 0;
     display: flex;
     flex-direction: column;
@@ -122,35 +142,36 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.78rem;
+      font-size: 0.72rem;
+      font-family: "Barlow", sans-serif;
       font-weight: 400;
-      color: var(--muted);
-      transition: color 0.2s, font-weight 0.2s;
+      color: var(--alex-hint);
+      transition: color 0.15s;
 
       span {
         width: 28px;
-        height: 24px;
+        height: 22px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 2px;
-        transition: background 0.2s;
+        border-radius: 3px;
+        transition: background 0.15s;
       }
 
       &.perfect {
-        color: var(--green-verse);
+        color: var(--alex-perfect);
         font-weight: 600;
-        span { background: rgba(26, 74, 26, 0.1); }
+        span { background: var(--alex-perfect-bg); }
       }
 
       &.close {
-        color: var(--gold);
+        color: var(--alex-close);
       }
 
       &.over {
-        color: var(--red-verse);
+        color: var(--alex-over);
         font-weight: 600;
-        span { background: rgba(139, 32, 32, 0.1); }
+        span { background: var(--alex-over-bg); }
       }
     }
   }
@@ -171,16 +192,17 @@
     border: none;
     outline: none;
     resize: none;
-    font-size: 1rem;
+    font-family: "Lora", serif;
+    font-size: 1.05rem;
     line-height: 36px;
-    color: var(--ink);
-    caret-color: var(--gold);
+    color: var(--alex-ink);
+    caret-color: var(--alex-caret);
     overflow: visible;
     white-space: pre;
 
     &:empty::before {
       content: attr(data-placeholder);
-      color: rgba(122, 111, 94, 0.45);
+      color: var(--alex-hint);
       font-style: italic;
       pointer-events: none;
     }
@@ -193,59 +215,62 @@
     min-width: 100%;
     width: max-content;
     height: 36px;
-    background: rgba(200, 146, 42, 0.06);
+    background: var(--alex-highlight);
     pointer-events: none;
-    transition: top 0.1s;
+    transition: top 0.08s;
   }
 
   // Stats bar
   .alex-stats-bar {
-    background: var(--parchment-dark);
-    border-top: 1px solid var(--rule);
-    padding: 10px 20px;
+    background: var(--alex-surface-alt);
+    border-top: 1px solid var(--alex-border);
+    padding: 9px 16px;
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 20px;
     flex-wrap: wrap;
 
     .stat {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      color: var(--muted);
+      gap: 5px;
+      font-size: 0.78rem;
+      font-family: "Barlow", sans-serif;
+      color: var(--alex-muted);
     }
 
     .stat-value {
-      font-family: 'IM Fell English', serif;
-      font-size: 1rem;
-      color: var(--ink);
-      font-weight: 400;
+      font-size: 0.95rem;
+      color: var(--alex-ink);
     }
 
-    .stat-perfect .stat-value { color: var(--green-verse); }
+    .stat-perfect .stat-value { color: var(--alex-perfect); }
 
     .stat-hint {
       margin-left: auto;
       font-style: italic;
-      font-size: 0.78rem;
-      color: rgba(122, 111, 94, 0.6);
+      font-size: 0.72rem;
+      color: var(--alex-hint);
+      font-family: "Barlow", sans-serif;
     }
   }
 
   // Help panel
   .alex-help-panel {
-    background: rgba(245, 240, 232, 0.07);
-    border: 1px solid rgba(200, 146, 42, 0.2);
-    border-radius: 2px;
-    padding: 20px 24px;
-    animation: alexFadeUp 0.8s 0.4s ease both;
+    background: var(--alex-surface);
+    border: 1px solid var(--alex-border);
+    border-radius: 4px;
+    padding: 18px 22px;
+    animation: alexFadeUp 0.6s 0.1s ease both;
 
     .help-title {
-      font-family: 'IM Fell English', serif;
-      font-size: 1rem;
-      color: var(--gold-light);
-      margin-bottom: 12px;
+      font-family: "Barlow", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--alex-muted);
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -254,7 +279,7 @@
         content: '';
         flex: 1;
         height: 1px;
-        background: rgba(200, 146, 42, 0.2);
+        background: var(--alex-border);
       }
     }
 
@@ -265,46 +290,43 @@
     }
 
     .help-item {
-      color: rgba(245, 240, 232, 0.65);
-      font-size: 0.88rem;
+      color: var(--alex-muted);
+      font-size: 0.85rem;
       line-height: 1.6;
-      font-style: italic;
 
       strong {
-        color: var(--gold);
+        color: var(--alex-ink);
         font-style: normal;
-        font-weight: 400;
+        font-weight: 600;
+        font-size: 0.78rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
       }
     }
   }
 }
 
-// Syllable popup (fixed position, outside wrapper)
+// Syllable popup (fixed, outside wrapper)
 .alex-syl-popup {
   position: fixed;
-  background: #1a1410;
-  color: #e8b84b;
-  font-family: 'IM Fell English', serif;
-  font-size: 1.1rem;
-  padding: 6px 14px;
-  border-radius: 2px;
-  border: 1px solid #c8922a;
+  background: var(--alex-popup-bg, #1c1917);
+  color: var(--alex-popup-fg, #f5f5f4);
+  font-family: "Barlow", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  padding: 5px 12px;
+  border-radius: 3px;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.15s;
   z-index: 100;
   white-space: nowrap;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
   &.visible { opacity: 1; }
 }
 
-@keyframes alexFadeDown {
-  from { opacity: 0; transform: translateY(-16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
 @keyframes alexFadeUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(10px); }
   to   { opacity: 1; transform: translateY(0); }
 }

@@ -215,10 +215,10 @@ export function Alexandrin() {
     currentSyl === null
       ? ''
       : currentSyl === 12
-      ? 'var(--green-verse)'
+      ? 'var(--alex-perfect)'
       : currentSyl >= 10
-      ? 'var(--gold)'
-      : 'var(--red-verse)';
+      ? 'var(--alex-close)'
+      : 'var(--alex-over)';
 
   const currentSylText = currentSyl !== null ? `${currentSyl} syl.` : '—';
 
@@ -236,7 +236,7 @@ export function Alexandrin() {
                 12 syllabes — parfait
               </div>
               <div className="alex-legend-item">
-                <div className="legend-dot dot-close" />
+                <div className="alex-legend-dot dot-close" />
                 10–11 / 13 — proche
               </div>
               <div className="alex-legend-item">
