@@ -458,15 +458,7 @@ export class ContentDistribution extends React.Component {
                     />
                   </div>
                   <div className="remove">
-                    <button
-                      style={{
-                        borderRadius: "200px",
-                        padding: 0,
-                        paddingBottom: "2px",
-                        width: "28px",
-                      }}
-                      onClick={() => this.removeWeight(i)}
-                    >
+                    <button onClick={() => this.removeWeight(i)}>
                       -
                     </button>
                   </div>
@@ -587,15 +579,7 @@ export class ContentDistribution extends React.Component {
                     </div>
                   )}
                   <div className="remove">
-                    <button
-                      style={{
-                        borderRadius: "200px",
-                        padding: 0,
-                        paddingBottom: "2px",
-                        width: "28px",
-                      }}
-                      onClick={() => this.removeConstraint(i)}
-                    >
+                    <button onClick={() => this.removeConstraint(i)}>
                       -
                     </button>
                   </div>

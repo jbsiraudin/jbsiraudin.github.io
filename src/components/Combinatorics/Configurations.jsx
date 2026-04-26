@@ -62,12 +62,6 @@ const Configurations = () => {
               <div className="remove">
                 <button
                   className="outline-danger"
-                  style={{
-                    borderRadius: "200px",
-                    padding: 0,
-                    paddingBottom: "2px",
-                    width: "28px",
-                  }}
                   onClick={() => removeOption(i)}
                 >
                   -

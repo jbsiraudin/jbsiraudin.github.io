@@ -157,17 +157,19 @@ $light-blue: #3da4cc;
 
       button {
         width: 100%;
-        border-radius: 0;
-        border: 1px solid #45c035;
+        font-family: "Barlow", sans-serif;
+        font-size: 13px;
+        border: 1px solid rgba(#42af7e, 0.5);
+        border-radius: 4px;
         background: transparent;
-        color: #45c035;
-        transition: all 0.2s ease;
+        color: rgba(#42af7e, 0.8);
+        transition: background-color 0.3s ease, color 0.3s ease;
         cursor: pointer;
-        padding: 6px;
+        padding: 6px 12px;
 
         &:hover {
-          background: #45c035;
-          color: var(--bg-color);
+          background: rgba(#42af7e, 0.1);
+          color: #42af7e;
         }
       }
     }
@@ -177,8 +179,14 @@ $light-blue: #3da4cc;
       align-items: center;
 
       select {
-        border-radius: 0;
+        border-radius: 4px;
+        border: 1px solid color-mix(in srgb, var(--color) 15%, transparent);
+        background: transparent;
+        color: var(--color);
         outline: none;
+        padding: 3px 4px;
+        font-family: "Barlow", sans-serif;
+        font-size: 13px;
       }
 
       .number {
@@ -211,22 +219,45 @@ $light-blue: #3da4cc;
         width: 100px;
         input {
           width: 80px;
+          font-family: "Barlow", sans-serif;
+          font-size: 13px;
+          padding: 4px 6px;
+          border: 1px solid color-mix(in srgb, var(--color) 15%, transparent);
+          border-radius: 4px;
+          background: transparent;
+          color: var(--color);
+          outline: none;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            border-color: color-mix(in srgb, var(--color) 40%, transparent);
+          }
         }
       }
 
       .remove {
         width: 75px;
+        display: flex;
+        justify-content: center;
+
         button {
-          margin: auto;
-          border: 1px solid #fe2c1d;
+          font-family: inherit;
+          font-size: 14px;
+          border-radius: 4px;
+          border: 1px solid rgba(#ff4136, 0.5);
           background: transparent;
-          color: #fe2c1d;
-          transition: all 0.2s ease;
+          color: rgba(#ff4136, 0.7);
+          width: 26px;
+          height: 26px;
+          padding: 0;
+          line-height: 1;
           cursor: pointer;
+          transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
           &:hover {
-            background: #fe2c1d;
-            color: var(--bg-color);
+            background: rgba(#ff4136, 0.1);
+            border-color: rgba(#ff4136, 0.8);
+            color: #ff4136;
           }
         }
       }

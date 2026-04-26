@@ -1,10 +1,12 @@
-$color-actor: #ffee1f;
-$color-action: #00ccff;
-
 $olive: #42af7e;
 $teal: #39c7cc;
 $orange: #ff851b;
 $red: #ff4136;
+
+$border: color-mix(in srgb, var(--color) 15%, transparent);
+$border-hover: color-mix(in srgb, var(--color) 40%, transparent);
+$bg-hover: color-mix(in srgb, var(--color) 5%, transparent);
+$bg-hover-strong: color-mix(in srgb, var(--color) 8%, transparent);
 
 .rules-app {
   position: relative;
@@ -14,57 +16,47 @@ $red: #ff4136;
   align-items: center;
   justify-content: flex-start;
   color: var(--color);
+  font-family: "Barlow", sans-serif;
 
   transition: all 0.5s ease;
-
-  .app-header {
-    width: 720px;
-    margin-bottom: 16px;
-
-    p {
-      font-size: 14px;
-    }
-
-    h2 {
-      margin-bottom: 50px;
-    }
-  }
 
   .buttons {
     margin-bottom: 50px;
     display: inline-flex;
+    gap: 8px;
 
     button {
       position: relative;
-      font-size: 16px;
-      padding: 10px 20px 10px 20px;
-      border: 1px var(--color) solid;
-      border-radius: 3px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 8px 20px;
+      border: 1px solid $border;
+      border-radius: 4px;
       background-color: transparent;
-      transition: all 0.1s ease;
-      margin: 5px;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
       color: var(--color);
-    }
-
-    button:hover {
       cursor: pointer;
-      color: var(--bg-color);
-      background-color: var(--color);
-    }
 
-    button:active {
-      transform: scale(0.9);
+      &:hover {
+        background-color: $bg-hover;
+      }
+
+      &:active {
+        transform: scale(0.96);
+      }
     }
 
     .make {
-      color: #1d1d1d;
+      color: #1a1a1a;
       border-color: #ffee1f;
       background-color: #ffee1f;
-    }
 
-    .make:hover {
-      color: #1d1d1d;
-      background-color: #ffcb1f;
+      &:hover {
+        background-color: #f0df00;
+        border-color: #f0df00;
+      }
     }
   }
 
@@ -73,17 +65,6 @@ $red: #ff4136;
 
     .rules {
       text-align: left;
-    }
-
-    .colored {
-      padding: 5px;
-      color: #191919;
-      background-color: yellow;
-    }
-
-    .b-colored {
-      color: #191919;
-      background-color: #00ccff;
     }
 
     .actor-colored {
@@ -121,14 +102,17 @@ $red: #ff4136;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+
       .choice {
         display: block;
         margin: 10px;
 
         .firstLine {
-          border-bottom: 1px solid var(--color);
+          border-bottom: 1px solid $border;
           margin-bottom: 10px;
           padding-bottom: 5px;
+          font-size: 14px;
+          color: var(--color);
         }
 
         .lastLine {
@@ -136,17 +120,19 @@ $red: #ff4136;
 
           button {
             width: 100%;
-            border-radius: 0;
-            border: 1px solid #45c035;
+            font-family: inherit;
+            font-size: 13px;
+            border: 1px solid rgba(#42af7e, 0.5);
+            border-radius: 4px;
             background: transparent;
-            color: #45c035;
-            transition: all 0.2s ease;
+            color: rgba(#42af7e, 0.8);
+            transition: background-color 0.3s ease, color 0.3s ease;
             cursor: pointer;
-            padding: 6px;
+            padding: 6px 12px;
 
             &:hover {
-              background: #45c035;
-              color: var(--bg-color);
+              background: rgba(#42af7e, 0.1);
+              color: #42af7e;
             }
           }
         }
@@ -159,21 +145,50 @@ $red: #ff4136;
 
           .text {
             width: 200px;
+
+            input {
+              width: 100%;
+              font-family: inherit;
+              font-size: 13px;
+              padding: 5px 8px;
+              border: 1px solid $border;
+              border-radius: 4px;
+              background: transparent;
+              color: var(--color);
+              outline: none;
+              transition: border-color 0.3s ease;
+
+              &:focus {
+                border-color: $border-hover;
+              }
+            }
           }
 
           .remove {
             width: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 4px;
+
             button {
-              margin: auto;
-              border: 1px solid #fe2c1d;
+              font-family: inherit;
+              font-size: 14px;
+              border-radius: 4px;
+              border: 1px solid rgba(#ff4136, 0.5);
               background: transparent;
-              color: #fe2c1d;
-              transition: all 0.2s ease;
+              color: rgba(#ff4136, 0.7);
+              width: 26px;
+              height: 26px;
+              padding: 0;
+              line-height: 1;
               cursor: pointer;
+              transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 
               &:hover {
-                background: #fe2c1d;
-                color: var(--bg-color);
+                background: rgba(#ff4136, 0.1);
+                border-color: rgba(#ff4136, 0.8);
+                color: #ff4136;
               }
             }
           }
@@ -186,6 +201,7 @@ $red: #ff4136;
     width: 100%;
     max-width: 600px;
     height: 400px;
-    border: 1px solid lightgray;
+    border: 1px solid $border;
+    border-radius: 4px;
   }
 }
