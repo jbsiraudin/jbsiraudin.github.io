@@ -1,0 +1,109 @@
+// Shared variables and mixins for interactive blog components.
+// @use this partial with `as *` so variables and mixins are available unprefixed.
+
+// Color palette
+$olive: #42af7e;
+$teal: #39c7cc;
+$orange: #ff851b;
+$red: #ff4136;
+
+// Adaptive border/bg tokens — use CSS custom properties so dark mode works automatically
+$border:          color-mix(in srgb, var(--color) 15%, transparent);
+$border-hover:    color-mix(in srgb, var(--color) 40%, transparent);
+$bg-hover:        color-mix(in srgb, var(--color)  5%, transparent);
+$bg-hover-strong: color-mix(in srgb, var(--color)  8%, transparent);
+
+// Bottom-bordered section header row
+@mixin first-line {
+  border-bottom: 1px solid $border;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+// Transparent bordered text/number input with focus ring
+@mixin input-base {
+  font-family: inherit;
+  padding: 4px 6px;
+  border: 1px solid $border;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color);
+  outline: none;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: $border-hover;
+  }
+}
+
+// Transparent bordered select element
+@mixin select-base {
+  font-family: inherit;
+  padding: 3px 4px;
+  border: 1px solid $border;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color);
+  outline: none;
+  font-size: 13px;
+}
+
+// Olive-green "Add …" button
+@mixin add-button {
+  font-family: inherit;
+  font-size: 13px;
+  border: 1px solid rgba($olive, 0.5);
+  border-radius: 4px;
+  background: transparent;
+  color: rgba($olive, 0.8);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  padding: 6px 12px;
+
+  &:hover {
+    background: rgba($olive, 0.1);
+    color: $olive;
+  }
+}
+
+// Small 26×26 reddish remove button
+@mixin remove-button {
+  font-family: inherit;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid rgba($red, 0.5);
+  background: transparent;
+  color: rgba($red, 0.7);
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    background: rgba($red, 0.1);
+    border-color: rgba($red, 0.8);
+    color: $red;
+  }
+}
+
+// Neutral bordered interactive button — steppers, reset, etc.
+@mixin interactive-button {
+  font-family: inherit;
+  border: 1px solid $border;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover:not(:disabled) {
+    background: $bg-hover;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+}

@@ -3,18 +3,7 @@ import "./Rules.scss";
 import _ from "lodash";
 import update from "immutability-helper";
 import { Network, DataSet } from "vis-network/standalone/esm/vis-network.min.js";
-
-function useIsDarkTheme() {
-  const [isDark, setIsDark] = useState(false);
-  useEffect(() => {
-    const check = () => setIsDark(document.documentElement.classList.contains("dark"));
-    check();
-    const obs = new MutationObserver(check);
-    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => obs.disconnect();
-  }, []);
-  return isDark;
-}
+import useIsDarkTheme from "../../hooks/useIsDarkTheme";
 
 const defaultText = {
   actors: "entity",

@@ -3,6 +3,7 @@ import katex from "katex";
 import "./Combinatorics.scss";
 import update from "immutability-helper";
 import sum from "lodash/sum";
+import { factorial } from "../../utils/math";
 
 const Permutations = () => {
   const [n, setN] = useState(15);
@@ -10,18 +11,6 @@ const Permutations = () => {
   const spanRef = useRef(null);
   const [options, setOptions] = useState(Array(k).fill(1));
   const [pointsLeft, setPointsLeft] = useState(15);
-
-  const factorial = (n) => {
-    if (n === 0 || n === 1) {
-      return 1;
-    } else {
-      let tmp = 1;
-      for (let i = 2; i < n + 1; i++) {
-        tmp *= i;
-      }
-      return tmp;
-    }
-  };
 
   function moveUpOption(i) {
     if (sum(options) < n) {

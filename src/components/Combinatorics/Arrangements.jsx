@@ -1,23 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
 import katex from "katex";
 import "./Combinatorics.scss";
+import { factorial } from "../../utils/math";
 
 const Arrangements = () => {
   const [n, setN] = useState(10);
   const [k, setK] = useState(5);
   const spanRef = useRef(null);
-
-  const factorial = (n) => {
-    if (n === 0 || n === 1) {
-      return 1;
-    } else {
-      let tmp = 1;
-      for (let i = 2; i < n + 1; i++) {
-        tmp *= i;
-      }
-      return tmp;
-    }
-  };
 
   function A(n, k) {
     return Math.floor(factorial(n) / factorial(n - k));

@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import "../../css/Alexandrin.scss";
+import "./Alexandrin.scss";
 
 // ─── Syllable counting ────────────────────────────────────────────────────────
 

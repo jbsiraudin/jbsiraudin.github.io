@@ -1,20 +1,18 @@
 @use "sass:color";
+@use '../../styles/interactive' as *;
 
 .app-container {
-
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  transition: all 0.5s ease;
+  margin-bottom: 100px;
 
   .timeline {
     margin-top: 20px;
   }
-  //color: white;
-
-  transition: all 0.5s ease;
-  margin-bottom: 100px;
 
   .app-header {
     max-width: 520px;
@@ -36,28 +34,22 @@
   font-family: "Patrick Hand", cursive;
   font-size: 32px;
   text-decoration: underline;
-
   color: white;
   left: 50%;
   transform: translateX(-50%);
 }
 
-$color-bo: color.adjust(
-  white,
-  $alpha: -0.05,
-);
+$color-bo: color.adjust(white, $alpha: -0.05);
 
 .bo-container {
   position: fixed;
   width: 100%;
   height: 90%;
   background: $color-bo;
-
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
   transition: all 0.5s ease;
 }
 
@@ -68,14 +60,12 @@ $size: 20px;
   width: $size * 2;
   border-top-left-radius: $size * 2;
   border-top-right-radius: $size * 2;
-
   position: absolute;
   top: -$size;
   left: 50%;
   transform: translateX(-50%);
   background: $color-bo;
   transition: all 0.15s ease;
-
   text-align: center;
 
   svg {
@@ -93,15 +83,12 @@ $size-h: 28px;
   width: $size-h * 2;
   border-top-left-radius: $size-h * 2;
   border-top-right-radius: $size-h * 2;
-
   top: -$size-h;
 
   svg {
     font-size: $size-h;
   }
 }
-
-$light-blue: #3da4cc;
 
 .buttons {
   display: inline-flex;
@@ -110,13 +97,14 @@ $light-blue: #3da4cc;
 .run {
   position: relative;
   font-size: 16px;
-  padding: 10px 20px 10px 20px;
-  border: 1px var(--color) solid;
-  border-radius: 3px;
+  padding: 10px 20px;
+  border: 1px solid $border;
+  border-radius: 4px;
   background-color: transparent;
-  transition: all 0.1s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   margin: 5px;
   color: var(--color);
+  cursor: pointer;
 
   .warn {
     position: absolute;
@@ -126,19 +114,15 @@ $light-blue: #3da4cc;
     color: #ffee1f;
     text-shadow: -1px 1px black;
   }
-}
 
-.run:hover {
-  cursor: pointer;
-  color: var(--bg-color);
-  background-color: var(--color);
-
-  .warn {
+  &:hover {
+    color: var(--bg-color);
+    background-color: var(--color);
   }
-}
 
-.run:active {
-  transform: scale(0.9);
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 .constraints-container {
@@ -147,30 +131,15 @@ $light-blue: #3da4cc;
 
   .constraints {
     .firstLine {
-      border-bottom: 1px solid var(--color);
-      margin-bottom: 10px;
-      padding-bottom: 5px;
+      @include first-line;
     }
 
     .lastLine {
       margin-top: 10px;
 
       button {
+        @include add-button;
         width: 100%;
-        font-family: "Barlow", sans-serif;
-        font-size: 13px;
-        border: 1px solid rgba(#42af7e, 0.5);
-        border-radius: 4px;
-        background: transparent;
-        color: rgba(#42af7e, 0.8);
-        transition: background-color 0.3s ease, color 0.3s ease;
-        cursor: pointer;
-        padding: 6px 12px;
-
-        &:hover {
-          background: rgba(#42af7e, 0.1);
-          color: #42af7e;
-        }
       }
     }
 
@@ -179,59 +148,29 @@ $light-blue: #3da4cc;
       align-items: center;
 
       select {
-        border-radius: 4px;
-        border: 1px solid color-mix(in srgb, var(--color) 15%, transparent);
-        background: transparent;
-        color: var(--color);
-        outline: none;
-        padding: 3px 4px;
-        font-family: "Barlow", sans-serif;
-        font-size: 13px;
+        @include select-base;
       }
 
-      .number {
-        width: 30px;
-      }
-
-      .use {
-        width: 50px;
-      }
+      .number { width: 30px; }
+      .use    { width: 50px; }
 
       .selector {
         width: 135px;
-        select {
-          width: 50px;
-        }
-
-        .select-text {
-          width: 75px;
-        }
+        select  { width: 50px; }
+        .select-text { width: 75px; }
       }
 
       .type {
         width: 170px;
-        select {
-          width: 130px;
-        }
+        select { width: 130px; }
       }
 
       .weight {
         width: 100px;
-        input {
-          width: 80px;
-          font-family: "Barlow", sans-serif;
-          font-size: 13px;
-          padding: 4px 6px;
-          border: 1px solid color-mix(in srgb, var(--color) 15%, transparent);
-          border-radius: 4px;
-          background: transparent;
-          color: var(--color);
-          outline: none;
-          transition: border-color 0.3s ease;
 
-          &:focus {
-            border-color: color-mix(in srgb, var(--color) 40%, transparent);
-          }
+        input {
+          @include input-base;
+          width: 80px;
         }
       }
 
@@ -241,24 +180,7 @@ $light-blue: #3da4cc;
         justify-content: center;
 
         button {
-          font-family: inherit;
-          font-size: 14px;
-          border-radius: 4px;
-          border: 1px solid rgba(#ff4136, 0.5);
-          background: transparent;
-          color: rgba(#ff4136, 0.7);
-          width: 26px;
-          height: 26px;
-          padding: 0;
-          line-height: 1;
-          cursor: pointer;
-          transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-
-          &:hover {
-            background: rgba(#ff4136, 0.1);
-            border-color: rgba(#ff4136, 0.8);
-            color: #ff4136;
-          }
+          @include remove-button;
         }
       }
     }

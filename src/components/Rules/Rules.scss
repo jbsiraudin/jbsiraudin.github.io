@@ -1,12 +1,4 @@
-$olive: #42af7e;
-$teal: #39c7cc;
-$orange: #ff851b;
-$red: #ff4136;
-
-$border: color-mix(in srgb, var(--color) 15%, transparent);
-$border-hover: color-mix(in srgb, var(--color) 40%, transparent);
-$bg-hover: color-mix(in srgb, var(--color) 5%, transparent);
-$bg-hover-strong: color-mix(in srgb, var(--color) 8%, transparent);
+@use '../../styles/interactive' as *;
 
 .rules-app {
   position: relative;
@@ -26,22 +18,12 @@ $bg-hover-strong: color-mix(in srgb, var(--color) 8%, transparent);
     gap: 8px;
 
     button {
+      @include interactive-button;
       position: relative;
-      font-family: inherit;
       font-size: 14px;
       font-weight: 500;
       letter-spacing: 0.05em;
       padding: 8px 20px;
-      border: 1px solid $border;
-      border-radius: 4px;
-      background-color: transparent;
-      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-      color: var(--color);
-      cursor: pointer;
-
-      &:hover {
-        background-color: $bg-hover;
-      }
 
       &:active {
         transform: scale(0.96);
@@ -67,21 +49,10 @@ $bg-hover-strong: color-mix(in srgb, var(--color) 8%, transparent);
       text-align: left;
     }
 
-    .actor-colored {
-      color: $orange;
-    }
-
-    .action-colored {
-      color: $olive;
-    }
-
-    .subject-colored {
-      color: $red;
-    }
-
-    .effect-colored {
-      color: $teal;
-    }
+    .actor-colored   { color: $orange; }
+    .action-colored  { color: $olive; }
+    .subject-colored { color: $red; }
+    .effect-colored  { color: $teal; }
 
     h3 {
       font-size: 1rem;
@@ -108,9 +79,7 @@ $bg-hover-strong: color-mix(in srgb, var(--color) 8%, transparent);
         margin: 10px;
 
         .firstLine {
-          border-bottom: 1px solid $border;
-          margin-bottom: 10px;
-          padding-bottom: 5px;
+          @include first-line;
           font-size: 14px;
           color: var(--color);
         }
@@ -119,21 +88,8 @@ $bg-hover-strong: color-mix(in srgb, var(--color) 8%, transparent);
           margin-top: 10px;
 
           button {
+            @include add-button;
             width: 100%;
-            font-family: inherit;
-            font-size: 13px;
-            border: 1px solid rgba(#42af7e, 0.5);
-            border-radius: 4px;
-            background: transparent;
-            color: rgba(#42af7e, 0.8);
-            transition: background-color 0.3s ease, color 0.3s ease;
-            cursor: pointer;
-            padding: 6px 12px;
-
-            &:hover {
-              background: rgba(#42af7e, 0.1);
-              color: #42af7e;
-            }
           }
         }
       }
@@ -147,20 +103,10 @@ $bg-hover-strong: color-mix(in srgb, var(--color) 8%, transparent);
             width: 200px;
 
             input {
+              @include input-base;
               width: 100%;
-              font-family: inherit;
               font-size: 13px;
               padding: 5px 8px;
-              border: 1px solid $border;
-              border-radius: 4px;
-              background: transparent;
-              color: var(--color);
-              outline: none;
-              transition: border-color 0.3s ease;
-
-              &:focus {
-                border-color: $border-hover;
-              }
             }
           }
 
@@ -172,24 +118,7 @@ $bg-hover-strong: color-mix(in srgb, var(--color) 8%, transparent);
             padding-left: 4px;
 
             button {
-              font-family: inherit;
-              font-size: 14px;
-              border-radius: 4px;
-              border: 1px solid rgba(#ff4136, 0.5);
-              background: transparent;
-              color: rgba(#ff4136, 0.7);
-              width: 26px;
-              height: 26px;
-              padding: 0;
-              line-height: 1;
-              cursor: pointer;
-              transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-
-              &:hover {
-                background: rgba(#ff4136, 0.1);
-                border-color: rgba(#ff4136, 0.8);
-                color: #ff4136;
-              }
+              @include remove-button;
             }
           }
         }

@@ -1,17 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./Dolly.scss";
-
-function useIsDarkTheme() {
-  const [isDark, setIsDark] = useState(false);
-  useEffect(() => {
-    const check = () => setIsDark(document.documentElement.classList.contains("dark"));
-    check();
-    const obs = new MutationObserver(check);
-    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => obs.disconnect();
-  }, []);
-  return isDark;
-}
+import useIsDarkTheme from "../../hooks/useIsDarkTheme";
 
 const script = `
 function drawAngle(center, angle, label, value) {

@@ -1,6 +1,4 @@
-$border: color-mix(in srgb, var(--color) 15%, transparent);
-$border-hover: color-mix(in srgb, var(--color) 40%, transparent);
-$bg-hover: color-mix(in srgb, var(--color) 5%, transparent);
+@use '../../styles/interactive' as *;
 
 .arrangements {
   .input-container {
@@ -22,26 +20,11 @@ $bg-hover: color-mix(in srgb, var(--color) 5%, transparent);
       }
 
       button {
+        @include interactive-button;
         height: 32px;
         margin: 0 4px;
-        font-family: inherit;
         font-size: 16px;
         padding: 0 10px;
-        border: 1px solid $border;
-        border-radius: 4px;
-        background: transparent;
-        color: var(--color);
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-
-        &:hover:not(:disabled) {
-          background: $bg-hover;
-        }
-
-        &:disabled {
-          opacity: 0.3;
-          cursor: default;
-        }
       }
 
       input {
@@ -74,44 +57,26 @@ $bg-hover: color-mix(in srgb, var(--color) 5%, transparent);
 
   .choices-container {
     margin: 20px;
+
     .choices {
       text-align: center;
       font-family: "Barlow", sans-serif;
 
-      .text {
-        width: 60px;
-      }
-
-      .number {
-        font-size: medium;
-        width: 80px;
-      }
+      .text   { width: 60px; }
+      .number { font-size: medium; width: 80px; }
 
       .firstLine {
+        @include first-line;
         font-weight: bold;
         display: flex;
-        border-bottom: 1px solid $border;
       }
 
       .lastLine {
         margin-top: 10px;
 
         button {
+          @include add-button;
           width: 100%;
-          font-family: inherit;
-          font-size: 13px;
-          border: 1px solid rgba(#42af7e, 0.5);
-          border-radius: 4px;
-          background: transparent;
-          color: rgba(#42af7e, 0.8);
-          transition: background-color 0.3s ease, color 0.3s ease;
-          cursor: pointer;
-          padding: 6px 12px;
-
-          &:hover {
-            background: rgba(#42af7e, 0.1);
-            color: #42af7e;
-          }
         }
       }
 
@@ -125,20 +90,9 @@ $bg-hover: color-mix(in srgb, var(--color) 5%, transparent);
         padding-bottom: 5px;
 
         input {
+          @include input-base;
           width: 50px;
           margin: 0 16px;
-          font-family: inherit;
-          padding: 4px 6px;
-          border: 1px solid $border;
-          border-radius: 4px;
-          background: transparent;
-          color: var(--color);
-          outline: none;
-          transition: border-color 0.3s ease;
-
-          &:focus {
-            border-color: $border-hover;
-          }
         }
 
         .remove {
@@ -148,24 +102,7 @@ $bg-hover: color-mix(in srgb, var(--color) 5%, transparent);
           justify-content: center;
 
           button {
-            font-family: inherit;
-            font-size: 14px;
-            border-radius: 4px;
-            border: 1px solid rgba(#ff4136, 0.5);
-            background: transparent;
-            color: rgba(#ff4136, 0.7);
-            width: 26px;
-            height: 26px;
-            padding: 0;
-            line-height: 1;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-
-            &:hover {
-              background: rgba(#ff4136, 0.1);
-              border-color: rgba(#ff4136, 0.8);
-              color: #ff4136;
-            }
+            @include remove-button;
           }
         }
       }
@@ -188,7 +125,7 @@ $bg-hover: color-mix(in srgb, var(--color) 5%, transparent);
     font-family: "Barlow", sans-serif;
 
     .firstLine {
-      border-bottom: 1px solid $border;
+      @include first-line;
       font-weight: bold;
     }
 
@@ -204,26 +141,11 @@ $bg-hover: color-mix(in srgb, var(--color) 5%, transparent);
       }
 
       button {
-        font-family: inherit;
+        @include interactive-button;
         font-size: 20px;
         width: 32px;
         height: 32px;
         padding: 0;
-        border: 1px solid $border;
-        border-radius: 4px;
-        background: transparent;
-        color: var(--color);
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-
-        &:hover:not(:disabled) {
-          background: $bg-hover;
-        }
-
-        &:disabled {
-          opacity: 0.3;
-          cursor: default;
-        }
       }
     }
   }
