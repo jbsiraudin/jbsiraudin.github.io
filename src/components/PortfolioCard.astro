@@ -7,7 +7,7 @@ type Props = {
 };
 
 const { entry } = Astro.props;
-const href = `/${entry.collection}/${entry.slug}`;
+const href = `/${entry.collection}/${entry.id}`;
 const images = entry.data.images ?? [];
 const hasImages = images.length > 0;
 ---
