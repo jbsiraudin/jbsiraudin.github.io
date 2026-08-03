@@ -18,8 +18,8 @@ export const BLOG: Metadata = {
   DESCRIPTION: "Game design, science communication, and interactive tools.",
 };
 
-export const WORK: Metadata = {
-  TITLE: "Work",
+export const RESUME: Metadata = {
+  TITLE: "Resume",
   DESCRIPTION: "Where I have worked and what I have done.",
 };
 
